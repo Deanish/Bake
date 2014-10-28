@@ -72,7 +72,14 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
       </form> -->
       <ul class="nav navbar-nav navbar-right">
       	<li style="color: #ffdd00;"><span class="glyphicon glyphicon-phone-alt"></span> Helpline : +91-98801 65531</li>
-        <li><?php echo $this->html->link('Logout',array('controller' => 'users', 'action' => 'logout')); ?></li>
+         <?php if(AuthComponent::user()) {
+            echo "<li>" . $this->HTML->link('Logout', array('controller' => 'users', 'action' => 'logout')) . "</li>";
+          }
+          else {
+            echo "<li>" . $this->HTML->link('Login', array('controller' => 'users', 'action' => 'login')) . "</li>";
+/*              . " or " . 
+              "<li>" . $this->HTML->link('Register', array('controller' => 'users', 'action' => 'add')) . "</li>";*/
+          } ?>
         <!-- <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">

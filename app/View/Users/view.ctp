@@ -6,6 +6,11 @@
 			<?php echo h($user['User']['id']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Username'); ?></dt>
+		<dd>
+			<?php echo h($user['User']['username']); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Firstname'); ?></dt>
 		<dd>
 			<?php echo h($user['User']['firstname']); ?>
@@ -14,11 +19,6 @@
 		<dt><?php echo __('Lastname'); ?></dt>
 		<dd>
 			<?php echo h($user['User']['lastname']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Email'); ?></dt>
-		<dd>
-			<?php echo h($user['User']['email']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Password'); ?></dt>
@@ -48,7 +48,7 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
+<!-- <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Edit User'), array('action' => 'edit', $user['User']['id'])); ?> </li>
@@ -74,7 +74,7 @@
 		<li><?php echo $this->Html->link(__('List Refers'), array('controller' => 'refers', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Refer'), array('controller' => 'refers', 'action' => 'add')); ?> </li>
 	</ul>
-</div>
+</div> -->
 <div class="related">
 	<h3><?php echo __('Related Companies'); ?></h3>
 	<?php if (!empty($user['Company'])): ?>

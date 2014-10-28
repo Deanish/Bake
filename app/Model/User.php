@@ -21,10 +21,20 @@ class User extends AppModel {
  * @var array
  */
 	public $validate = array(
+		'username' => array(
+			'email' => array(
+				'rule' => array('email'),
+				'message' => 'Please fill in valid Email address',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 		'firstname' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
-				'message' => 'Please fill in First name',
+				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -34,38 +44,24 @@ class User extends AppModel {
 		'lastname' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
-				'message' => 'Please fill in Last name',
+				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
-		'email' => array(
-			'email' => array(
-				'rule' => array('email'),
-				'message' => 'Please fill in valid Email address',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		        'uniqueEmailRule' => array(
-		            'rule' => 'isUnique',
-		            'message' => 'Email already registered'
-	        ),
 		),
 		'password' => array(
 			'notEmpty' => array(
-				'rule' => array('between', 4, 20),
-				'message' => 'Password must be between 4 to 20 characters long',
+				'rule' => array('notEmpty'),
+				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-/*		'image' => array(
+		'image' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
@@ -84,7 +80,7 @@ class User extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),*/
+		),
 	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed

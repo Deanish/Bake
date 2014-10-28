@@ -1,5 +1,7 @@
 <?php
 App::uses('AppController', 'Controller');
+App::import('controller', 'Candidates');
+App::import('controller', 'Recruiters');
 /**
  * Users Controller
  *
@@ -15,15 +17,43 @@ class UsersController extends AppController {
  */
 	public $components = array('Paginator');
 
-	public function beforeFilter() {
-		$this->Auth->allow('add');
-	}
-
 /**
  * index method
  *
  * @return void
  */
+
+	public function beforeFilter() {
+
+		$this->Auth->allow('add');
+	}
+
+	public function login() {
+		if($this->request->is('post')) {
+			if($this->Auth->login()) {
+				if(AuthComponent::user('role') == 1) {
+					return $this->redirect(array('controller' => 'candidates', 'action' => 'index'));
+				}
+				else if(AuthComponent::user('role') == 2) {
+					return $this->redirect(array('controller' => 'recruiters', 'action' => 'index'));
+				}
+				else if(AuthComponent::user('role') == 3) {
+					return $this->redirect(array('controller' => 'admin', 'action' => 'index'));
+				}
+			}
+			else {
+				$this->Session->setFlash('Invalid Username or Password');
+			}
+		}
+	}
+
+	public function logout() {
+
+		$this->Auth->logout();
+		$this->redirect('/');
+
+	}
+
 	public function index() {
 		$this->User->recursive = 0;
 		$this->set('users', $this->Paginator->paginate());
@@ -56,7 +86,6 @@ class UsersController extends AppController {
 		if ($this->request->is('post')) {
 			$this->User->create();
 			$this->request->data['User']['password'] = AuthComponent::password($this->request->data['User']['password']);
-			$this->request->data['User']['image'] = 'default.jpg';
 			if ($this->User->save($this->request->data)) {
 				$this->Session->setFlash(__('The user has been saved.'));
 				return $this->redirect(array('action' => 'index'));

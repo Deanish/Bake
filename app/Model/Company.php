@@ -1,18 +1,19 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Personal Model
+ * Company Model
  *
+ * @property Post $Post
  * @property User $User
  */
-class Personal extends AppModel {
+class Company extends AppModel {
 
 /**
  * Display field
  *
  * @var string
  */
-	public $displayField = 'id';
+	public $displayField = 'name';
 
 /**
  * Validation rules
@@ -20,9 +21,9 @@ class Personal extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'id' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
+		'post_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -40,7 +41,47 @@ class Personal extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'mobile' => array(
+		'name' => array(
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'profile' => array(
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'url' => array(
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'person' => array(
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'contact' => array(
 			'maxLength' => array(
 				'rule' => array('maxLength', 10),
 				'message' => 'Should be 10 digits',
@@ -62,46 +103,6 @@ class Personal extends AppModel {
 		        'message'    => 'Only numbers are allowed'
 			),
 		),
-		'nationality' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'location' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'gender' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'dob' => array(
-			'date' => array(
-				'rule' => array('date'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
 	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
@@ -112,6 +113,13 @@ class Personal extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
+		'Post' => array(
+			'className' => 'Post',
+			'foreignKey' => 'post_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
 		'User' => array(
 			'className' => 'User',
 			'foreignKey' => 'user_id',

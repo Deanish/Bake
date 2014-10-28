@@ -43,58 +43,6 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
 
 
 
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="min-height: 80px;">
-      <div class="container">
-        <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand"><img src="<?php echo $this->webroot; ?>img/logo.png" height="80px" width="80px"></a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><?php echo $this->html->link(' Home',array('controller' => 'home', 'action' => 'index'),array('class' => 'glyphicon glyphicon-home')); ?></li>
-        <li><?php echo $this->html->link(' JobSeeker',array('controller' => 'users', 'action' => 'login'),array('class' => 'glyphicon glyphicon-search')); ?></li>
-        <li><?php echo $this->html->link(' ResumeServices',array('controller' => 'resumes', 'action' => 'index'),array('class' => 'glyphicon glyphicon-list-alt')); ?></li>
-        <li><?php echo $this->html->link(' RecruiterZone',array('controller' => 'recruiters', 'action' => 'login'),array('class' => 'glyphicon glyphicon-credit-card')); ?></li>
-      	<li><?php echo $this->html->link(' JobCounselling',array('controller' => 'resumes', 'action' => 'counselling'),array('class' => 'glyphicon glyphicon-thumbs-up')); ?></li>
-      </ul>
-      <!-- <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-      </form> -->
-      <ul class="nav navbar-nav navbar-right">
-      	<li style="color: #ffdd00;"><span class="glyphicon glyphicon-phone-alt"></span> Helpline : +91-98801 65531</li>
-         <?php if(AuthComponent::user()) {
-            echo "<li>" . $this->HTML->link('Logout', array('controller' => 'users', 'action' => 'logout')) . "</li>";
-          }
-          else {
-            echo "<li>" . $this->HTML->link('Login', array('controller' => 'users', 'action' => 'login')) . "</li>";
-/*              . " or " . 
-              "<li>" . $this->HTML->link('Register', array('controller' => 'users', 'action' => 'add')) . "</li>";*/
-          } ?>
-        <!-- <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li> -->
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</div>
-
 
 
 

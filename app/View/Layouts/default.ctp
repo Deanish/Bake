@@ -72,6 +72,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
       </form> -->
       <ul class="nav navbar-nav navbar-right">
       	<li style="color: #ffdd00;"><span class="glyphicon glyphicon-phone-alt"></span> Helpline : +91-98801 65531</li>
+        <li><?php echo $this->html->link('Logout',array('controller' => 'users', 'action' => 'logout')); ?></li>
         <!-- <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">

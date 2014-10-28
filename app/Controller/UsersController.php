@@ -30,20 +30,18 @@ class UsersController extends AppController {
 
 	public function login() {
 		if($this->request->is('post')) {
-			if($this->Auth->login()) {
+			if($this->Auth->login()) { 
 				if(AuthComponent::user('role') == 1) {
 					return $this->redirect(array('controller' => 'candidates', 'action' => 'index'));
 				}
-				else if(AuthComponent::user('role') == 2) {
+				elseif(AuthComponent::user('role') == 2) {
 					return $this->redirect(array('controller' => 'recruiters', 'action' => 'index'));
 				}
-				else if(AuthComponent::user('role') == 3) {
+				elseif(AuthComponent::user('role') == 3) {
 					return $this->redirect(array('controller' => 'admin', 'action' => 'index'));
 				}
 			}
-			else {
-				$this->Session->setFlash('Invalid Username or Password');
-			}
+			$this->Session->setFlash('Invalid Username or Password');
 		}
 	}
 

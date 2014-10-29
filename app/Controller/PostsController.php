@@ -31,13 +31,12 @@
 				));
 
 			if($this->request->is('post')) {
-				$this->Post->create('Companies', array('action' => 'add'));
+				$this->Post->create();
 				$this->request->data['Post']['user_id'] = AuthComponent::user('id');
 				$this->request->data['Post']['visible'] = 1;
 				if($this->Post->save($this->request->data)) {
-					$this->Session->write('post_id', $this->request->data['Post']['id']);
-					$this->Session->setFlash(__('Please fill company details to post job'));
-					return $this->redirect(array('controller' => 'companies', 'action' => 'add'));
+					$this->Session->setFlash(__('Job will be posted once approved'));
+					return $this->redirect(array('controller' => 'recruiters', 'action' => 'index'));
 				}
 				else {
 					$this->Session->setFlash(__('This post could not be saved. Please, try again.'));

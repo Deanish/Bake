@@ -33,7 +33,13 @@
                 echo $this->Form->input('salary');
                 echo $this->Form->input('location', array('options' => $locationOptions));
                 echo $this->Form->input('industryType', array('options' => $industryOptions));
-                echo $this->Form->end('Next');
+                echo $this->Form->input('companyName');
+                echo $this->Form->input('profile');
+                echo $this->Form->file('logo');
+                echo $this->Form->input('url');
+                echo $this->Form->input('person');
+                echo $this->Form->input('contact', array('maxlength' => '10'));
+                echo $this->Form->end('Post Job');
 
               ?>
             </div>

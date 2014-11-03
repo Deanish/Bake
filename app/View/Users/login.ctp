@@ -3,8 +3,18 @@
 <?php
 
 	echo $this->Form->create('User');
-	echo $this->Form->input('username');
-	echo $this->Form->input('password');
-	echo $this->Form->end('Login');
+	echo $this->Form->input('username', array(
+		'class' => 'form-control',
+		'placeholder' => 'Username',
+		'label' => ''
+		));
+	echo $this->Form->input('password', array(
+		'class' => 'form-control',
+		'placeholder' => 'Password',
+		'label' => ''
+		));
+	echo "<br />";
+	echo $this->Form->submit('Sign in',array('class' => 'btn btn-success'));
+	echo $this->Form->end();
 
 ?>

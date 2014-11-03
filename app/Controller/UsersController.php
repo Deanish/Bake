@@ -1,7 +1,5 @@
 <?php
 App::uses('AppController', 'Controller');
-App::import('controller', 'Candidates');
-App::import('controller', 'Recruiters');
 /**
  * Users Controller
  *
@@ -51,7 +49,7 @@ class UsersController extends AppController {
 		$this->redirect('/');
 
 	}
-
+	
 	public function index() {
 		$this->User->recursive = 0;
 		$this->set('users', $this->Paginator->paginate());
@@ -83,7 +81,6 @@ class UsersController extends AppController {
 
 		if ($this->request->is('post')) {
 			$this->User->create();
-			$this->request->data['User']['password'] = AuthComponent::password($this->request->data['User']['password']);
 			if ($this->User->save($this->request->data)) {
 				$this->Session->setFlash(__('The user has been saved.'));
 				return $this->redirect(array('action' => 'index'));

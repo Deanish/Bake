@@ -3,14 +3,35 @@
 	<fieldset>
 		<legend><?php echo __('Add User'); ?></legend>
 	<?php
-		echo $this->Form->input('username');
-		echo $this->Form->input('firstname');
-		echo $this->Form->input('lastname');
-		echo $this->Form->input('password');
-		echo $this->Form->input('role', array('options' => $roleOptions));
+		echo $this->Form->input('username', array(
+				'class' => 'form-control',
+				'placeholder' => 'Username',
+				'label' => ''
+				));
+		echo $this->Form->input('firstname', array(
+				'class' => 'form-control',
+				'placeholder' => 'First Name',
+				'label' => ''
+				));
+		echo $this->Form->input('lastname', array(
+				'class' => 'form-control',
+				'placeholder' => 'Last Name',
+				'label' => ''
+				));
+		echo $this->Form->input('password', array(
+				'class' => 'form-control',
+				'placeholder' => 'Password',
+				'label' => ''
+				));
+		echo $this->Form->input('role', array('options' => $roleOptions,
+				'class' => 'form-control',
+				'label' => 'Role'
+				));
+		echo "<br />";
+		echo $this->Form->submit('Create an Account',array('class' => 'btn btn-success'));
 	?>
 	</fieldset>
-	<?php echo $this->Form->end(__('Submit')); ?>
+	<?php echo $this->Form->end(); ?>
 </div>
 <!-- <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>

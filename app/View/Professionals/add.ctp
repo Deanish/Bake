@@ -18,16 +18,56 @@
           <?php
 
           echo $this->Form->create('Professional');
-          echo $this->Form->input('status', array('options' => $statusOptions));
-          echo $this->Form->input('years', array('options' => $yearsOptions));
-          echo $this->Form->input('months', array('options' => $monthsOptions));
-          echo $this->Form->input('ctc');
-          echo $this->Form->input('company');
-          echo $this->Form->input('designation');
-          echo $this->Form->input('skills');
-          echo $this->Form->input('notice');
-          echo $this->Form->input('prevCompanies');
-          echo $this->Form->end('Save');
+          echo $this->Form->input('status', array(
+              'options' => $statusOptions,
+              'class' => 'form-control',
+              'label' => ''
+              ));
+          echo "<label>Experience</label>";
+          echo $this->Form->input('years', array(
+              'options' => $yearsOptions,
+              'class' => 'col-md-4',
+              'label' => false
+              ));
+          echo $this->Form->input('months', array(
+              'options' => $monthsOptions,
+              'class' => 'col-md-4',
+              'label' => false
+              ));
+          echo "<br />";
+          echo $this->Form->input('ctc', array(
+              'class' => 'form-control',
+              'placeholder' => 'Current CTC',
+              'label' => ''
+              ));
+          echo $this->Form->input('company', array(
+              'class' => 'form-control',
+              'placeholder' => 'Current Company Name',
+              'label' => ''
+              ));
+          echo $this->Form->input('designation', array(
+              'class' => 'form-control',
+              'placeholder' => 'Current Designation',
+              'label' => ''
+              ));
+          echo $this->Form->input('skills', array(
+              'class' => 'form-control',
+              'placeholder' => 'Skills',
+              'label' => ''
+              ));
+          echo $this->Form->input('notice', array(
+              'class' => 'form-control',
+              'placeholder' => 'Notice Period',
+              'label' => ''
+              ));
+          echo $this->Form->input('prevCompanies', array(
+              'class' => 'form-control',
+              'placeholder' => 'List of previous companies',
+              'label' => ''
+              ));
+          echo "<br />";
+          echo $this->Form->Submit('Save', array('class' => 'btn btn-success'));
+          echo $this->Form->end();
 
           ?>
         </div>

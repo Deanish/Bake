@@ -24,7 +24,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
 	<title>
 		VSpell
 	</title>
-  <link rel="shortcut icon" type="image/x-icon" href="<?php echo $this->webroot; ?>img/logo1.png">
+  <link rel="shortcut icon" type="image/x-icon" href="<?php echo $this->webroot; ?>img/icon.png">
 	<?php
 		// echo $this->Html->meta('icon');
     // $this->Html->meta('icon', $this->Html->url('/favicon.png'));

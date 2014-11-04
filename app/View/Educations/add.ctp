@@ -18,14 +18,44 @@
           <?php
 
           echo $this->Form->create('Education');
-          echo $this->Form->input('qualification', array('options' => $qualificationOptions));
-          echo $this->Form->input('specialization', array('options' => $specializationOptions));
-          echo $this->Form->input('institute');
-          echo $this->Form->input('university');
-          echo $this->Form->input('marks');
-          echo $this->Form->input('yop');
-          echo $this->Form->input('courseType', array('options' => $courseOptions));
-          echo $this->Form->end('Save');
+          echo $this->Form->input('qualification', array(
+            'options' => $qualificationOptions,
+              'class' => 'form-control',
+              'label' => ''
+            ));
+          echo $this->Form->input('specialization', array(
+            'options' => $specializationOptions,
+              'class' => 'form-control',
+              'label' => ''
+              ));
+          echo $this->Form->input('institute', array(
+              'class' => 'form-control',
+              'placeholder' => 'Institute Name',
+              'label' => ''
+              ));
+          echo $this->Form->input('university', array(
+              'class' => 'form-control',
+              'placeholder' => 'University Name',
+              'label' => ''
+              ));
+          echo $this->Form->input('marks', array(
+              'class' => 'form-control',
+              'placeholder' => 'Marks/Grade/Percentage',
+              'label' => ''
+              ));
+          echo $this->Form->input('yop', array(
+              'class' => 'form-control',
+              'placeholder' => 'Year of Passing',
+              'label' => ''
+              ));
+          echo $this->Form->input('courseType', array(
+              'options' => $courseOptions,
+              'class' => 'form-control',
+              'label' => ''
+            ));
+          echo "<br />";
+          echo $this->Form->Submit('Save', array('class' => 'btn btn-success'));
+          echo $this->Form->end();
 
           ?>
         </div>

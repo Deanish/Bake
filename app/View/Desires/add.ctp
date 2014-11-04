@@ -18,12 +18,34 @@
           <?php
 
             echo $this->Form->create('Desire');
-            echo $this->Form->input('location', array('options' => $locationOptions));
-            echo $this->Form->input('skills');
-            echo $this->Form->input('industryType', array('options' => $industryOptions));
-            echo $this->Form->input('jobType', array('options' => $jobOptions));
-            echo $this->Form->input('shiftType', array('options' => $shiftOptions));
-            echo $this->Form->end('Save');
+            echo $this->Form->input('location', array(
+              'options' => $locationOptions,
+              'class' => 'form-control',
+              'label' => ''
+              ));
+            echo $this->Form->input('skills', array(
+              'class' => 'form-control',
+              'placeholder' => 'Skills',
+              'label' => ''
+              ));
+            echo $this->Form->input('industryType', array(
+              'options' => $industryOptions,
+              'class' => 'form-control',
+              'label' => ''
+              ));
+            echo $this->Form->input('jobType', array(
+              'options' => $jobOptions,
+              'class' => 'form-control',
+              'label' => ''
+              ));
+            echo $this->Form->input('shiftType', array(
+              'options' => $shiftOptions,
+              'class' => 'form-control',
+              'label' => ''
+              ));
+            echo "<br />";
+            echo $this->Form->Submit('Save', array('class' => 'btn btn-success'));
+            echo $this->Form->end();
 
           ?>
         </div>

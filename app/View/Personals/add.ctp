@@ -18,13 +18,38 @@
           <?php
 
             echo $this->Form->create('Personal');
-            echo $this->Form->input('mobile', array('maxlength' => '10'));
-            echo $this->Form->input('nationality', array('options' => $nationalityOptions));
-            echo $this->Form->input('location', array('options' => $locationOptions));
-            echo $this->Form->input('gender', array('options' => $genderOptions));
-            echo $this->Form->date('dob');
-            echo $this->Form->file('resume');
-            echo $this->Form->end('Save');
+            echo $this->Form->input('mobile', array(
+              'maxlength' => '10',
+              'class' => 'form-control',
+              'placeholder' => 'Mobile Number',
+              'label' => ''
+              ));
+            echo $this->Form->input('nationality', array(
+              'options' => $nationalityOptions,
+              'class' => 'form-control',
+              'label' => ''
+              ));
+            echo $this->Form->input('location', array(
+              'options' => $locationOptions,
+              'class' => 'form-control',
+              'label' => ''
+              ));
+            echo $this->Form->input('gender', array(
+              'options' => $genderOptions,
+              'class' => 'form-control',
+              'label' => ''
+              ));
+            echo "Date of Birth";
+            echo $this->Form->date('dob', array(
+              'class' => 'form-control'
+              ));
+            echo "Upload Resume";
+            echo $this->Form->file('resume', array(
+              'class' => 'form-control'
+              ));
+            echo "<br />";
+            echo $this->Form->Submit('Save', array('class' => 'btn btn-success'));
+            echo $this->Form->end();
 
           ?>
         </div>

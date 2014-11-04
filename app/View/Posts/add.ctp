@@ -24,22 +24,94 @@
               <?php
 
                 echo $this->Form->create('Post');
-                echo $this->Form->input('title');
-                echo $this->Form->input('skills');
-                echo $this->Form->input('qualification');
-                echo $this->Form->input('vacancies');
-                echo $this->Form->input('description');
-                echo $this->Form->input('experience', array('options' => $experienceOptions));
-                echo $this->Form->input('salary');
-                echo $this->Form->input('location', array('options' => $locationOptions));
-                echo $this->Form->input('industryType', array('options' => $industryOptions));
-                echo $this->Form->input('companyName');
-                echo $this->Form->input('profile');
-                echo $this->Form->file('logo');
-                echo $this->Form->input('url');
-                echo $this->Form->input('person');
-                echo $this->Form->input('contact', array('maxlength' => '10'));
-                echo $this->Form->end('Post Job');
+                echo $this->Form->input('title', array(
+                  'class' => 'form-control',
+                  'placeholder' => 'Job Title',
+                  'label' => ''
+                  ));
+                echo $this->Form->input('skills', array(
+                  'class' => 'form-control',
+                  'placeholder' => 'Skills Required',
+                  'label' => ''
+                  ));
+                echo $this->Form->input('qualification', array(
+                  'class' => 'form-control',
+                  'placeholder' => 'Minimum Qualification',
+                  'label' => ''
+                  ));
+                echo $this->Form->input('vacancies', array(
+                  'class' => 'form-control',
+                  'placeholder' => 'Number of vacancies',
+                  'label' => ''
+                  ));
+                echo $this->Form->input('description', array(
+                  'class' => 'form-control',
+                  'placeholder' => 'Job Description',
+                  'label' => ''
+                  ));
+                echo $this->Form->input('experience', array(
+                  'options' => $experienceOptions,
+                  'class' => 'form-control',
+                  'label' => ''
+                  ));
+                echo $this->Form->input('salary', array(
+                  'class' => 'form-control',
+                  'placeholder' => 'Salary offered',
+                  'label' => ''
+                  ));
+                echo $this->Form->input('location', array(
+                  'options' => $locationOptions,
+                  'class' => 'form-control',
+                  'label' => ''
+                  ));
+                echo $this->Form->input('industryType', array(
+                  'options' => $industryOptions,
+                  'class' => 'form-control',
+                  'label' => ''
+                  ));
+              ?>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title text-center">Company Details</h3>
+            </div>
+            <div style="padding: 10px;">
+
+              <?php
+                echo $this->Form->input('companyName', array(
+                  'class' => 'form-control',
+                  'placeholder' => 'Company Name',
+                  'label' => ''
+                  ));
+                echo $this->Form->input('profile', array(
+                  'class' => 'form-control',
+                  'placeholder' => 'Company Profile',
+                  'label' => ''
+                  ));
+                echo "<label>Upload Company Logo</label>";
+                echo $this->Form->file('logo', array(
+                  'class' => 'form-control'
+                  ));
+                echo $this->Form->input('url', array(
+                  'class' => 'form-control',
+                  'placeholder' => 'Company website URL',
+                  'label' => ''
+                  ));
+                echo $this->Form->input('person', array(
+                  'class' => 'form-control',
+                  'placeholder' => 'Contact Person Name',
+                  'label' => ''
+                  ));
+                echo $this->Form->input('contact', array(
+                  'maxlength' => '10',
+                  'class' => 'form-control',
+                  'placeholder' => 'Contact Number',
+                  'label' => ''
+                  ));
+                echo "<br />";
+                echo $this->Form->Submit('Post Job', array('class' => 'btn btn-success'));
+                echo $this->Form->end();
 
               ?>
             </div>

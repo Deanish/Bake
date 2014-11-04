@@ -1,5 +1,5 @@
 <div class="users form">
-<?php echo $this->Form->create('User'); ?>
+<?php echo $this->Form->create('User', array('type' => 'file')); ?>
 	<fieldset>
 		<legend><?php echo __('Add User'); ?></legend>
 	<?php
@@ -23,6 +23,7 @@
 				'placeholder' => 'Password',
 				'label' => ''
 				));
+		echo $this->Form->file('photo');
 		echo $this->Form->input('role', array('options' => $roleOptions,
 				'class' => 'form-control',
 				'label' => 'Role'

@@ -23,7 +23,10 @@
 				'placeholder' => 'Password',
 				'label' => ''
 				));
-		echo $this->Form->file('photo');
+		echo "<label>Upload profile picture</label>";
+		echo $this->Form->file('photo', array(
+				'class' => 'form-control'
+				));
 		echo $this->Form->input('role', array('options' => $roleOptions,
 				'class' => 'form-control',
 				'label' => 'Role'

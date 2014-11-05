@@ -8,7 +8,7 @@
 		echo $this->Form->input('firstname');
 		echo $this->Form->input('lastname');
 		echo $this->Form->input('password');
-		echo $this->Form->input('image');
+		echo $this->Form->file('image');
 		echo $this->Form->input('role');
 	?>
 	</fieldset>

@@ -81,6 +81,7 @@ class UsersController extends AppController {
 
 		if ($this->request->is('post')) {
 			$this->User->create();
+			$this->request->data['User']['password'] = AuthComponent::password($this->request->data['User']['password']);
 			if ($this->User->save($this->request->data)) {
 				$this->Session->setFlash(__('The user has been saved.'));
 				return $this->redirect(array('action' => 'index'));
@@ -103,6 +104,7 @@ class UsersController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->User->save($this->request->data)) {
+				$this->request->data['User']['password'] = AuthComponent::password($this->request->data['User']['password']);
 				$this->Session->setFlash(__('The user has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {

@@ -17,7 +17,7 @@
         <div class="col-md-6">
           <?php
 
-            echo $this->Form->create('Personal');
+            echo $this->Form->create('Personal', array('type' => 'file'));
             echo $this->Form->input('mobile', array(
               'maxlength' => '10',
               'class' => 'form-control',
@@ -52,12 +52,12 @@
             echo $this->Form->end();
 
           ?>
-          <?php 
-            $path = $this->webroot."files/user/photo/"; 
-            $dir = AuthComponent::user('photo_dir');
-            $img = AuthComponent::user('photo');
-          ?>
         </div>
+        <?php 
+          $path = $this->webroot."files/user/photo/"; 
+          $dir = AuthComponent::user('photo_dir');
+          $img = AuthComponent::user('photo');
+        ?>
         <div class="col-md-6" style="padding-top: 10px;">
           <div class="panel panel-default">
             <div class="panel-heading text-center">

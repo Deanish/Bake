@@ -19,6 +19,21 @@ class Personal extends AppModel {
  *
  * @var array
  */
+
+	public $actsAs = array(
+        'Upload.Upload' => array(
+            'resume' => array(
+            	'rootDir' => ROOT,
+            	'path' => '{ROOT}{DS}app{DS}webroot{DS}files{DS}{model}{DS}{field}{DS}',
+                'fields' => array(
+                    'dir' => 'resume_dir',
+                    'type' => 'photo_type',
+                    'size' => 'photo_size',
+                )
+            )
+        )
+    );
+
 	public $validate = array(
 		'id' => array(
 			'notEmpty' => array(

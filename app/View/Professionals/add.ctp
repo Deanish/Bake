@@ -71,13 +71,18 @@
 
           ?>
         </div>
+        <?php 
+          $path = $this->webroot."files/user/photo/"; 
+          $dir = AuthComponent::user('photo_dir');
+          $img = AuthComponent::user('photo');
+        ?>
         <div class="col-md-6" style="padding-top: 10px;">
           <div class="panel panel-default">
             <div class="panel-heading text-center">
             <h3 class="panel-title text-center">Profile Picture</h3>
             </div>
             <div class="panel-body">
-              <img class="pull-right" src="<?php echo$this->webroot; ?>img/default-img.jpg" width="345px" height="200px">
+              <img class="pull-right" src="<?php echo $path.$dir.'/'.$img; ?>" width="345px" height="200px">
             </div>
           </div>
         </div>

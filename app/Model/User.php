@@ -37,14 +37,7 @@ class User extends AppModel {
                     'type' => 'photo_type',
                     'size' => 'photo_size',
                 )
-            ),
-      //       'resume' => array(
-	     //    	'fields' => array(
-		    //         'dir' => 'resume_dir',
-		    //         'type' => 'resume_type',
-		    //         'size' => 'resume_size',
-	     //    	)
-	    	// )
+            )
         )
     );
 

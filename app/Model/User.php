@@ -26,6 +26,28 @@ class User extends AppModel {
  *
  * @var array
  */
+
+	public $actsAs = array(
+        'Upload.Upload' => array(
+            'photo' => array(
+            	'rootDir' => ROOT,
+            	'path' => '{ROOT}{DS}app{DS}webroot{DS}files{DS}{model}{DS}{field}{DS}',
+                'fields' => array(
+                    'dir' => 'photo_dir',
+                    'type' => 'photo_type',
+                    'size' => 'photo_size',
+                )
+            ),
+      //       'resume' => array(
+	     //    	'fields' => array(
+		    //         'dir' => 'resume_dir',
+		    //         'type' => 'resume_type',
+		    //         'size' => 'resume_size',
+	     //    	)
+	    	// )
+        )
+    );
+
 	public $validate = array(
 		'username' => array(
 			'email' => array(

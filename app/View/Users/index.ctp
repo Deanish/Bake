@@ -23,7 +23,7 @@
 		<td><?php echo h($user['User']['firstname']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['lastname']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['password']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['image']); ?>&nbsp;</td>
+		<td><?php echo h($user['User']['photo']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['role']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['created']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['modified']); ?>&nbsp;</td>

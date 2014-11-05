@@ -5,7 +5,7 @@
 	echo $this->Form->create('User');
 	echo $this->Form->input('username', array(
 		'class' => 'form-control',
-		'placeholder' => 'Username',
+		'placeholder' => 'Email Address',
 		'label' => ''
 		));
 	echo $this->Form->input('password', array(

@@ -5,7 +5,7 @@
 	<?php
 		echo $this->Form->input('username', array(
 				'class' => 'form-control',
-				'placeholder' => 'Username',
+				'placeholder' => 'Email Address',
 				'label' => ''
 				));
 		echo $this->Form->input('firstname', array(
@@ -23,7 +23,7 @@
 				'placeholder' => 'Password',
 				'label' => ''
 				));
-		echo $this->Form->file('photo');
+		// echo $this->Form->file('photo');
 		echo $this->Form->input('role', array('options' => $roleOptions,
 				'class' => 'form-control',
 				'label' => 'Role'

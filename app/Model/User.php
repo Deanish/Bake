@@ -45,7 +45,7 @@ class User extends AppModel {
 		'username' => array(
 			'email' => array(
 				'rule' => array('email'),
-				//'message' => 'Your custom message here',
+				'message' => 'Enter valid email address',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -90,6 +90,23 @@ class User extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+		'photo' => array(
+                    'uploadError' => array(
+                        'rule' => array('uploadError'),
+                        'message' => 'The profile image upload failed.',
+                        'allowEmpty' => TRUE,
+                    ),
+                    'mimeType' => array(
+                        'rule' => array('mimeType', array('image/gif', 'image/png', 'image/jpg', 'image/jpeg')),
+                        'message' => 'Please only upload images (gif, png, jpg).',
+                        'allowEmpty' => TRUE,
+                    ),
+                    'fileSize' => array(
+                        'rule' => array('fileSize', '<=', '1MB'),
+                        'message' => 'Cover image must be less than 1MB.',
+                        'allowEmpty' => TRUE,
+                    ),
+                ),
 	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed

@@ -39,11 +39,11 @@
               'class' => 'form-control',
               'label' => ''
               ));
-            echo "Date of Birth";
+            echo "<label>Date of Birth</label>";
             echo $this->Form->date('dob', array(
               'class' => 'form-control'
               ));
-            echo "Upload Resume";
+            echo "<label>Upload Resume</label> (docx/pdf)";
             echo $this->Form->file('resume', array(
               'class' => 'form-control'
               ));

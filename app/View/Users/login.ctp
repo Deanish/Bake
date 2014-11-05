@@ -14,7 +14,9 @@
 		'label' => ''
 		));
 	echo "<br />";
-	echo $this->Form->submit('Sign in',array('class' => 'btn btn-success'));
+	echo $this->Form->submit('Sign in',array('class' => 'btn btn-primary'));
+	echo "<br />";
+	echo $this->html->link('New User? Register',array('controller' => 'users', 'action' => 'add'),array('class' => 'btn btn-success'));
 	echo $this->Form->end();
 
 ?>

@@ -23,7 +23,7 @@
             <div style="padding: 10px;">
               <?php
 
-                echo $this->Form->create('Post');
+                echo $this->Form->create('Post', array('type' => 'file'));
                 echo $this->Form->input('title', array(
                   'class' => 'form-control',
                   'placeholder' => 'Job Title',
@@ -90,7 +90,7 @@
                   'label' => ''
                   ));
                 echo "<label>Upload Company Logo</label>";
-                echo $this->Form->file('logo', array(
+                echo $this->Form->file('photo', array(
                   'class' => 'form-control'
                   ));
                 echo $this->Form->input('url', array(

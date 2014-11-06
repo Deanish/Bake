@@ -21,6 +21,21 @@ class Post extends AppModel {
  *
  * @var array
  */
+
+	public $actsAs = array(
+        'Upload.Upload' => array(
+            'photo' => array(
+            	'rootDir' => ROOT,
+            	'path' => '{ROOT}{DS}app{DS}webroot{DS}files{DS}{model}{DS}{field}{DS}',
+                'fields' => array(
+                    'dir' => 'photo_dir',
+                    'type' => 'photo_type',
+                    'size' => 'photo_size',
+                )
+            )
+        )
+    );
+
 	public $validate = array(
 		'id' => array(
 			'alphaNumeric' => array(
@@ -164,6 +179,23 @@ class Post extends AppModel {
 		        'message'    => 'Only numbers are allowed'
 			),
 		),
+		'photo' => array(
+            'uploadError' => array(
+                'rule' => array('uploadError'),
+                'message' => 'The company logo upload failed.',
+                'allowEmpty' => TRUE,
+            ),
+            'mimeType' => array(
+                'rule' => array('mimeType', array('image/gif', 'image/png', 'image/jpg', 'image/jpeg')),
+                'message' => 'Please only upload images (gif, png, jpg).',
+                'allowEmpty' => TRUE,
+            ),
+            'fileSize' => array(
+                'rule' => array('fileSize', '<=', '1MB'),
+                'message' => 'Company logo must be less than 1MB.',
+                'allowEmpty' => TRUE,
+            ),
+        ),
 	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed

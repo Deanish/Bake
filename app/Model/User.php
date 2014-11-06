@@ -91,22 +91,22 @@ class User extends AppModel {
 			),
 		),
 		'photo' => array(
-                    'uploadError' => array(
-                        'rule' => array('uploadError'),
-                        'message' => 'The profile image upload failed.',
-                        'allowEmpty' => TRUE,
-                    ),
-                    'mimeType' => array(
-                        'rule' => array('mimeType', array('image/gif', 'image/png', 'image/jpg', 'image/jpeg')),
-                        'message' => 'Please only upload images (gif, png, jpg).',
-                        'allowEmpty' => TRUE,
-                    ),
-                    'fileSize' => array(
-                        'rule' => array('fileSize', '<=', '1MB'),
-                        'message' => 'Cover image must be less than 1MB.',
-                        'allowEmpty' => TRUE,
-                    ),
-                ),
+            'uploadError' => array(
+                'rule' => array('uploadError'),
+                'message' => 'The profile image upload failed.',
+                'allowEmpty' => TRUE,
+            ),
+            'mimeType' => array(
+                'rule' => array('mimeType', array('image/gif', 'image/png', 'image/jpg', 'image/jpeg')),
+                'message' => 'Please only upload images (gif, png, jpg).',
+                'allowEmpty' => TRUE,
+            ),
+            'fileSize' => array(
+                'rule' => array('fileSize', '<=', '1MB'),
+                'message' => 'Profile image must be less than 1MB.',
+                'allowEmpty' => TRUE,
+            ),
+        ),
 	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed

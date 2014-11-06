@@ -28,7 +28,7 @@
 		</dd>
 		<dt><?php echo __('Image'); ?></dt>
 		<dd>
-			<?php echo h($user['User']['image']); ?>
+			<?php echo h($user['User']['photo']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Role'); ?></dt>

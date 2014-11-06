@@ -16,29 +16,30 @@
 	</thead>
 	<tbody>
 	<?php foreach ($posts as $post): ?>
-	<tr>
-		<td><?php echo h($post['Post']['id']); ?>&nbsp;</td>
-		<td><?php echo h($post['Post']['title']); ?>&nbsp;</td>
-		<td><?php echo h($post['Post']['skills']); ?>&nbsp;</td>
-		<td><?php echo h($post['Post']['qualification']); ?>&nbsp;</td>
-		<td><?php echo h($post['Post']['salary']); ?>&nbsp;</td>
-		<td><?php echo h($post['Post']['location']); ?>&nbsp;</td>
-		<td><?php echo h($post['Post']['companyName']); ?>&nbsp;</td>
-		<td><?php echo h($post['Post']['person']); ?>&nbsp;</td>
-		<td><?php echo h($post['Post']['contact']); ?>&nbsp;</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $post['Post']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $post['Post']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $post['Post']['id']), array(), __('Are you sure you want to delete # %s?', $post['Post']['id'])); ?>
-		</td>
-	</tr>
-<?php endforeach; ?>
+		<?php if(($post['Post']['user_id']) == AuthComponent::user('id')): ?>
+			<tr>
+				<td><?php echo h($post['Post']['id']); ?>&nbsp;</td>
+				<td><?php echo h($post['Post']['title']); ?>&nbsp;</td>
+				<td><?php echo h($post['Post']['skills']); ?>&nbsp;</td>
+				<td><?php echo h($post['Post']['qualification']); ?>&nbsp;</td>
+				<td><?php echo h($post['Post']['salary']); ?>&nbsp;</td>
+				<td><?php echo h($post['Post']['location']); ?>&nbsp;</td>
+				<td><?php echo h($post['Post']['companyName']); ?>&nbsp;</td>
+				<td><?php echo h($post['Post']['person']); ?>&nbsp;</td>
+				<td><?php echo h($post['Post']['contact']); ?>&nbsp;</td>
+				<td class="actions">
+					<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $post['Post']['id'])); ?>
+					<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $post['Post']['id']), array(), __('Are you sure you want to delete # %s?', $post['Post']['id'])); ?>
+				</td>
+			</tr>
+		<?php endif; ?>
+	<?php endforeach; ?>
 	</tbody>
 	</table>
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
-	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+	'format' => __('Page {:page} of {:pages}')
 	));
 	?>	</p>
 	<div class="paging">

@@ -50,7 +50,7 @@ App::uses('AppController', 'Controller');
 				$this->request->data['Post']['visible'] = 1;
 				if($this->Post->save($this->request->data)) {
 					$this->Session->setFlash(__('Job will be posted once approved'));
-					return $this->redirect(array('controller' => 'recruiters', 'action' => 'index'));
+					return $this->redirect(array('controller' => 'posts', 'action' => 'index'));
 				}
 				else {
 					$this->Session->setFlash(__('This post could not be saved. Please, try again.'));

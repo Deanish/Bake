@@ -1,8 +1,11 @@
 <?php
+App::uses('AppController', 'Controller');
 
 class PersonalsController extends AppController {
+
+	public $components = array('Paginator');
 	
-	public function add() {
+	public function add($id = null) {
 
 		$this->set('nationalityOptions', array(
 			'Null' => ' - Select Nationality - ', 
@@ -24,7 +27,7 @@ class PersonalsController extends AppController {
 			'female' => 'Female'
 			));
 
-		if ($this->request->is('post')) {
+/*		if ($this->request->is('post')) {
 			$this->Personal->create();
 			$this->request->data['Personal']['user_id'] = AuthComponent::user('id');
 			if ($this->Personal->save($this->request->data)) {
@@ -33,7 +36,31 @@ class PersonalsController extends AppController {
 			} else {
 				$this->Session->setFlash(__('The personal data could not be saved. Please, try again.'));
 			}
+		}*/
+
+		
+
+		if (!$this->Personal->exists($id)) {
+			$this->Personal->create();
+			$this->request->data['Personal']['id'] = AuthComponent::user('id');
+			if ($this->Personal->save($this->request->data)) {
+				$this->Session->setFlash(__('The personal details has been created.'));
+				return $this->redirect(array('controller' => 'professionals', 'action' => 'add'));
+			} else {
+				$this->Session->setFlash(__('The personal data could not be saved. Please, try again.'));
+			}
 		}
+		if ($this->request->is(array('post', 'put'))) {
+			if ($this->Personal->save($this->request->data)) {
+				$this->Session->setFlash(__('The personal details has been saved.'));
+				return $this->redirect(array('controller' => 'professionals', 'action' => 'add'));
+			} else {
+				$this->Session->setFlash(__('The personal details could not be saved. Please, try again.'));
+			}
+		} /*else {
+			$options = array('conditions' => array('Post.' . $this->Post->primaryKey => $id));
+			$this->request->data = $this->Post->find('first', $options);
+		}*/
 		
 	}
 	

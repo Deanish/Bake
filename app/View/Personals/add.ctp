@@ -18,6 +18,7 @@
           <?php
 
             echo $this->Form->create('Personal', array('type' => 'file'));
+            echo $this->Form->input('id');
             echo $this->Form->input('mobile', array(
               'maxlength' => '10',
               'class' => 'form-control',

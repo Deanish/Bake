@@ -1,46 +1,25 @@
 <?php
+App::uses('AppController', 'Controller');
 
-class CandidatesController extends AppController {
-	
-	public function index() {
+	class CandidatesController extends AppController {
+
+		public $components = array('Paginator');
 		
-	}
-	
-	public function personal() {
-
-		$this->set('nationalityOptions', array(
-			'Null' => ' - Select Nationality - ', 
-			'India' => 'India', 
-			'Others' => 'Others'
-			));
-		$this->set('locationOptions', array(
-			'Null' => ' - Select Current Location - ', 
-			'Bangalore' => 'Bangalore', 
-			'Delhi' => 'Delhi', 
-			'Mumbai' => 'Mumbai', 
-			'Kolkata' => 'Kolkata', 
-			'Chennai' => 'Chennai', 
-			'Others' => 'Others'
-			));
-		$this->set('genderOptions', array(
-			'Null' => ' - Select Gender - ',
-			'male' => 'Male', 
-			'female' => 'Female'
-			));
-
-		if ($this->request->is('post')) {
-			$this->Personal->create();
-			$this->request->data['Personal']['user_id'] = AuthComponent::user('id');
-			if ($this->Personal->save($this->request->data)) {
-				$this->Session->setFlash(__('The personal data has been saved.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The personal data could not be saved. Please, try again.'));
-			}
+		public function index() {
+			
 		}
 		
-	}
+		public function view() {
+			$this->Desire->recursive = 0;
+			$this->set('desires', $this->Paginator->paginate());
+			$this->Education->recursive = 0;
+			$this->set('educations', $this->Paginator->paginate());
+			$this->Personal->recursive = 0;
+			$this->set('personals', $this->Paginator->paginate());
+			$this->Professiional->recursive = 0;
+			$this->set('professionals', $this->Paginator->paginate());
+		}
 
-}
+	}
 
 ?>

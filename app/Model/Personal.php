@@ -35,26 +35,6 @@ class Personal extends AppModel {
     );
 
 	public $validate = array(
-		'id' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'user_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
 		'mobile' => array(
 			'maxLength' => array(
 				'rule' => array('maxLength', 10),
@@ -127,7 +107,7 @@ class Personal extends AppModel {
  *
  * @var array
  */
-	public $belongsTo = array(
+/*	public $belongsTo = array(
 		'User' => array(
 			'className' => 'User',
 			'foreignKey' => 'user_id',
@@ -135,5 +115,5 @@ class Personal extends AppModel {
 			'fields' => '',
 			'order' => ''
 		)
-	);
+	);*/
 }

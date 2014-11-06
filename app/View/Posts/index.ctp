@@ -12,11 +12,7 @@
     <div class="panel panel-default">
       <div class="panel-heading text-center">
       <h3 class="panel-title text-center">View Jobs Posted</h3>
-      </div>
-
-
-
-      
+      </div>      
 
 	        <div class="col-md-2" style="padding-top: 10px;">
 	          <div class="panel panel-default">
@@ -102,28 +98,27 @@
 					<?php if(($post['Post']['user_id']) == AuthComponent::user('id')): ?>
 			            <div class="panel-body">
 	            			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $post['Post']['id'])); echo " | "; ?>
-							<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $post['Post']['id']), array(), __('Are you sure you want to delete # %s?', $post['Post']['id'])); ?>
+							<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $post['Post']['id']), array(), __('Are you sure you want to delete  %s job?', $post['Post']['title'])); ?>
 			            </div>
 	    			<?php endif; ?>
 				<?php endforeach; ?>
 	          </div>
 	        </div>
 
-
-
     </div>
     <p>
-	<?php
-	echo $this->Paginator->counter(array(
-	'format' => __('Page {:page} of {:pages}')
-	));
-	?>	</p>
+		<?php
+			echo $this->Paginator->counter(array(
+			'format' => __('Page {:page} of {:pages}')
+			));
+		?>	
+	</p>
 	<div class="paging">
-	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
-	?>
+		<?php
+			echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+			echo $this->Paginator->numbers(array('separator' => ''));
+			echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+		?>
 	</div>
   </div>
 </div>  

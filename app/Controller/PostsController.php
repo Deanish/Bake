@@ -1,6 +1,20 @@
 <?php
+App::uses('AppController', 'Controller');
+/**
+ * Users Controller
+ *
+ * @property User $User
+ * @property PaginatorComponent $Paginator
+ */
 
 	class PostsController extends AppController {
+
+		public $components = array('Paginator');
+
+		public function index() {
+			$this->Post->recursive = 0;
+			$this->set('posts', $this->Paginator->paginate());
+		}
 
 		public function add() {	
 

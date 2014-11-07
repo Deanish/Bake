@@ -36,6 +36,7 @@ class EducationsController extends AppController {
 
 		if ($this->request->is('post')) {
 			$this->Education->create();
+			$this->request->data['Education']['id'] = AuthComponent::user('id');
 			$this->request->data['Education']['user_id'] = AuthComponent::user('id');
 			if ($this->Education->save($this->request->data)) {
 				$this->Session->setFlash(__('The Education data has been saved.'));

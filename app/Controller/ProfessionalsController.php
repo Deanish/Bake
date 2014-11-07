@@ -45,10 +45,11 @@ class ProfessionalsController extends AppController {
 
 		if ($this->request->is('post')) {
 			$this->Professional->create();
+			$this->request->data['Professional']['id'] = AuthComponent::user('id');
 			$this->request->data['Professional']['user_id'] = AuthComponent::user('id');
 			if ($this->Professional->save($this->request->data)) {
 				$this->Session->setFlash(__('The Professional data has been saved.'));
-				return $this->redirect(array('controller' => 'professionals', 'action' => 'add'));
+				return $this->redirect(array('controller' => 'desires', 'action' => 'add'));
 			} else {
 				$this->Session->setFlash(__('The Professional data could not be saved. Please, try again.'));
 			}

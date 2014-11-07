@@ -39,10 +39,11 @@ class DesiresController extends AppController {
 
 		if ($this->request->is('post')) {
 			$this->Desire->create();
+			$this->request->data['Desire']['id'] = AuthComponent::user('id');
 			$this->request->data['Desire']['user_id'] = AuthComponent::user('id');
 			if ($this->Desire->save($this->request->data)) {
 				$this->Session->setFlash(__('The Desired data has been saved.'));
-				return $this->redirect(array('controller' => 'professionals', 'action' => 'add'));
+				return $this->redirect(array('controller' => 'candidates', 'action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The Desired data could not be saved. Please, try again.'));
 			}

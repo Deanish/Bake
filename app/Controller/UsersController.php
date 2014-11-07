@@ -103,8 +103,8 @@ class UsersController extends AppController {
 			throw new NotFoundException(__('Invalid user'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
+			$this->request->data['User']['password'] = AuthComponent::password($this->request->data['User']['password']);
 			if ($this->User->save($this->request->data)) {
-				$this->request->data['User']['password'] = AuthComponent::password($this->request->data['User']['password']);
 				$this->Session->setFlash(__('The user has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {

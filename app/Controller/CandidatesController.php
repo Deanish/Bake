@@ -8,10 +8,6 @@ App::uses('AppController', 'Controller');
 		public function index() {
 			
 		}
-		
-		public function view() {
-			
-		}
 
 	}
 

@@ -23,7 +23,7 @@ class Candidate extends AppModel {
 	public $filterArgs = array(
         'title' => array(
             'type' => 'like',
-            'field' => 'title'
+            'field' => array('title', 'skills', 'qualification')
         ),
         'location' => array(
             'type' => 'like',
@@ -38,7 +38,7 @@ class Candidate extends AppModel {
     public $actsAs = array(
 		'Search.Searchable'
 	);
-	
+
 	public $validate = array(
 		
 	);

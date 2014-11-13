@@ -28,6 +28,16 @@
               'placeholder' => 'Skills',
               'label' => ''
               ));
+            echo $this->Form->input('qualification', array(
+              'class' => 'form-control',
+              'placeholder' => 'Highest Qualification',
+              'label' => ''
+              ));
+            echo $this->Form->input('experience', array(
+              'options' => $experienceOptions,
+              'class' => 'form-control',
+              'label' => ''
+              ));
             echo $this->Form->input('industryType', array(
               'options' => $industryOptions,
               'class' => 'form-control',

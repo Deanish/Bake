@@ -15,6 +15,13 @@ class DesiresController extends AppController {
 			'Pune' => 'Pune', 
 			'Others' => 'Others'
 			));
+		$this->set('experienceOptions', array(
+			'' => ' - Select Experience - ', 
+			'0-2 Years' => '0-2 Years', 
+			'2-5 Years' => '2-5 Years', 
+			'5-10Years' => '5-10Years', 
+			'> 10 Years' => '> 10 Years'
+			));
 		$this->set('industryOptions', array(
 			'' => ' - Desired Industry Type - ', 
 			'Accounts Jobs' => 'Accounts Jobs', 

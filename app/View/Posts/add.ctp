@@ -26,7 +26,7 @@
                 echo $this->Form->create('Post', array('type' => 'file'));
                 echo $this->Form->input('title', array(
                   'class' => 'form-control',
-                  'placeholder' => 'Job Title',
+                  'placeholder' => 'Job Title / Designation',
                   'label' => ''
                   ));
                 echo $this->Form->input('skills', array(

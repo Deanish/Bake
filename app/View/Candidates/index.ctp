@@ -18,7 +18,7 @@
       <?php echo $this->Form->input('title', array(
         'required' => false,
         'class' => 'form-control',
-        'placeholder' => 'Job Tilte',
+        'placeholder' => 'Job Title / Skills / Qualification',
         'label' => ''
         )); 
       ?>
@@ -109,7 +109,7 @@
             <th><?php echo $this->Paginator->sort('Location');?></th>
             <th><?php echo $this->Paginator->sort('Experience');?></th>
             <th><center><?php echo $this->Paginator->sort('Posted');?></center></th>
-            <th></th>
+            <th>Action</th>
           </tr>
           <?php
           $i = 0;
@@ -134,7 +134,19 @@
           </tr>
           <?php endforeach; ?>          
         </table>
+        <p>
+          <?php
+          echo $this->Paginator->counter(array(
+          'format' => __('Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%', true)
+          ));
+          ?>  </p>
 
+          <div>
+            <?php echo $this->Paginator->prev('<< ' . __('previous', true), array(), null, array('class'=>'disabled'));?>
+           |  <?php echo $this->Paginator->numbers();?>
+         |
+            <?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
+          </div>
       </div>
     </div>
   </div>

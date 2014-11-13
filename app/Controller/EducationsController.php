@@ -5,30 +5,34 @@ class EducationsController extends AppController {
 	public function add() {
 
 		$this->set('qualificationOptions',array(
-			'Null' => ' - Select Highest Qualification - ',
+			'' => ' - Select Highest Qualification - ',
+			'Diploma' => 'Diploma',
 			'BE' => 'BE',
 			'BSc' => 'BSc',
 			'BCom' => 'BCom',
 			'BCA' => 'BCA',
 			'MBA' => 'MBA',
 			'MCA' => 'MCA',
+			'MCom' => 'MCom',
+			'MSc' => 'MSc',
 			'Others' => 'Others'
 			));
 
 		$this->set('specializationOptions',array(
-			'Null' => ' - Select Specialization - ',
-			'Computer Science' => 'Computer Science',
+			'' => ' - Select Specialization - ',
 			'Computer Application' => 'Computer Application',
-			'Mechanical' => 'Mechanical',
+			'Computer Science' => 'Computer Science',
 			'Civil' => 'Civil',
 			'Electrical' => 'Electrical',
 			'Electronics' => 'Electronics',
 			'Finance' => 'Finance',
+			'Information Science' => 'Information Science',
+			'Mechanical' => 'Mechanical',
 			'Others' => 'Others'
 			));
 
 		$this->set('courseOptions',array(
-			'Null' => ' - Select Course Type - ',
+			'' => ' - Select Course Type - ',
 			'Full Time' => 'Full Time',
 			'Part Time' => 'Part Time',
 			'Distant Education' => 'Distant Education'

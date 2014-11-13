@@ -8,26 +8,44 @@
 
 
 <div class="row">
-  <form>
-    <div class="col-md-4" style="padding-top: 10px;">
-      <input type="text" name="txt1" placeholder="Type Job Title, Skills etc." class="form-control">
+
+  <?php
+    echo $this->Form->create('Candidate', array(
+      'url' => array_merge(array('controller' => 'candidates', 'action' => 'index'), $this->params['pass'])
+      ));
+  ?>
+    <div class="col-md-4" >
+      <?php echo $this->Form->input('title', array(
+        'required' => false,
+        'class' => 'form-control',
+        'placeholder' => 'Job Tilte',
+        'label' => ''
+        )); 
+      ?>
     </div>
-    <div class="col-md-4" style="padding-top: 10px;">
-      <input type="text" name="txt2" placeholder="Type desired Job Location" class="form-control">
+    <div class="col-md-4" >
+      <?php echo $this->Form->input('location', array(
+        'required' => false,
+        'options' => $locationOptions,
+        'class' => 'form-control',
+        'label' => ''
+        )); 
+      ?>
     </div>
-    <div class="col-md-3" style="padding-top: 10px;">
-      <select class="form-control">
-        <option>- Select Experince - </option>
-        <option>0-2 Year</option>
-        <option>2-5 Year</option>
-        <option>5-10 Year</option>
-        <option> > 10 Year</option>
-      </select>
+    <div class="col-md-3" >
+      <?php echo $this->Form->input('experience', array(
+        'required' => false,
+        'options' => $experienceOptions,
+        'class' => 'form-control',
+        'label' => ''
+        )); 
+      ?>
     </div>
-    <div class="col-md-1" style="padding-top: 10px;">
-      <input type="submit" value="Search" class="btn btn-primary">
+    <div class="col-md-1" style="padding-top: 20px;">
+      <?php echo $this->Form->Submit(__('Search', true), array('class' => 'btn btn-primary')); ?>
     </div>
-  </form>
+  <?php echo $this->Form->end(); ?>
+
 </div>
 
 <div class="row">
@@ -83,6 +101,40 @@
       </div>
       <div class="panel-body">
 
+        <table width="100%" border="0">
+          <tr>
+            <th><?php echo $this->Paginator->sort('Job Title');?></th>
+            <th><?php echo $this->Paginator->sort('Skills');?></th>
+            <th><?php echo $this->Paginator->sort('Qualification');?></th>
+            <th><?php echo $this->Paginator->sort('Location');?></th>
+            <th><?php echo $this->Paginator->sort('Experience');?></th>
+            <th><center><?php echo $this->Paginator->sort('Posted');?></center></th>
+            <th></th>
+          </tr>
+          <?php
+          $i = 0;
+          foreach ($candidates as $candidate):
+            $class = null;
+            if ($i++ % 2 == 0) {
+              $class = ' class="altrow"';
+            }
+          ?>
+          <tr <?php echo $class;?> >
+            <td><?php echo $candidate['Candidate']['title']; ?>&nbsp;</td>
+            <td><?php echo $candidate['Candidate']['skills']; ?>&nbsp;</td>
+            <td><?php echo $candidate['Candidate']['qualification']; ?>&nbsp;</td>
+            <td><?php echo $candidate['Candidate']['location']; ?>&nbsp;</td>
+            <td><?php echo $candidate['Candidate']['experience']; ?>&nbsp;</td>
+            <td><?php echo $candidate['Candidate']['modified']; ?>&nbsp;</td>
+            <td class="actions">
+              <?php echo $this->Html->link(__('View', true), array('action' => 'view', $candidate['Candidate']['id'])); ?>
+<!--               <?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $candidate['Candidate']['id'])); ?>
+              <?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $candidate['Candidate']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $candidate['Candidate']['id'])); ?> -->
+            </td>
+          </tr>
+          <?php endforeach; ?>          
+        </table>
+
       </div>
     </div>
   </div>
@@ -119,6 +171,3 @@
     </div>
   </div>
 </div>
-
-
-

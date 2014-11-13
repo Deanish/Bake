@@ -38,6 +38,21 @@ class User extends AppModel {
                     'size' => 'photo_size',
                 )
             )
+        ),
+        'Search.Searchable'
+    );
+
+    public $filterArgs = array(
+        'username' => array(
+            'type' => 'like',
+            'field' => 'username'
+        ),
+        'firstname' => array(
+            'type' => 'like',
+            'field' => 'firstname'
+        ),
+        'active' => array(
+            'type' => 'value'
         )
     );
 

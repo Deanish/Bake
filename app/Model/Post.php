@@ -22,6 +22,22 @@ class Post extends AppModel {
  * @var array
  */
 
+
+/*    public $filterArgs = array(
+        'title' => array(
+            'type' => 'like',
+            'field' => 'title'
+        ),
+        'location' => array(
+            'type' => 'like',
+            'field' => 'location'
+        ),
+        'experience' => array(
+            'type' => 'like',
+            'field' => 'experience'
+        )
+    );*/
+
 	public $actsAs = array(
         'Upload.Upload' => array(
             'photo' => array(

@@ -5,13 +5,13 @@ class ProfessionalsController extends AppController {
 	public function add() {
 
 		$this->set('statusOptions',array(
-			'Null' => ' - Employee Current Status - ',
+			'' => ' - Employee Current Status - ',
 			'Fresher' => 'Fresher',
 			'Experienced' => 'Experienced'
 			));
 
 		$this->set('yearsOptions',array(
-			'Null' => ' - Years - ',
+			'' => ' - Years - ',
 			'0' => '0',
 			'1' => '1',
 			'2' => '2',
@@ -27,7 +27,7 @@ class ProfessionalsController extends AppController {
 			));
 
 		$this->set('monthsOptions',array(
-			'Null' => ' - Months - ',
+			'' => ' - Months - ',
 			'0' => '0',
 			'1' => '1',
 			'2' => '2',

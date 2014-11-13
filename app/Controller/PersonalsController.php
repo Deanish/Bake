@@ -8,21 +8,23 @@ class PersonalsController extends AppController {
 	public function add($id = null) {
 
 		$this->set('nationalityOptions', array(
-			'Null' => ' - Select Nationality - ', 
+			'' => ' - Select Nationality - ', 
 			'India' => 'India', 
 			'Others' => 'Others'
 			));
 		$this->set('locationOptions', array(
-			'Null' => ' - Select Current Location - ', 
+			'' => ' - Select Current Location - ', 
 			'Bangalore' => 'Bangalore', 
 			'Delhi' => 'Delhi', 
 			'Mumbai' => 'Mumbai', 
 			'Kolkata' => 'Kolkata', 
-			'Chennai' => 'Chennai', 
+			'Chennai' => 'Chennai',
+			'Gurgaon' => 'Gurgaon',
+			'Pune' => 'Pune',
 			'Others' => 'Others'
 			));
 		$this->set('genderOptions', array(
-			'Null' => ' - Select Gender - ',
+			'' => ' - Select Gender - ',
 			'male' => 'Male', 
 			'female' => 'Female'
 			));

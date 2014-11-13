@@ -13,7 +13,10 @@ class UsersController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array(
+		'Paginator',
+		'Search.Prg'
+		);
 
 /**
  * index method
@@ -51,6 +54,8 @@ class UsersController extends AppController {
 	}
 	
 	public function index() {
+		$this->Prg->commonProcess();
+        $this->Paginator->settings['conditions'] = $this->User->parseCriteria($this->Prg->parsedParams());
 		$this->User->recursive = 0;
 		$this->set('users', $this->Paginator->paginate());
 	}

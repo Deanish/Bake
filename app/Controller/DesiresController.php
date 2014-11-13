@@ -5,16 +5,18 @@ class DesiresController extends AppController {
 	public function add() {
 
 		$this->set('locationOptions', array(
-			'Null' => ' - Desired Job Location - ', 
+			'' => ' - Desired Job Location - ', 
 			'Bangalore' => 'Bangalore', 
 			'Delhi' => 'Delhi', 
 			'Mumbai' => 'Mumbai', 
 			'Kolkata' => 'Kolkata', 
-			'Chennai' => 'Chennai', 
+			'Chennai' => 'Chennai',
+			'Gurgaon' => 'Gurgaon',
+			'Pune' => 'Pune', 
 			'Others' => 'Others'
 			));
 		$this->set('industryOptions', array(
-			'Null' => ' - Desired Industry Type - ', 
+			'' => ' - Desired Industry Type - ', 
 			'Accounts Jobs' => 'Accounts Jobs', 
 			'Bank Jobs' => 'Bank Jobs', 
 			'BPO Jobs' => 'BPO Jobs', 
@@ -23,7 +25,7 @@ class DesiresController extends AppController {
 			'Others' => 'Others'
 			));
 		$this->set('jobOptions', array(
-			'Null' => ' - Desired Job Type - ', 
+			'' => ' - Desired Job Type - ', 
 			'Software' => 'Software', 
 			'Support' => 'Support', 
 			'Product' => 'Product', 
@@ -31,7 +33,7 @@ class DesiresController extends AppController {
 			'Others' => 'Others'
 			));
 		$this->set('shiftOptions', array(
-			'Null' => ' - Desired Shift Type - ', 
+			'' => ' - Desired Shift Type - ', 
 			'Full Time' => 'Full Time', 
 			'Shift Basis' => 'Shift Basis', 
 			'Part Time' => 'Part Time'

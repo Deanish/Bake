@@ -31,7 +31,9 @@ App::uses('AppController', 'Controller');
 				'Delhi' => 'Delhi', 
 				'Mumbai' => 'Mumbai', 
 				'Kolkata' => 'Kolkata', 
-				'Chennai' => 'Chennai', 
+				'Chennai' => 'Chennai',
+				'Gurgaon' => 'Gurgaon',
+				'Pune' => 'Pune', 
 				'Others' => 'Others'
 				));
 			$this->set('industryOptions', array(

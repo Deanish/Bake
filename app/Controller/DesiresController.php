@@ -113,6 +113,26 @@ class DesiresController extends AppController {
 	
 	}
 
+	public function view() {
+
+		$this->layout = 'recruiter';
+
+		if(AuthComponent::user('role') == 1) {
+			$this->redirect(array('controller' => 'candidates', 'action' => 'index'));
+		}
+
+		$this->loadModel('Desire');
+		$this->loadModel('Education');
+		$this->loadModel('Personal');
+		$this->loadModel('Professional');
+
+		if (!$this->Desire->exists($id)) {
+			throw new NotFoundException(__('Invalid user'));
+		}
+		$options = array('conditions' => array('Desire.' . $this->Desire->primaryKey => $id));
+		$this->set('desire', $this->Desire->find('first', $options));
+	}
+
 }
 
 ?>

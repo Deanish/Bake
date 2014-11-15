@@ -12,11 +12,24 @@ App::uses('AppController', 'Controller');
 		public $components = array('Paginator');
 
 		public function index() {
+
+			$this->layout = 'recruiter';
+
+			if(AuthComponent::user('role') == 1) {
+				$this->redirect(array('controller' => 'candidates', 'action' => 'index'));
+			}
+
 			$this->Post->recursive = 0;
 			$this->set('posts', $this->Paginator->paginate());
 		}
 
 		public function add() {	
+
+			$this->layout = 'recruiter';
+
+			if(AuthComponent::user('role') == 1) {
+				$this->redirect(array('controller' => 'candidates', 'action' => 'index'));
+			}
 
 			$this->set('experienceOptions', array(
 				'Null' => ' - Select Experience Required - ', 
@@ -69,6 +82,13 @@ App::uses('AppController', 'Controller');
  * @return void
  */
 	public function edit($id = null) {
+
+		$this->layout = 'recruiter';
+
+		if(AuthComponent::user('role') == 1) {
+			$this->redirect(array('controller' => 'candidates', 'action' => 'index'));
+		}
+
 		if (!$this->Post->exists($id)) {
 			throw new NotFoundException(__('Invalid Job'));
 		}
@@ -119,6 +139,13 @@ App::uses('AppController', 'Controller');
  * @return void
  */
 		public function delete($id = null) {
+
+			$this->layout = 'recruiter';
+
+			if(AuthComponent::user('role') == 1) {
+				$this->redirect(array('controller' => 'candidates', 'action' => 'index'));
+			}
+
 			$this->Post->id = $id;
 			if (!$this->Post->exists()) {
 				throw new NotFoundException(__('Invalid job'));

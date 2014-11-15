@@ -4,6 +4,12 @@ class EducationsController extends AppController {
 	
 	public function add() {
 
+		$this->layout = 'candidate';
+
+		if(AuthComponent::user('role') == 2) {
+			$this->redirect(array('controller' => 'desires', 'action' => 'index'));
+		}		
+
 		$this->set('qualificationOptions',array(
 			'' => ' - Select Highest Qualification - ',
 			'Diploma' => 'Diploma',

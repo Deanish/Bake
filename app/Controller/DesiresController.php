@@ -17,6 +17,12 @@ class DesiresController extends AppController {
 	
 	public function add() {
 
+		$this->layout = 'candidate';
+
+		if(AuthComponent::user('role') == 2) {
+			$this->redirect(array('controller' => 'desires', 'action' => 'index'));
+		}		
+
 		$this->set('locationOptions', array(
 			'' => ' - Desired Job Location - ', 
 			'Bangalore' => 'Bangalore', 
@@ -74,6 +80,12 @@ class DesiresController extends AppController {
 	}
 
 	public function index() {
+
+	$this->layout = 'recruiter';
+
+	if(AuthComponent::user('role') == 1) {
+		$this->redirect(array('controller' => 'candidates', 'action' => 'index'));
+	}	
 
 	$this->Prg->commonProcess();
     $this->Paginator->settings['conditions'] = $this->Desire->parseCriteria($this->Prg->parsedParams());

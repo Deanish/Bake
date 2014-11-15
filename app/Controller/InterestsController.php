@@ -6,6 +6,13 @@ App::uses('AppController', 'Controller');
 		public $components = array('Paginator');
 
 		public function index() {
+
+			$this->layout = 'candidate';
+
+			if(AuthComponent::user('role') == 2) {
+				$this->redirect(array('controller' => 'desires', 'action' => 'index'));
+			}	
+					
 			$this->loadModel('Post');
 			$this->Interest->recursive = 0;
 			$this->set('interests', $this->Paginator->paginate());

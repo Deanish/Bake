@@ -20,21 +20,22 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
 <!DOCTYPE html>
 <html>
 <head>
-	<?php echo $this->Html->charset(); ?>
-	<title>
-		VSpell
-	</title>
+  <?php echo $this->Html->charset(); ?>
+  <title>
+    VSpell
+  </title>
   <link rel="shortcut icon" type="image/x-icon" href="<?php echo $this->webroot; ?>img/icon.png">
-	<?php
-		echo $this->Html->css('bootstrap');
-		echo $this->fetch('meta');
-		echo $this->fetch('css');
-		echo $this->fetch('script');
-	?>
+  <?php
+
+    echo $this->Html->css('bootstrap');
+    echo $this->fetch('meta');
+    echo $this->fetch('css');
+    echo $this->fetch('script');
+  ?>
 </head>
 <body style="background-color: #C0C0C0;" >
-	
-		
+  
+    
 
 
 
@@ -54,14 +55,22 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><?php echo $this->html->link(' Home',array('controller' => 'home', 'action' => 'index'),array('class' => 'glyphicon glyphicon-home')); ?></li>
-        <li><?php echo $this->html->link(' JobSeeker',array('controller' => 'candidates', 'action' => 'index'),array('class' => 'glyphicon glyphicon-search')); ?></li>
         <li><?php echo $this->html->link(' ResumeServices',array('controller' => 'resumes', 'action' => 'index'),array('class' => 'glyphicon glyphicon-list-alt')); ?></li>
-        <li><?php echo $this->html->link(' RecruiterZone',array('controller' => 'desires', 'action' => 'index'),array('class' => 'glyphicon glyphicon-credit-card')); ?></li>
-      	<li><?php echo $this->html->link(' JobCounselling',array('controller' => 'resumes', 'action' => 'counselling'),array('class' => 'glyphicon glyphicon-thumbs-up')); ?></li>
-      </ul>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle glyphicon glyphicon-credit-card" data-toggle="dropdown"> RecruiterZone<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><?php echo $this->html->link('Post Jobs',array('controller' => 'posts', 'action' => 'add')); ?></li>
+            <li><?php echo $this->html->link('Manage Jobs',array('controller' => 'posts', 'action' => 'index')); ?></li>
+            <li><?php echo $this->html->link('Search Candidates',array('controller' => 'desires', 'action' => 'index')); ?></li>
+            <li><?php echo $this->html->link('Account Settings',array('controller' => 'recruiters', 'action' => 'settings')); ?></li>
+          </ul>
+        </li>
+        
+        <li><?php echo $this->html->link(' JobCounselling',array('controller' => 'resumes', 'action' => 'counselling'),array('class' => 'glyphicon glyphicon-thumbs-up')); ?></li>
+      </ul>      
       <ul class="nav navbar-nav navbar-right">
-      	<li style="color: #ffdd00;"><span class="glyphicon glyphicon-phone-alt"></span> Helpline : +91-98801 65531</li>
-         <?php if(AuthComponent::user()) {
+        <li style="color: #ffdd00;"><span class="glyphicon glyphicon-phone-alt"></span> Helpline : +91-98801 65531</li>
+          <?php if(AuthComponent::user()) {
             echo "<li>" . $this->HTML->link(AuthComponent::user('firstname'), array('controller' => 'users', 'action' => 'logout'), array(), __('Are you sure you want to LOGOUT?')) . "</li>";
           }
           else {
@@ -77,18 +86,18 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
 
 		<div class="container" style="padding-top: 90px; background-color: #E0E0E0;">
 
-			<?php echo $this->Session->flash(); ?>
+      <?php echo $this->Session->flash(); ?>
 
-			<?php echo $this->fetch('content'); ?>
+      <?php echo $this->fetch('content'); ?>
       <div class="container" style="padding-top: 20px;"></div>
-		</div>
-	<div class="footer">
+    </div>
+  <div class="footer">
     <div class="container">
-      	<div class="row">
+        <div class="row">
           <div class="col-md-2" style="padding-top: 10px 10px;">
-            <h6>Jobs by Location</h6>
+            <h6>Employee by Location</h6>
             <?php echo $this->Html->link('Bangalore', array(
-              'controller' => 'candidates', 
+              'controller' => 'desires', 
               'action' => 'index', 
               '?' => array(
                 'location' => 'Bangalore'
@@ -96,7 +105,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
               )); 
             ?><br />
             <?php echo $this->Html->link('Delhi', array(
-              'controller' => 'candidates', 
+              'controller' => 'desires', 
               'action' => 'index', 
               '?' => array(
                 'location' => 'Delhi'
@@ -104,7 +113,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
               )); 
             ?><br />
             <?php echo $this->Html->link('Mumbai', array(
-              'controller' => 'candidates', 
+              'controller' => 'desires', 
               'action' => 'index', 
               '?' => array(
                 'location' => 'Mumbai'
@@ -112,7 +121,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
               )); 
             ?><br />
             <?php echo $this->Html->link('Kolkata', array(
-              'controller' => 'candidates', 
+              'controller' => 'desires', 
               'action' => 'index', 
               '?' => array(
                 'location' => 'Kolkata'
@@ -120,7 +129,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
               )); 
             ?><br />
             <?php echo $this->Html->link('Chennai', array(
-              'controller' => 'candidates', 
+              'controller' => 'desires', 
               'action' => 'index', 
               '?' => array(
                 'location' => 'Chennai'
@@ -128,7 +137,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
               )); 
             ?><br />
             <?php echo $this->Html->link('Pune', array(
-              'controller' => 'candidates', 
+              'controller' => 'desires', 
               'action' => 'index', 
               '?' => array(
                 'location' => 'Pune'
@@ -136,7 +145,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
               )); 
             ?><br />
             <?php echo $this->Html->link('Gurgaon', array(
-              'controller' => 'candidates', 
+              'controller' => 'desires', 
               'action' => 'index', 
               '?' => array(
                 'location' => 'Gurgaon'
@@ -145,76 +154,76 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
             ?><br />
           </div>
           <div class="col-md-2" style="padding-top: 10px 10px;">
-            <h6>Jobs by Qualification</h6>
+            <h6>Employee by Qualification</h6>
             <?php echo $this->Html->link('BCA', array(
-              'controller' => 'candidates', 
+              'controller' => 'desires', 
               'action' => 'index', 
               '?' => array(
-                'title' => 'BCA'
+                'skills' => 'BCA'
                 )
               )); 
             ?>,
             <?php echo $this->Html->link('BSc', array(
-              'controller' => 'candidates', 
+              'controller' => 'desires', 
               'action' => 'index', 
               '?' => array(
-                'title' => 'BSc'
+                'skills' => 'BSc'
                 )
               )); 
             ?>,
             <?php echo $this->Html->link('BCom', array(
-              'controller' => 'candidates', 
+              'controller' => 'desires', 
               'action' => 'index', 
               '?' => array(
-                'title' => 'BCom'
+                'skills' => 'BCom'
                 )
               )); 
             ?><br />
             <?php echo $this->Html->link('MCA', array(
-              'controller' => 'candidates', 
+              'controller' => 'desires', 
               'action' => 'index', 
               '?' => array(
-                'title' => 'MCA'
+                'skills' => 'MCA'
                 )
               )); 
             ?>,
             <?php echo $this->Html->link('MSc', array(
-              'controller' => 'candidates', 
+              'controller' => 'desires', 
               'action' => 'index', 
               '?' => array(
-                'title' => 'MSc'
+                'skills' => 'MSc'
                 )
               )); 
             ?>,
             <?php echo $this->Html->link('MCom', array(
-              'controller' => 'candidates', 
+              'controller' => 'desires', 
               'action' => 'index', 
               '?' => array(
-                'title' => 'MCom'
+                'skills' => 'MCom'
                 )
               )); 
             ?><br />
             <?php echo $this->Html->link('MBA', array(
-              'controller' => 'candidates', 
+              'controller' => 'desires', 
               'action' => 'index', 
               '?' => array(
-                'title' => 'MBA'
+                'skills' => 'MBA'
                 )
               )); 
             ?>,
             <?php echo $this->Html->link('MTech', array(
-              'controller' => 'candidates', 
+              'controller' => 'desires', 
               'action' => 'index', 
               '?' => array(
-                'title' => 'MTech'
+                'skills' => 'MTech'
                 )
               )); 
             ?><br />
             <?php echo $this->Html->link('BE', array(
-              'controller' => 'candidates', 
+              'controller' => 'desires', 
               'action' => 'index', 
               '?' => array(
-                'title' => 'BE'
+                'skills' => 'BE'
                 )
               )); 
             ?><br />
@@ -242,10 +251,10 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
     </div>
 
     <div class="container" style="padding-top: 20px;"></div>
-	
-	<?php 
-		echo $this->Html->script('jquery');
-		echo $this->Html->script('bootstrap');  
-	?>
+  
+  <?php 
+    echo $this->Html->script('jquery');
+    echo $this->Html->script('bootstrap');  
+  ?>
 </body>
 </html>

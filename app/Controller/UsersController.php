@@ -54,6 +54,14 @@ class UsersController extends AppController {
 	}
 	
 	public function index() {
+
+		if(AuthComponent::user('role') == 1) {
+			$this->redirect(array('controller' => 'candidates', 'action' => 'index'));
+		}
+		if(AuthComponent::user('role') == 2) {
+			$this->redirect(array('controller' => 'desires', 'action' => 'index'));
+		}
+
 		$this->Prg->commonProcess();
         $this->Paginator->settings['conditions'] = $this->User->parseCriteria($this->Prg->parsedParams());
 		$this->User->recursive = 0;
@@ -68,6 +76,14 @@ class UsersController extends AppController {
  * @return void
  */
 	public function view($id = null) {
+
+		if(AuthComponent::user('role') == 1) {
+			$this->redirect(array('controller' => 'candidates', 'action' => 'index'));
+		}
+		if(AuthComponent::user('role') == 2) {
+			$this->redirect(array('controller' => 'desires', 'action' => 'index'));
+		}
+
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
 		}
@@ -104,6 +120,14 @@ class UsersController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
+
+		if(AuthComponent::user('role') == 1) {
+			$this->redirect(array('controller' => 'candidates', 'action' => 'index'));
+		}
+		if(AuthComponent::user('role') == 2) {
+			$this->redirect(array('controller' => 'desires', 'action' => 'index'));
+		}
+
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
 		}
@@ -129,6 +153,14 @@ class UsersController extends AppController {
  * @return void
  */
 	public function delete($id = null) {
+
+		if(AuthComponent::user('role') == 1) {
+			$this->redirect(array('controller' => 'candidates', 'action' => 'index'));
+		}
+		if(AuthComponent::user('role') == 2) {
+			$this->redirect(array('controller' => 'desires', 'action' => 'index'));
+		}
+		
 		$this->User->id = $id;
 		if (!$this->User->exists()) {
 			throw new NotFoundException(__('Invalid user'));

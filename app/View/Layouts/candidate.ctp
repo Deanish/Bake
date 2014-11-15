@@ -20,21 +20,22 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
 <!DOCTYPE html>
 <html>
 <head>
-	<?php echo $this->Html->charset(); ?>
-	<title>
-		VSpell
-	</title>
+  <?php echo $this->Html->charset(); ?>
+  <title>
+    VSpell
+  </title>
   <link rel="shortcut icon" type="image/x-icon" href="<?php echo $this->webroot; ?>img/icon.png">
-	<?php
-		echo $this->Html->css('bootstrap');
-		echo $this->fetch('meta');
-		echo $this->fetch('css');
-		echo $this->fetch('script');
-	?>
+  <?php
+
+    echo $this->Html->css('bootstrap');
+    echo $this->fetch('meta');
+    echo $this->fetch('css');
+    echo $this->fetch('script');
+  ?>
 </head>
 <body style="background-color: #C0C0C0;" >
-	
-		
+  
+    
 
 
 
@@ -54,14 +55,29 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><?php echo $this->html->link(' Home',array('controller' => 'home', 'action' => 'index'),array('class' => 'glyphicon glyphicon-home')); ?></li>
-        <li><?php echo $this->html->link(' JobSeeker',array('controller' => 'candidates', 'action' => 'index'),array('class' => 'glyphicon glyphicon-search')); ?></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle glyphicon glyphicon-search" data-toggle="dropdown"> JobSeeker<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><?php echo $this->html->link('Search Jobs',array('controller' => 'candidates', 'action' => 'index')); ?></li>
+            <li><?php echo $this->html->link('Applied Jobs',array('controller' => 'interests', 'action' => 'index')); ?></li>
+            <li><?php echo $this->html->link('Account Settings',array('controller' => 'candidates', 'action' => 'settings')); ?></li>
+          </ul>
+        </li>
         <li><?php echo $this->html->link(' ResumeServices',array('controller' => 'resumes', 'action' => 'index'),array('class' => 'glyphicon glyphicon-list-alt')); ?></li>
-        <li><?php echo $this->html->link(' RecruiterZone',array('controller' => 'desires', 'action' => 'index'),array('class' => 'glyphicon glyphicon-credit-card')); ?></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown"> ProfileSettings<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><?php echo $this->html->link('Personal Details',array('controller' => 'personals', 'action' => 'add')); ?></li>
+            <li><?php echo $this->html->link('Educational Details',array('controller' => 'educations', 'action' => 'add')); ?></li>
+            <li><?php echo $this->html->link('Professional Details',array('controller' => 'professionals', 'action' => 'add')); ?></li>
+            <li><?php echo $this->html->link('Desired Job Details',array('controller' => 'desires', 'action' => 'add')); ?></li>
+          </ul>
+        </li>      
       	<li><?php echo $this->html->link(' JobCounselling',array('controller' => 'resumes', 'action' => 'counselling'),array('class' => 'glyphicon glyphicon-thumbs-up')); ?></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
       	<li style="color: #ffdd00;"><span class="glyphicon glyphicon-phone-alt"></span> Helpline : +91-98801 65531</li>
-         <?php if(AuthComponent::user()) {
+          <?php if(AuthComponent::user()) {
             echo "<li>" . $this->HTML->link(AuthComponent::user('firstname'), array('controller' => 'users', 'action' => 'logout'), array(), __('Are you sure you want to LOGOUT?')) . "</li>";
           }
           else {
@@ -77,14 +93,14 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
 
 		<div class="container" style="padding-top: 90px; background-color: #E0E0E0;">
 
-			<?php echo $this->Session->flash(); ?>
+      <?php echo $this->Session->flash(); ?>
 
-			<?php echo $this->fetch('content'); ?>
+      <?php echo $this->fetch('content'); ?>
       <div class="container" style="padding-top: 20px;"></div>
-		</div>
-	<div class="footer">
+    </div>
+  <div class="footer">
     <div class="container">
-      	<div class="row">
+        <div class="row">
           <div class="col-md-2" style="padding-top: 10px 10px;">
             <h6>Jobs by Location</h6>
             <?php echo $this->Html->link('Bangalore', array(
@@ -242,10 +258,10 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
     </div>
 
     <div class="container" style="padding-top: 20px;"></div>
-	
-	<?php 
-		echo $this->Html->script('jquery');
-		echo $this->Html->script('bootstrap');  
-	?>
+  
+  <?php 
+    echo $this->Html->script('jquery');
+    echo $this->Html->script('bootstrap');  
+  ?>
 </body>
 </html>

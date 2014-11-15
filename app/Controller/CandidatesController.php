@@ -18,6 +18,12 @@ App::uses('AppController', 'Controller');
 		
 		public function index() {
 
+			$this->layout = 'candidate';
+
+			if(AuthComponent::user('role') == 2) {
+				$this->redirect(array('controller' => 'desires', 'action' => 'index'));
+			}			
+
 			$this->Prg->commonProcess();
 	        $this->Paginator->settings['conditions'] = $this->Candidate->parseCriteria($this->Prg->parsedParams());
 	        $this->set('candidates', $this->Paginator->paginate());
@@ -52,6 +58,13 @@ App::uses('AppController', 'Controller');
 	 * @return void
 	 */
 		public function view($id = null) {
+
+			$this->layout = 'candidate';
+
+			if(AuthComponent::user('role') == 2) {
+				$this->redirect(array('controller' => 'desires', 'action' => 'index'));
+			}
+			
 			if (!$this->Candidate->exists($id)) {
 				throw new NotFoundException(__('Invalid Job'));
 			}

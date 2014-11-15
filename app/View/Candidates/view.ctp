@@ -7,10 +7,16 @@
 		        </div>
 		        <div style="padding: 10px;">
 		        	<table>
+		        		<?php echo $this->Form->create('Interest'); ?>
+		        		<?php echo $this->Form->hidden('post_id', array('value' => $user['Candidate']['id'])); ?>
 		        		<tr><td  width="160px" ></td></tr>
 		        		<tr>
 		        			<td class="pull-right"><strong>Job ID :&nbsp;</strong></td>
-		        			<td><?php echo h($user['Candidate']['id']); ?></td>
+		        			<td>
+		        				<?php 
+		        					echo h($user['Candidate']['id']); 
+		        				?>
+		        			</td>
 		        		</tr>
 		        		<tr>
 		        			<td class="pull-right"><strong>Job Title :&nbsp;</strong></td>
@@ -72,6 +78,13 @@
 		        			<td class="pull-right"><strong>Job Posted on :&nbsp;</strong></td>
 		        			<td><?php echo h($user['Candidate']['modified']); ?></td>
 		        		</tr>
+		        		<tr>
+		        			<td></td>
+		        			<td>
+		        				<?php echo $this->Form->Submit('Apply', array('class' => 'btn btn-success')); ?>
+		        				<?php echo $this->Form->end(); ?>
+		        			</td>		        			
+		        		</tr>		        		
 		        	</table>
 		        </div>
 		    </div>

@@ -57,6 +57,18 @@ App::uses('AppController', 'Controller');
 			}
 			$options = array('conditions' => array('Candidate.' . $this->Candidate->primaryKey => $id));
 			$this->set('user', $this->Candidate->find('first', $options));
+
+			if ($this->request->is('post')) {
+				$this->loadModel('Interest');
+				$this->Interest->create();
+				$this->request->data['Interest']['user_id'] = AuthComponent::user('id');
+				if ($this->Interest->save($this->request->data)) {
+					$this->Session->setFlash(__('Successfully applied'));
+					return $this->redirect(array('controller' => 'candidates', 'action' => 'index'));
+				} else {
+					$this->Session->setFlash(__('Failed. Please, try again.'));
+				}
+			}
 		}
 
 	}

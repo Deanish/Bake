@@ -36,7 +36,7 @@ class UsersController extends AppController {
 					return $this->redirect(array('controller' => 'candidates', 'action' => 'index'));
 				}
 				elseif(AuthComponent::user('role') == 2) {
-					return $this->redirect(array('controller' => 'recruiters', 'action' => 'index'));
+					return $this->redirect(array('controller' => 'desires', 'action' => 'index'));
 				}
 				elseif(AuthComponent::user('role') == 3) {
 					return $this->redirect(array('controller' => 'admin', 'action' => 'index'));

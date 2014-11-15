@@ -19,6 +19,26 @@ class Desire extends AppModel {
  *
  * @var array
  */
+
+	public $filterArgs = array(
+        'skills' => array(
+            'type' => 'like',
+            'field' => array('skills', 'qualification')
+        ),
+        'location' => array(
+            'type' => 'like',
+            'field' => 'location'
+        ),
+        'experience' => array(
+            'type' => 'like',
+            'field' => 'experience'
+        )
+    );
+
+    public $actsAs = array(
+		'Search.Searchable'
+	);
+
 	public $validate = array(
 		'user_id' => array(
 			'numeric' => array(

@@ -61,7 +61,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
         <li><?php echo $this->html->link(' Home',array('controller' => 'home', 'action' => 'index'),array('class' => 'glyphicon glyphicon-home')); ?></li>
         <li><?php echo $this->html->link(' JobSeeker',array('controller' => 'candidates', 'action' => 'index'),array('class' => 'glyphicon glyphicon-search')); ?></li>
         <li><?php echo $this->html->link(' ResumeServices',array('controller' => 'resumes', 'action' => 'index'),array('class' => 'glyphicon glyphicon-list-alt')); ?></li>
-        <li><?php echo $this->html->link(' RecruiterZone',array('controller' => 'recruiters', 'action' => 'index'),array('class' => 'glyphicon glyphicon-credit-card')); ?></li>
+        <li><?php echo $this->html->link(' RecruiterZone',array('controller' => 'desires', 'action' => 'index'),array('class' => 'glyphicon glyphicon-credit-card')); ?></li>
       	<li><?php echo $this->html->link(' JobCounselling',array('controller' => 'resumes', 'action' => 'counselling'),array('class' => 'glyphicon glyphicon-thumbs-up')); ?></li>
       </ul>
       <!-- <form class="navbar-form navbar-left" role="search">
@@ -73,7 +73,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
       <ul class="nav navbar-nav navbar-right">
       	<li style="color: #ffdd00;"><span class="glyphicon glyphicon-phone-alt"></span> Helpline : +91-98801 65531</li>
          <?php if(AuthComponent::user()) {
-            echo "<li>" . $this->HTML->link('Logout', array('controller' => 'users', 'action' => 'logout')) . "</li>";
+            echo "<li>" . $this->HTML->link(AuthComponent::user('firstname'), array('controller' => 'users', 'action' => 'logout'), array(), __('Are you sure you want to LOGOUT?')) . "</li>";
           }
           else {
             echo "<li>" . $this->HTML->link('Login', array('controller' => 'users', 'action' => 'login')) . "</li>";

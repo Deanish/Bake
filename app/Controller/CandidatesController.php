@@ -23,7 +23,7 @@ App::uses('AppController', 'Controller');
 	        $this->set('candidates', $this->Paginator->paginate());
 
 			$this->set('locationOptions', array(
-				'' => ' - Select Job Location - ', 
+				'' => ' - Search by Location - ', 
 				'Bangalore' => 'Bangalore', 
 				'Delhi' => 'Delhi', 
 				'Mumbai' => 'Mumbai', 
@@ -35,13 +35,28 @@ App::uses('AppController', 'Controller');
 				));
 
 			$this->set('experienceOptions', array(
-				'' => ' - Select Experience Required - ', 
+				'' => ' - Search by Experience Required - ', 
 				'0-2 Years' => '0-2 Years', 
 				'2-5 Years' => '2-5 Years', 
 				'5-10Years' => '5-10Years', 
 				'> 10 Years' => '> 10 Years'
 				));
 			
+		}
+
+	/**
+	 * view method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
+		public function view($id = null) {
+			if (!$this->Candidate->exists($id)) {
+				throw new NotFoundException(__('Invalid Job'));
+			}
+			$options = array('conditions' => array('Candidate.' . $this->Candidate->primaryKey => $id));
+			$this->set('user', $this->Candidate->find('first', $options));
 		}
 
 	}

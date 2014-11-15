@@ -10,15 +10,15 @@
 <div class="row">
 
   <?php
-    echo $this->Form->create('Candidate', array(
+    echo $this->Form->create('Desire', array(
       'url' => array_merge(array('action' => 'index'), $this->params['pass'])
       ));
   ?>
     <div class="col-md-4" >
-      <?php echo $this->Form->input('title', array(
+      <?php echo $this->Form->input('skills', array(
         'required' => false,
         'class' => 'form-control',
-        'placeholder' => 'Search by Job Title / Skills / Qualification',
+        'placeholder' => 'Search by Skills / Qualification',
         'label' => ''
         )); 
       ?>
@@ -82,31 +82,29 @@
 
         <table width="100%" border="0">
           <tr>
-            <th><?php echo $this->Paginator->sort('Job Title');?></th>
             <th><?php echo $this->Paginator->sort('Skills');?></th>
             <th><?php echo $this->Paginator->sort('Qualification');?></th>
             <th><?php echo $this->Paginator->sort('Location');?></th>
             <th><?php echo $this->Paginator->sort('Experience');?></th>
-            <th><?php echo $this->Paginator->sort('Posted On');?></th>
+            <th><?php echo $this->Paginator->sort('Job Type');?></th>
             <th>Action</th>
           </tr>
           <?php
           $i = 0;
-          foreach ($candidates as $candidate):
+          foreach ($desires as $desire):
             $class = null;
             if ($i++ % 2 == 0) {
               $class = ' class="altrow"';
             }
           ?>
           <tr <?php echo $class;?> >
-            <td><?php echo $candidate['Candidate']['title']; ?>&nbsp;</td>
-            <td><?php echo $candidate['Candidate']['skills']; ?>&nbsp;</td>
-            <td><?php echo $candidate['Candidate']['qualification']; ?>&nbsp;</td>
-            <td><?php echo $candidate['Candidate']['location']; ?>&nbsp;</td>
-            <td><?php echo $candidate['Candidate']['experience']; ?>&nbsp;</td>
-            <td><?php echo $candidate['Candidate']['modified']; ?>&nbsp;</td>
+            <td><?php echo $desire['Desire']['skills']; ?>&nbsp;</td>
+            <td><?php echo $desire['Desire']['qualification']; ?>&nbsp;</td>
+            <td><?php echo $desire['Desire']['location']; ?>&nbsp;</td>
+            <td><?php echo $desire['Desire']['experience']; ?>&nbsp;</td>
+            <td><?php echo $desire['Desire']['jobType']; ?>&nbsp;</td>
             <td class="actions">
-              <?php echo $this->Html->link(__('View', true), array('action' => 'view', $candidate['Candidate']['id'])); ?>
+              <?php echo $this->Html->link(__('View', true), array('action' => 'view', $desire['Desire']['id'])); ?>
             </td>
           </tr>
           <?php endforeach; ?>          

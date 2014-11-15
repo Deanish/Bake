@@ -1,6 +1,19 @@
 <?php
 
 class DesiresController extends AppController {
+
+	public $name = 'Desires'; 
+
+	public $components = array(
+		'Paginator',
+		'Search.Prg'
+	);
+
+	public $presetVars = array( 
+		array('field' => 'skills', 'type' => 'value'),
+		array('field' => 'location', 'type' => 'value'),
+		array('field' => 'experience', 'type' => 'value')
+	);
 	
 	public function add() {
 
@@ -58,6 +71,34 @@ class DesiresController extends AppController {
 			}
 		}
 
+	}
+
+	public function index() {
+
+	$this->Prg->commonProcess();
+    $this->Paginator->settings['conditions'] = $this->Desire->parseCriteria($this->Prg->parsedParams());
+    $this->set('desires', $this->Paginator->paginate());
+
+	$this->set('locationOptions', array(
+		'' => ' - Search by Location - ', 
+		'Bangalore' => 'Bangalore', 
+		'Delhi' => 'Delhi', 
+		'Mumbai' => 'Mumbai', 
+		'Kolkata' => 'Kolkata', 
+		'Chennai' => 'Chennai',
+		'Gurgaon' => 'Gurgaon',
+		'Pune' => 'Pune', 
+		'Others' => 'Others'
+		));
+
+	$this->set('experienceOptions', array(
+		'' => ' - Search by Experience Required - ', 
+		'0-2 Years' => '0-2 Years', 
+		'2-5 Years' => '2-5 Years', 
+		'5-10Years' => '5-10Years', 
+		'> 10 Years' => '> 10 Years'
+		));
+	
 	}
 
 }

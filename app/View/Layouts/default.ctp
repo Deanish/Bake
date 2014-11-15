@@ -110,19 +110,137 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
       	<div class="row">
           <div class="col-md-2" style="padding-top: 10px 10px;">
             <h6>Jobs by Location</h6>
-            <a href="#"><small>Jobs in Bangalore</small></a><br />
-            <a href="#"><small>Jobs in Delhi</small></a><br />
-            <a href="#"><small>Jobs in Mumbai</small></a><br />
-            <a href="#"><small>Jobs in Kolkata</small></a><br />
-            <a href="#"><small>Jobs in Chennai</small></a><br />
+            <?php echo $this->Html->link('Bangalore', array(
+              'controller' => 'candidates', 
+              'action' => 'index', 
+              '?' => array(
+                'location' => 'Bangalore'
+                )
+              )); 
+            ?><br />
+            <?php echo $this->Html->link('Delhi', array(
+              'controller' => 'candidates', 
+              'action' => 'index', 
+              '?' => array(
+                'location' => 'Delhi'
+                )
+              )); 
+            ?><br />
+            <?php echo $this->Html->link('Mumbai', array(
+              'controller' => 'candidates', 
+              'action' => 'index', 
+              '?' => array(
+                'location' => 'Mumbai'
+                )
+              )); 
+            ?><br />
+            <?php echo $this->Html->link('Kolkata', array(
+              'controller' => 'candidates', 
+              'action' => 'index', 
+              '?' => array(
+                'location' => 'Kolkata'
+                )
+              )); 
+            ?><br />
+            <?php echo $this->Html->link('Chennai', array(
+              'controller' => 'candidates', 
+              'action' => 'index', 
+              '?' => array(
+                'location' => 'Chennai'
+                )
+              )); 
+            ?><br />
+            <?php echo $this->Html->link('Pune', array(
+              'controller' => 'candidates', 
+              'action' => 'index', 
+              '?' => array(
+                'location' => 'Pune'
+                )
+              )); 
+            ?><br />
+            <?php echo $this->Html->link('Gurgaon', array(
+              'controller' => 'candidates', 
+              'action' => 'index', 
+              '?' => array(
+                'location' => 'Gurgaon'
+                )
+              )); 
+            ?><br />
           </div>
           <div class="col-md-2" style="padding-top: 10px 10px;">
-            <h6>Jobs by Categories</h6>
-            <a href="#"><small>Accounts Jobs</small></a><br />
-            <a href="#"><small>Bank Jobs</small></a><br />
-            <a href="#"><small>BPO Jobs</small></a><br />
-            <a href="#"><small>HR Jobs</small></a><br />
-            <a href="#"><small>IT Jobs</small></a><br />
+            <h6>Jobs by Qualification</h6>
+            <?php echo $this->Html->link('BCA', array(
+              'controller' => 'candidates', 
+              'action' => 'index', 
+              '?' => array(
+                'title' => 'BCA'
+                )
+              )); 
+            ?>,
+            <?php echo $this->Html->link('BSc', array(
+              'controller' => 'candidates', 
+              'action' => 'index', 
+              '?' => array(
+                'title' => 'BSc'
+                )
+              )); 
+            ?>,
+            <?php echo $this->Html->link('BCom', array(
+              'controller' => 'candidates', 
+              'action' => 'index', 
+              '?' => array(
+                'title' => 'BCom'
+                )
+              )); 
+            ?><br />
+            <?php echo $this->Html->link('MCA', array(
+              'controller' => 'candidates', 
+              'action' => 'index', 
+              '?' => array(
+                'title' => 'MCA'
+                )
+              )); 
+            ?>,
+            <?php echo $this->Html->link('MSc', array(
+              'controller' => 'candidates', 
+              'action' => 'index', 
+              '?' => array(
+                'title' => 'MSc'
+                )
+              )); 
+            ?>,
+            <?php echo $this->Html->link('MCom', array(
+              'controller' => 'candidates', 
+              'action' => 'index', 
+              '?' => array(
+                'title' => 'MCom'
+                )
+              )); 
+            ?><br />
+            <?php echo $this->Html->link('MBA', array(
+              'controller' => 'candidates', 
+              'action' => 'index', 
+              '?' => array(
+                'title' => 'MBA'
+                )
+              )); 
+            ?>,
+            <?php echo $this->Html->link('MTech', array(
+              'controller' => 'candidates', 
+              'action' => 'index', 
+              '?' => array(
+                'title' => 'MTech'
+                )
+              )); 
+            ?><br />
+            <?php echo $this->Html->link('BE', array(
+              'controller' => 'candidates', 
+              'action' => 'index', 
+              '?' => array(
+                'title' => 'BE'
+                )
+              )); 
+            ?><br />
           </div>
           <div class="col-md-2" style="padding-top: 10px 10px;">
             <h6>Services</h6>
@@ -134,7 +252,6 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
             <a href="#"><small>Feedback</small></a><br />
             <a href="#"><small>About Us</small></a><br />
             <a href="#"><small>Contact Us</small></a><br />
-            <a href="#"><small>Partner Sites</small></a><br />
             <a href="#"><small>Terms & Conditions</small></a><br />
           </div>
           <div class="col-md-4" style="padding-top: 10px 10px;">

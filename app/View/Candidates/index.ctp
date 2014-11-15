@@ -76,19 +76,19 @@
   <div class="col-md-8" style="padding-top: 10px;">
     <div class="panel panel-default">
       <div class="panel-heading">
-      <h3 class="panel-title">Search Result</h3>
+      <h3 class="panel-title text-center">Job Search Result</h3>
       </div>
       <div class="panel-body">
 
-        <table width="100%" border="0">
+        <table width="100%" border="1">
           <tr>
-            <th><?php echo $this->Paginator->sort('Job Title');?></th>
-            <th><?php echo $this->Paginator->sort('Skills');?></th>
-            <th><?php echo $this->Paginator->sort('Qualification');?></th>
-            <th><?php echo $this->Paginator->sort('Location');?></th>
-            <th><?php echo $this->Paginator->sort('Experience');?></th>
-            <th><?php echo $this->Paginator->sort('Posted On');?></th>
-            <th>Action</th>
+            <th class="text-center" style="background-color: #ed1c24; color: #FFF;">Job Title</th>
+            <th class="text-center" style="background-color: #ed1c24; color: #FFF;">Skills</th>
+            <th class="text-center" style="background-color: #ed1c24; color: #FFF;">Qualification</th>
+            <th class="text-center" style="background-color: #ed1c24; color: #FFF;">Location</th>
+            <th class="text-center" style="background-color: #ed1c24; color: #FFF;">Experience</th>
+            <th class="text-center" style="background-color: #ed1c24; color: #FFF;">Job Posted On</th>
+            <th class="text-center" style="background-color: #ed1c24; color: #FFF;">Action</th>
           </tr>
           <?php
           $i = 0;
@@ -99,13 +99,13 @@
             }
           ?>
           <tr <?php echo $class;?> >
-            <td><?php echo $candidate['Candidate']['title']; ?>&nbsp;</td>
-            <td><?php echo $candidate['Candidate']['skills']; ?>&nbsp;</td>
-            <td><?php echo $candidate['Candidate']['qualification']; ?>&nbsp;</td>
-            <td><?php echo $candidate['Candidate']['location']; ?>&nbsp;</td>
-            <td><?php echo $candidate['Candidate']['experience']; ?>&nbsp;</td>
-            <td><?php echo $candidate['Candidate']['modified']; ?>&nbsp;</td>
-            <td class="actions">
+            <td class="text-center"><?php echo $candidate['Candidate']['title']; ?>&nbsp;</td>
+            <td class="text-center"><?php echo $candidate['Candidate']['skills']; ?>&nbsp;</td>
+            <td class="text-center"><?php echo $candidate['Candidate']['qualification']; ?>&nbsp;</td>
+            <td class="text-center"><?php echo $candidate['Candidate']['location']; ?>&nbsp;</td>
+            <td class="text-center"><?php echo $candidate['Candidate']['experience']; ?>&nbsp;</td>
+            <td class="text-center"><?php echo $candidate['Candidate']['modified']; ?>&nbsp;</td>
+            <td class="text-center">
               <?php echo $this->Html->link(__('View', true), array('action' => 'view', $candidate['Candidate']['id'])); ?>
             </td>
           </tr>

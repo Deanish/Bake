@@ -80,48 +80,49 @@
       </div>
       <div class="panel-body">
 
-        <table width="100%" border="0">
+        <table width="100%" border="1">
           <tr>
-            <th><?php echo $this->Paginator->sort('Skills');?></th>
-            <th><?php echo $this->Paginator->sort('Qualification');?></th>
-            <th><?php echo $this->Paginator->sort('Location');?></th>
-            <th><?php echo $this->Paginator->sort('Experience');?></th>
-            <th><?php echo $this->Paginator->sort('Job Type');?></th>
-            <th>Action</th>
+            <th class="text-center" style="background-color: #ed1c24; color: #FFF;">Skills</th>
+            <th class="text-center" style="background-color: #ed1c24; color: #FFF;">Qualification</th>
+            <th class="text-center" style="background-color: #ed1c24; color: #FFF;">Location</th>
+            <th class="text-center" style="background-color: #ed1c24; color: #FFF;">Experience</th>
+            <th class="text-center" style="background-color: #ed1c24; color: #FFF;">Job Type</th>
+            <th class="text-center" style="background-color: #ed1c24; color: #FFF;">Action</th>
           </tr>
           <?php
-          $i = 0;
-          foreach ($desires as $desire):
-            $class = null;
-            if ($i++ % 2 == 0) {
-              $class = ' class="altrow"';
-            }
+            $i = 0;
+            foreach ($desires as $desire):
+              $class = null;
+              if ($i++ % 2 == 0) {
+                $class = ' class="altrow"';
+              }
           ?>
           <tr <?php echo $class;?> >
-            <td><?php echo $desire['Desire']['skills']; ?>&nbsp;</td>
-            <td><?php echo $desire['Desire']['qualification']; ?>&nbsp;</td>
-            <td><?php echo $desire['Desire']['location']; ?>&nbsp;</td>
-            <td><?php echo $desire['Desire']['experience']; ?>&nbsp;</td>
-            <td><?php echo $desire['Desire']['jobType']; ?>&nbsp;</td>
-            <td class="actions">
+            <td class="text-center"><?php echo $desire['Desire']['skills']; ?>&nbsp;</td>
+            <td class="text-center"><?php echo $desire['Desire']['qualification']; ?>&nbsp;</td>
+            <td class="text-center"><?php echo $desire['Desire']['location']; ?>&nbsp;</td>
+            <td class="text-center"><?php echo $desire['Desire']['experience']; ?>&nbsp;</td>
+            <td class="text-center"><?php echo $desire['Desire']['jobType']; ?>&nbsp;</td>
+            <td class="text-center">
               <?php echo $this->Html->link(__('View', true), array('action' => 'view', $desire['Desire']['id'])); ?>
             </td>
           </tr>
           <?php endforeach; ?>          
         </table>
         <p>
-          <?php
-          echo $this->Paginator->counter(array(
-          'format' => __('Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%', true)
-          ));
-          ?>  </p>
-
-          <div>
-            <?php echo $this->Paginator->prev('<< ' . __('previous', true), array(), null, array('class'=>'disabled'));?>
-           |  <?php echo $this->Paginator->numbers();?>
-         |
-            <?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
-          </div>
+    <?php
+      echo $this->Paginator->counter(array(
+      'format' => __('Page {:page} of {:pages}')
+      ));
+    ?>  
+  </p>
+  <div class="paging">
+    <?php
+      echo $this->Paginator->prev('< ' . __('previous || '), array(), null, array('class' => 'prev disabled'));
+      echo $this->Paginator->numbers(array('separator' => ''));
+      echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+    ?>
+  </div>
       </div>
     </div>
   </div>

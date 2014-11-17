@@ -95,12 +95,12 @@ class UsersController extends AppController {
  */
 	public function view($id = null) {
 
-		if(AuthComponent::user('role') == 1) {
+/*		if(AuthComponent::user('role') == 1) {
 			$this->redirect(array('controller' => 'candidates', 'action' => 'index'));
 		}
 		if(AuthComponent::user('role') == 2) {
 			$this->redirect(array('controller' => 'desires', 'action' => 'index'));
-		}
+		}*/
 
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));

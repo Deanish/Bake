@@ -61,19 +61,19 @@
         'required' => false,
         'class' => 'form-control',
         'placeholder' => 'Search by Job Title / Skills / Qualification',
-        'label' => ''
+        'label' => false
         ));
       echo $this->Form->input('location', array(
         'required' => false,
         'options' => $locationOptions,
         'class' => 'form-control',
-        'label' => ''
+        'label' => false
         ));
       echo $this->Form->input('experience', array(
         'required' => false,
         'options' => $experienceOptions,
         'class' => 'form-control',
-        'label' => ''
+        'label' => false
         ));
       echo "<br />";
       echo $this->Form->Submit(__('Search for Job', true), array('class' => 'btn btn-primary'));

@@ -1,3 +1,218 @@
+<?php 
+	if(AuthComponent::user('role') == 1) { 
+		if(AuthComponent::user('id') == $user['User']['id']) {  
+?>
+<div class="row">
+	<div class="col-md-12" style="padding-top: 10px;">
+	    <div class="panel panel-default">
+			<div class="panel-heading">
+			<h3 class="panel-title text-center">User Details</h3>
+			</div>
+
+	        <div class="col-md-10 col-md-offset-1" style="padding-top: 10px;">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+					<h3 class="panel-title text-center">Login Details</h3>
+					</div>
+					<div style="padding: 10px;">
+						<table width="100%">
+							<tr>
+								<th class="text-center">User ID</th>
+								<th class="text-center">Email ID</th>
+								<th class="text-center">First Name</th>
+								<th class="text-center">Last Name</th>
+								<th class="text-center">Image</th>
+							</tr>
+							<tr>
+								<td class="text-center"><?php echo h($user['User']['id']); ?></td>
+								<td class="text-center"><?php echo h($user['User']['username']); ?></td>
+								<td class="text-center"><?php echo h($user['User']['firstname']); ?></td>
+								<td class="text-center"><?php echo h($user['User']['lastname']); ?></td>
+								<td class="text-center"><?php echo h($user['User']['photo']); ?></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+
+	        <div class="col-md-10 col-md-offset-1" style="padding-top: 10px;">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+					<h3 class="panel-title text-center">Personal Details</h3>
+					</div>
+					<div style="padding: 10px;">
+						<?php if (!empty($user['Personal'])): ?>
+							<table width="100%">
+								<tr>
+									<th class="text-center">Personal ID</th>
+									<th class="text-center">Mobile</th>
+									<th class="text-center">Nationality</th>
+									<th class="text-center">Location</th>
+									<th class="text-center">Gender</th>
+									<th class="text-center">Resume</th>
+								</tr>
+								<?php foreach ($user['Personal'] as $personal): ?>
+									<tr>
+										<td class="text-center"><?php echo $personal['id']; ?></td>
+										<td class="text-center"><?php echo $personal['mobile']; ?></td>
+										<td class="text-center"><?php echo $personal['nationality']; ?></td>
+										<td class="text-center"><?php echo $personal['location']; ?></td>
+										<td class="text-center"><?php echo $personal['gender']; ?></td>
+										<td class="text-center"><?php echo $personal['resume']; ?></td>
+									</tr>
+								<?php endforeach; ?>
+							</table>
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
+
+	        <div class="col-md-10 col-md-offset-1" style="padding-top: 10px;">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+					<h3 class="panel-title text-center">Educational Details</h3>
+					</div>
+					<div style="padding: 10px;">
+						<?php if (!empty($user['Education'])): ?>
+							<table width="100%">
+								<tr>
+									<th class="text-center">Educational ID</th>
+									<th class="text-center">Qualification</th>
+									<th class="text-center">Specialization</th>
+									<th class="text-center">Institute</th>
+									<th class="text-center">University</th>
+									<th class="text-center">Marks</th>
+									<th class="text-center">Year of Passing</th>
+									<th class="text-center">Course Type</th>
+								</tr>
+								<?php foreach ($user['Education'] as $education): ?>
+									<tr>
+										<td class="text-center"><?php echo $education['id']; ?></td>
+										<td class="text-center"><?php echo $education['qualification']; ?></td>
+										<td class="text-center"><?php echo $education['specialization']; ?></td>
+										<td class="text-center"><?php echo $education['institute']; ?></td>
+										<td class="text-center"><?php echo $education['university']; ?></td>
+										<td class="text-center"><?php echo $education['marks']; ?></td>
+										<td class="text-center"><?php echo $education['yop']; ?></td>
+										<td class="text-center"><?php echo $education['courseType']; ?></td>
+									</tr>
+								<?php endforeach; ?>
+							</table>
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
+
+	        <div class="col-md-10 col-md-offset-1" style="padding-top: 10px;">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+					<h3 class="panel-title text-center">Professional Details</h3>
+					</div>
+					<div style="padding: 10px;">
+						<?php if (!empty($user['Professional'])): ?>
+							<table width="100%">
+								<tr>
+									<th class="text-center">Professional ID</th>
+									<th class="text-center">Status</th>
+									<th class="text-center" colspan="2">Experience</th>
+									<th class="text-center">CTC</th>
+									<th class="text-center">Company Nmae</th>
+									<th class="text-center">Designation</th>
+									<th class="text-center">Skills</th>
+									<th class="text-center">Notice Period</th>
+									<th class="text-center">Previous Companies</th>
+								</tr>
+								<tr>
+									<td></td><td></td>
+									<th class="text-center">Years</th>
+									<th class="text-center">Months</th>
+									<td></td><td></td><td></td><td></td><td></td><td></td>
+								</tr>	
+								<?php foreach ($user['Professional'] as $professional): ?>
+									<tr>
+										<td class="text-center"><?php echo $professional['id']; ?></td>
+										<td class="text-center"><?php echo $professional['status']; ?></td>
+										<td class="text-center"><?php echo $professional['years']; ?></td>
+										<td class="text-center"><?php echo $professional['months']; ?></td>
+										<td class="text-center"><?php echo $professional['ctc']; ?></td>
+										<td class="text-center"><?php echo $professional['company']; ?></td>
+										<td class="text-center"><?php echo $professional['designation']; ?></td>
+										<td class="text-center"><?php echo $professional['skills']; ?></td>
+										<td class="text-center"><?php echo $professional['notice']; ?></td>
+										<td class="text-center"><?php echo $professional['prevCompanies']; ?></td>
+									</tr>
+								<?php endforeach; ?>
+							</table>
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
+
+	        <div class="col-md-10 col-md-offset-1" style="padding-top: 10px;">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+					<h3 class="panel-title text-center">Desire Details</h3>
+					</div>
+					<div style="padding: 10px;">
+						<?php if (!empty($user['Desire'])): ?>
+							<table width="100%">
+								<tr>
+									<th class="text-center">Desire ID</th>
+									<th class="text-center">Location</th>
+									<th class="text-center">Skills</th>
+									<th class="text-center">Qualification</th>
+									<th class="text-center">Experience</th>
+									<th class="text-center">Industry Type</th>
+									<th class="text-center">Job Type</th>
+									<th class="text-center">Shift Type</th>
+								</tr>
+								<?php foreach ($user['Desire'] as $desire): ?>
+									<tr>
+										<td class="text-center"><?php echo $desire['id']; ?></td>
+										<td class="text-center"><?php echo $desire['location']; ?></td>
+										<td class="text-center"><?php echo $desire['skills']; ?></td>
+										<td class="text-center"><?php echo $desire['qualification']; ?></td>
+										<td class="text-center"><?php echo $desire['experience']; ?></td>
+										<td class="text-center"><?php echo $desire['industryType']; ?></td>
+										<td class="text-center"><?php echo $desire['jobType']; ?></td>
+										<td class="text-center"><?php echo $desire['shiftType']; ?></td>
+									</tr>
+								<?php endforeach; ?>
+							</table>
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+<?php
+		}
+/*	 	else { 
+	 		$this->redirect(array('controller' => 'candidates', 'action' => 'index')); 
+	 	}*/
+	}
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php if(AuthComponent::user('role') == 3):  ?>
 <div class="users view">
 <h2><?php echo __('User'); ?></h2>
 	<dl>
@@ -468,3 +683,4 @@
 		</ul>
 	</div>
 </div>
+<?php endif; ?>

@@ -33,7 +33,25 @@ class UsersController extends AppController {
 		if($this->request->is('post')) {
 			if($this->Auth->login()) { 
 				if(AuthComponent::user('role') == 1) {
-					return $this->redirect(array('controller' => 'candidates', 'action' => 'index'));
+					$this->loadModel('Desire');
+					$this->loadModel('Educations');
+					$this->loadModel('Personal');
+					$this->loadModel('Professional');
+					if (!$this->Personal->exists((AuthComponent::user('id')))) {
+						return $this->redirect(array('controller' => 'personals', 'action' => 'add'));
+					}
+					elseif (!$this->Educations->exists((AuthComponent::user('id')))) {
+						return $this->redirect(array('controller' => 'educations', 'action' => 'add'));
+					}
+					elseif (!$this->Professional->exists((AuthComponent::user('id')))) {
+						return $this->redirect(array('controller' => 'professionals', 'action' => 'add'));
+					}
+					elseif (!$this->Desire->exists((AuthComponent::user('id')))) {
+						return $this->redirect(array('controller' => 'desires', 'action' => 'add'));
+					}
+					else {
+						return $this->redirect(array('controller' => 'candidates', 'action' => 'index'));
+					}
 				}
 				elseif(AuthComponent::user('role') == 2) {
 					return $this->redirect(array('controller' => 'desires', 'action' => 'index'));
@@ -99,6 +117,7 @@ class UsersController extends AppController {
 	public function add() {
 
 		$this->set('roleOptions', array('1' => 'Job Seeker', '2' => 'Recruiter'));
+		$this->set('typeOptions', array('1' => 'Basic', '2' => 'Premium'));
 
 		if ($this->request->is('post')) {
 			$this->User->create();

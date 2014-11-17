@@ -60,6 +60,9 @@ App::uses('AppController', 'Controller');
 		public function view($id = null) {
 
 			$this->layout = 'candidate';
+			$this->loadModel('Interest');
+			$this->Interest->recursive = 0;
+			$this->set('interests', $this->Paginator->paginate());
 
 			if(AuthComponent::user('role') == 2) {
 				$this->redirect(array('controller' => 'desires', 'action' => 'index'));
@@ -72,7 +75,6 @@ App::uses('AppController', 'Controller');
 			$this->set('user', $this->Candidate->find('first', $options));
 
 			if ($this->request->is('post')) {
-				$this->loadModel('Interest');
 				$this->Interest->create();
 				$this->request->data['Interest']['user_id'] = AuthComponent::user('id');
 				if ($this->Interest->save($this->request->data)) {

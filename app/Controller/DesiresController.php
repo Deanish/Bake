@@ -125,6 +125,7 @@ class DesiresController extends AppController {
 		$this->loadModel('Education');
 		$this->loadModel('Personal');
 		$this->loadModel('Professional');
+		$this->loadModel('Interest');
 
 		if (!$this->Interest->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));

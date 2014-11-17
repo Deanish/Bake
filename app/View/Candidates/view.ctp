@@ -79,9 +79,20 @@
 		        			<td><?php echo h($user['Candidate']['modified']); ?></td>
 		        		</tr>
 		        		<tr>
+		        			<td><br /></td>
+		        			<td><br /></td>
+		        		</tr>
+		        		<tr>
 		        			<td></td>
 		        			<td>
-		        				<?php echo $this->Form->Submit('Apply', array('class' => 'btn btn-success')); ?>
+ 		<!--         			<?php foreach ($interests as $interest): ?>
+									<?php if(($interest['Interest']['user_id']) == AuthComponent::user('id')): ?>
+										<?php if(($interest['Interest']['post_id']) == $user['Candidate']['id']): ?>
+											<?php echo 'You have already applied for this job.'; ?>	
+										<?php endif; ?>								
+									<?php endif; ?>
+								<?php endforeach; ?>  -->
+		        				<?php echo $this->Form->Submit('Apply for this Job', array('class' => 'btn btn-success')); ?>
 		        				<?php echo $this->Form->end(); ?>
 		        			</td>		        			
 		        		</tr>		        		

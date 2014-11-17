@@ -14,7 +14,7 @@
 				<h3 class="panel-title text-center">Applied Job Details</h3>
 			</div>
 			<br />
-			<table width="100%" border="1">
+			<table width="100%" border="0">
 				<tr>
 					<th class="text-center" style="background-color: #ed1c24; color: #FFF;">Job Title</th>
 					<th class="text-center" style="background-color: #ed1c24; color: #FFF;">Skills</th>
@@ -43,9 +43,9 @@
 
 					<?php endif; ?>
 				<?php endforeach; ?>
-			</table>
+			</table><hr />
 
-			<p><hr />
+			<p>
 				<?php
 					echo $this->Paginator->counter(array(
 					'format' => __('Page {:page} of {:pages}')

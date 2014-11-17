@@ -35,7 +35,7 @@ App::uses('AppController', 'Controller');
 				'Null' => ' - Select Experience Required - ', 
 				'0-2 Years' => '0-2 Years', 
 				'2-5 Years' => '2-5 Years', 
-				'5-10Years' => '5-10Years', 
+				'5-10 Years' => '5-10 Years', 
 				'> 10 Years' => '> 10 Years'
 				));
 			$this->set('locationOptions', array(

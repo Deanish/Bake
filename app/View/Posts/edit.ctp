@@ -11,7 +11,7 @@
             <h3 class="panel-title text-center">Job Details</h3>
             </div>
             <div style="padding: 10px;">      
-     		<?php echo $this->Form->create('Post', array('type' => 'file'));
+     		      <?php echo $this->Form->create('Post', array('type' => 'file'));
                 echo $this->Form->input('id');
                 echo $this->Form->input('title', array(
                   'class' => 'form-control',

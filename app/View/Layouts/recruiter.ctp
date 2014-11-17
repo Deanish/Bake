@@ -59,9 +59,9 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
         <li class="dropdown">
           <a href="#" class="dropdown-toggle glyphicon glyphicon-credit-card" data-toggle="dropdown"> RecruiterZone<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
+            <li><?php echo $this->html->link('Search Candidates',array('controller' => 'desires', 'action' => 'index')); ?></li>
             <li><?php echo $this->html->link('Post Jobs',array('controller' => 'posts', 'action' => 'add')); ?></li>
             <li><?php echo $this->html->link('Manage Jobs',array('controller' => 'posts', 'action' => 'index')); ?></li>
-            <li><?php echo $this->html->link('Search Candidates',array('controller' => 'desires', 'action' => 'index')); ?></li>
             <li><?php echo $this->html->link('Account Settings',array('controller' => 'recruiters', 'action' => 'settings')); ?></li>
           </ul>
         </li>
@@ -224,6 +224,14 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
               'action' => 'index', 
               '?' => array(
                 'skills' => 'BE'
+                )
+              )); 
+            ?>,
+            <?php echo $this->Html->link('BTech', array(
+              'controller' => 'candidates', 
+              'action' => 'index', 
+              '?' => array(
+                'title' => 'BTech'
                 )
               )); 
             ?><br />

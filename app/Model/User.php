@@ -184,6 +184,19 @@ class User extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
+		'Interest' => array(
+			'className' => 'Interest',
+			'foreignKey' => 'user_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
 		'Personal' => array(
 			'className' => 'Personal',
 			'foreignKey' => 'user_id',

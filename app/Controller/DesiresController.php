@@ -38,7 +38,7 @@ class DesiresController extends AppController {
 			'' => ' - Select Experience - ', 
 			'0-2 Years' => '0-2 Years', 
 			'2-5 Years' => '2-5 Years', 
-			'5-10Years' => '5-10Years', 
+			'5-10 Years' => '5-10 Years', 
 			'> 10 Years' => '> 10 Years'
 			));
 		$this->set('industryOptions', array(
@@ -126,11 +126,11 @@ class DesiresController extends AppController {
 		$this->loadModel('Personal');
 		$this->loadModel('Professional');
 
-		if (!$this->Desire->exists($id)) {
+		if (!$this->Interest->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
 		}
-		$options = array('conditions' => array('Desire.' . $this->Desire->primaryKey => $id));
-		$this->set('desire', $this->Desire->find('first', $options));
+		$options = array('conditions' => array('Interest.' . $this->Interest->primaryKey => $id));
+		$this->set('interest', $this->Interest->find('first', $options));
 	}
 
 }

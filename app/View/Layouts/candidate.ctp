@@ -233,6 +233,14 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
                 'title' => 'BE'
                 )
               )); 
+            ?>,
+            <?php echo $this->Html->link('BTech', array(
+              'controller' => 'candidates', 
+              'action' => 'index', 
+              '?' => array(
+                'title' => 'BTech'
+                )
+              )); 
             ?><br />
           </div>
           <div class="col-md-2" style="padding-top: 10px 10px;">

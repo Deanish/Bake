@@ -80,7 +80,7 @@
       </div>
       <div class="panel-body">
 
-        <table width="100%" border="1">
+        <table width="100%" border="0">
           <tr>
             <th class="text-center" style="background-color: #ed1c24; color: #FFF;">Job Title</th>
             <th class="text-center" style="background-color: #ed1c24; color: #FFF;">Skills</th>

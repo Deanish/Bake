@@ -55,18 +55,34 @@
 
 <div class="row">
   <div class="col-md-4" style="padding-top: 10px;">
-  	<form>
-		<input type="text" name="txt1" placeholder="Type Job Title, Skills etc." class="form-control"><br />
-		<input type="text" name="txt2" placeholder="Type desired Job Location" class="form-control"><br />
-		<select class="form-control">
-			<option>- Select Experince - </option>
-			<option>0-2 Year</option>
-			<option>2-5 Year</option>
-			<option>5-10 Year</option>
-			<option> > 10 Year</option>
-		</select><br />
-		<input type="submit" value="Search" class="btn btn-primary">
-  	</form>
+
+    <?php
+      echo $this->Form->create('Candidate', array(
+        'url' => array_merge(array('controller' => 'candidates', 'action' => 'index'), $this->params['pass'])
+        ));
+      echo $this->Form->input('title', array(
+        'required' => false,
+        'class' => 'form-control',
+        'placeholder' => 'Search by Job Title / Skills / Qualification',
+        'label' => ''
+        ));
+      echo $this->Form->input('location', array(
+        'required' => false,
+        'options' => $locationOptions,
+        'class' => 'form-control',
+        'label' => ''
+        ));
+      echo $this->Form->input('experience', array(
+        'required' => false,
+        'options' => $experienceOptions,
+        'class' => 'form-control',
+        'label' => ''
+        ));
+      echo "<br />";
+      echo $this->Form->Submit(__('Search for Job', true), array('class' => 'btn btn-primary'));
+      echo $this->Form->end();
+    ?>
+
   </div>
   <div class="col-md-3 col-md-offset-1"><img src="<?php echo $this->webroot; ?>img/logo1.png" height="200px" width="200px"></div>
   <div class="col-md-4" style="padding-top: 10px;">
@@ -298,7 +314,7 @@
               'controller' => 'candidates', 
               'action' => 'index', 
               '?' => array(
-                'experience' => '0-2+Years'
+                'experience' => '0-2 Years'
                 )
               )); 
             ?><br />
@@ -306,7 +322,7 @@
               'controller' => 'candidates', 
               'action' => 'index', 
               '?' => array(
-                'experience' => '2-5+Years'
+                'experience' => '2-5 Years'
                 )
               )); 
             ?><br />
@@ -314,7 +330,7 @@
               'controller' => 'candidates', 
               'action' => 'index', 
               '?' => array(
-                'experience' => '5-10+Years'
+                'experience' => '5-10 Years'
                 )
               )); 
             ?><br />
@@ -322,7 +338,7 @@
               'controller' => 'candidates', 
               'action' => 'index', 
               '?' => array(
-                'experience' => '>+10+Years'
+                'experience' => '> 10 Years'
                 )
               )); 
             ?><br /><br />

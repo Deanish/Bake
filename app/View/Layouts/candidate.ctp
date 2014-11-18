@@ -77,7 +77,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
       	<li><?php echo $this->html->link(' JobCounselling',array('controller' => 'resumes', 'action' => 'counselling'),array('class' => 'glyphicon glyphicon-thumbs-up')); ?></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-      	<li style="color: #ffdd00;"><span class="glyphicon glyphicon-phone-alt"></span>+91-98801 65531</li>
+      	<li style="color: #ffdd00;"><span class="glyphicon glyphicon-phone-alt"></span>+91-98801 00000</li>
         <li class="dropdown">
           <?php if(AuthComponent::user()) { ?>
           <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown"><?php echo " " . AuthComponent::user('firstname'); ?><span class="caret"></span></a>
@@ -87,11 +87,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
           </ul>
           <?php } 
            else { ?>
-          <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown"> Guest<span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
             <li><?php echo $this->html->link('Login', array('controller' => 'users', 'action' => 'login')); ?></li>
-            <li><?php echo $this->html->link('Register', array('controller' => 'users', 'action' => 'add')); ?></li>            
-          </ul>
           <?php } ?>
         </li>
       </ul>
@@ -267,7 +263,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
             <a href="#"><small>Terms & Conditions</small></a><br />
           </div>
           <div class="col-md-4" style="padding-top: 10px 10px;">
-            <h5><span class="glyphicon glyphicon-phone-alt"></span> Call us: +91-98801 65531 </h5>
+            <h5><span class="glyphicon glyphicon-phone-alt"></span> Call us: +91-98801 00000 </h5>
             <h5><span class="glyphicon glyphicon-envelope"></span> Mail us: support@vspellconsultancy.com </h5>
             <h5><span class="glyphicon glyphicon-copyright-mark"></span> 2014 VSpell </h5>
             <h5><span class="glyphicon glyphicon-signal"></span> Developed by <a href="http://skylabsinc.in/" target="blank"><span style="color: #000; ">SkyLabs</span></a> </h5>

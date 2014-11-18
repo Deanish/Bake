@@ -58,7 +58,12 @@
 										<td class="text-center"><?php echo $personal['nationality']; ?></td>
 										<td class="text-center"><?php echo $personal['location']; ?></td>
 										<td class="text-center"><?php echo $personal['gender']; ?></td>
-										<td class="text-center"><?php echo $personal['resume']; ?></td>
+										<?php 
+								          $path = $this->webroot."files/personal/resume/"; 
+								          $dir = $personal['resume_dir'];
+								          $img = $personal['resume'];
+								        ?>										
+										<td class="text-center"><a href="<?php echo $path.$dir.'/'.$img; ?>"" download><?php echo $personal['resume']; ?></a></td>
 									</tr>
 								<?php endforeach; ?>
 							</table>

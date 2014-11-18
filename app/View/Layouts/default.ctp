@@ -60,7 +60,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
       	<li><?php echo $this->html->link(' JobCounselling',array('controller' => 'resumes', 'action' => 'counselling'),array('class' => 'glyphicon glyphicon-thumbs-up')); ?></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-      	<li style="color: #ffdd00;"><span class="glyphicon glyphicon-phone-alt"></span> Helpline : +91-98801 65531</li>
+      	<li style="color: #ffdd00;"><span class="glyphicon glyphicon-phone-alt"></span>+91-98801 65531</li>
         <li class="dropdown">
           <?php if(AuthComponent::user()) { ?>
           <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown"><?php echo " " . AuthComponent::user('firstname'); ?><span class="caret"></span></a>

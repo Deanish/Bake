@@ -60,7 +60,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
           <ul class="dropdown-menu" role="menu">
             <li><?php echo $this->html->link('Search Jobs',array('controller' => 'candidates', 'action' => 'index')); ?></li>
             <li><?php echo $this->html->link('Applied Jobs',array('controller' => 'interests', 'action' => 'index')); ?></li>
-            <li><?php echo $this->html->link('Account Settings',array('controller' => 'candidates', 'action' => 'settings')); ?></li>
+            <li><?php echo $this->html->link('Account Settings', array('controller' => 'users', 'action' => 'edit',AuthComponent::user("id"))); ?></li>
           </ul>
         </li>
         <li><?php echo $this->html->link(' ResumeServices',array('controller' => 'resumes', 'action' => 'index'),array('class' => 'glyphicon glyphicon-list-alt')); ?></li>
@@ -76,7 +76,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
       	<li><?php echo $this->html->link(' JobCounselling',array('controller' => 'resumes', 'action' => 'counselling'),array('class' => 'glyphicon glyphicon-thumbs-up')); ?></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-      	<li style="color: #ffdd00;"><span class="glyphicon glyphicon-phone-alt"></span> Helpline : +91-98801 65531</li>
+      	<li style="color: #ffdd00;"><span class="glyphicon glyphicon-phone-alt"></span>+91-98801 65531</li>
         <li class="dropdown">
           <?php if(AuthComponent::user()) { ?>
           <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown"><?php echo " " . AuthComponent::user('firstname'); ?><span class="caret"></span></a>

@@ -16,7 +16,8 @@
 							echo $this->Form->input('firstname', array(
 									'class' => 'form-control',
 									'placeholder' => 'First Name',
-									'label' => ''
+									'label' => '',
+									'maxlength' => '12'
 									));
 							echo $this->Form->input('lastname', array(
 									'class' => 'form-control',

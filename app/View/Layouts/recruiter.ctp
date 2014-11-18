@@ -66,6 +66,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
           </ul>
         </li>
         
+        <li><?php echo $this->html->link(' Account Type',array('controller' => 'users', 'action' => 'type'),array('class' => 'glyphicon glyphicon-pencil')); ?></li>
         <li><?php echo $this->html->link(' JobCounselling',array('controller' => 'resumes', 'action' => 'counselling'),array('class' => 'glyphicon glyphicon-thumbs-up')); ?></li>
       </ul>      
       <ul class="nav navbar-nav navbar-right">

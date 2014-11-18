@@ -38,12 +38,6 @@
 									'label' => 'Role',
 									'id' => 'role'
 									));
-							echo $this->Form->input('type', array('options' => $typeOptions,
-									'class' => 'form-control',
-									'label' => 'Account Type',
-									'id' => 'type',
-									'disabled' => true
-									));
 							echo "<br />";
 							echo $this->Form->submit('Create an Account',array('class' => 'btn btn-success'));
 						?>
@@ -68,52 +62,18 @@
 					6 <br />
 					7 <br />
 					8 <br />
+					9 <br />
+					10 <br />
+					11 <br />
+					12 <br />
+					13 <br />
+					14 <br />
+					15 <br />
+					16 <br />
+					17 <br />
+					18 <br />
+					19
 				</p>
-			</div>
-		</div>
-	</div>
-
-	<div class="col-md-8">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-			<h3 class="panel-title text-center">Benefits of Registration for Recruiter</h3>
-			</div>
-			<div class="col-md-6" style="padding-top: 10px;">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-					<h3 class="panel-title text-center">Basic</h3>
-					</div>	
-					<div style="padding: 10px;">
-						<p>
-							1 Some description why user has to register.<br />
-							2 <br />
-							3 <br /> 
-							4 <br />
-							5 <br />
-							6 <br />
-							7 <br />
-						</p>
-					</div>						
-				</div>
-			</div>		
-
-			<div class="col-md-6" style="padding-top: 10px;">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-					<h3 class="panel-title text-center">Premium</h3>
-					</div>	
-					<div style="padding: 10px;">
-						<p>
-							1 Some description why user has to register.<br />
-							2 <br />
-							3 <br /> 
-							4 <br />
-							5 <br />
-							6 <br />
-							7 <br />
-						</p>
-					</div>						
-				</div>
 			</div>
 		</div>
 	</div>

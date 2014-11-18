@@ -40,10 +40,10 @@ class PersonalsController extends AppController {
 			$this->request->data['Personal']['id'] = AuthComponent::user('id');
 			$this->request->data['Personal']['user_id'] = AuthComponent::user('id');
 			if ($this->Personal->save($this->request->data)) {
-				$this->Session->setFlash(__('The personal data has been saved.'));
+				$this->Session->setFlash(__('The personal data has been updated.'));
 				return $this->redirect(array('controller' => 'educations', 'action' => 'add'));
 			} else {
-				$this->Session->setFlash(__('The personal data could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The personal data could not be updated. Please, try again.'));
 			}
 		}
 	}

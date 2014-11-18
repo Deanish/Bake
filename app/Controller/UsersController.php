@@ -26,7 +26,7 @@ class UsersController extends AppController {
 
 	public function beforeFilter() {
 
-		$this->Auth->allow('add');
+		$this->Auth->allow('add', 'type');
 	}
 
 	public function login() {
@@ -54,7 +54,11 @@ class UsersController extends AppController {
 					}
 				}
 				elseif(AuthComponent::user('role') == 2) {
-					return $this->redirect(array('controller' => 'desires', 'action' => 'index'));
+					if(AuthComponent::user('type') == 0) {
+						return $this->redirect(array('controller' => 'users', 'action' => 'type'));
+					} else {
+						return $this->redirect(array('controller' => 'desires', 'action' => 'index'));
+					}
 				}
 				elseif(AuthComponent::user('role') == 3) {
 					return $this->redirect(array('controller' => 'admin', 'action' => 'index'));
@@ -117,16 +121,18 @@ class UsersController extends AppController {
 	public function add() {
 
 		$this->set('roleOptions', array('1' => 'Job Seeker', '2' => 'Recruiter'));
-		$this->set('typeOptions', array('1' => 'Basic', '2' => 'Premium'));
 
 		if ($this->request->is('post')) {
 			$this->User->create();
 			$this->request->data['User']['password'] = AuthComponent::password($this->request->data['User']['password']);
 			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash(__('The user has been saved.'));
+				$this->Session->setFlash(__('Successfully Registered.'));
+				if ($this->request->data['User']['role'] == 2) {
+					return $this->redirect(array('controller' => 'users', 'action' => 'type',$this->request->data['User']['id']));
+				}
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('Upload only jpg, png, gif images. Please, try again.'));
 			}
 		}
 	}
@@ -157,10 +163,10 @@ class UsersController extends AppController {
 				if ($this->request->is(array('post', 'put'))) {
 					$this->request->data['User']['password'] = AuthComponent::password($this->request->data['User']['password']);
 					if ($this->User->save($this->request->data)) {
-						$this->Session->setFlash(__('The user has been saved.'));
+						$this->Session->setFlash(__('The user has been updated.'));
 						return $this->redirect(array('action' => 'index'));
 					} else {
-						$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+						$this->Session->setFlash(__('The user could not be updated. Please, try again.'));
 					}
 				} else {
 					$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
@@ -171,10 +177,10 @@ class UsersController extends AppController {
 			if ($this->request->is(array('post', 'put'))) {
 				$this->request->data['User']['password'] = AuthComponent::password($this->request->data['User']['password']);
 				if ($this->User->save($this->request->data)) {
-					$this->Session->setFlash(__('The user has been saved.'));
+					$this->Session->setFlash(__('The user has been updated.'));
 					return $this->redirect(array('action' => 'index'));
 				} else {
-					$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+					$this->Session->setFlash(__('The user could not be updated. Please, try again.'));
 				}
 			} else {
 				$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
@@ -211,4 +217,28 @@ class UsersController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
-}
+
+	public function type() {
+
+		if(AuthComponent::user('role') == 1) {
+			$this->redirect(array('controller' => 'candidates', 'action' => 'index'));
+		}
+		if(AuthComponent::user('role') == 2) {
+			$this->layout = 'recruiter';
+		}		
+
+		$this->set('typeOptions', array('1' => 'Basic', '2' => 'Premium'));
+
+		if ($this->request->is(array('post', 'put'))) {
+			$this->request->data['User']['id'] = AuthComponent::user('id');
+			if ($this->User->save($this->request->data)) {
+				$this->Session->setFlash(__('Account type has been updated.'));
+				return $this->redirect(array('controller' => 'desires', 'action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('Acount type could not update. Please, try again.'));
+			}
+		}
+
+	}
+
+}	

@@ -49,10 +49,10 @@ class EducationsController extends AppController {
 			$this->request->data['Education']['id'] = AuthComponent::user('id');
 			$this->request->data['Education']['user_id'] = AuthComponent::user('id');
 			if ($this->Education->save($this->request->data)) {
-				$this->Session->setFlash(__('The Education data has been saved.'));
+				$this->Session->setFlash(__('The Education data has been updated.'));
 				return $this->redirect(array('controller' => 'professionals', 'action' => 'add'));
 			} else {
-				$this->Session->setFlash(__('The Education data could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The Education data could not be updated. Please, try again.'));
 			}
 		}
 

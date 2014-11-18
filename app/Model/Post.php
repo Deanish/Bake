@@ -49,7 +49,8 @@ class Post extends AppModel {
                     'size' => 'photo_size',
                 )
             )
-        )
+        ),
+        'Search.Searchable'
     );
 
 	public $validate = array(

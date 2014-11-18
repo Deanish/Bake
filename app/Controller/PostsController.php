@@ -9,7 +9,10 @@ App::uses('AppController', 'Controller');
 
 	class PostsController extends AppController {
 
-		public $components = array('Paginator');
+		public $components = array(
+			'Paginator',
+			'Search.Prg'
+			);
 
 		public function index() {
 
@@ -31,15 +34,18 @@ App::uses('AppController', 'Controller');
 				$this->redirect(array('controller' => 'candidates', 'action' => 'index'));
 			}
 
+			$this->Post->recursive = 0;
+			$this->set('posts', $this->Paginator->paginate());
+
 			$this->set('experienceOptions', array(
-				'Null' => ' - Select Experience Required - ', 
+				'' => ' - Select Experience Required - ', 
 				'0-2 Years' => '0-2 Years', 
 				'2-5 Years' => '2-5 Years', 
 				'5-10 Years' => '5-10 Years', 
 				'> 10 Years' => '> 10 Years'
 				));
 			$this->set('locationOptions', array(
-				'Null' => ' - Select Job Location - ', 
+				'' => ' - Select Job Location - ', 
 				'Bangalore' => 'Bangalore', 
 				'Delhi' => 'Delhi', 
 				'Mumbai' => 'Mumbai', 
@@ -50,7 +56,7 @@ App::uses('AppController', 'Controller');
 				'Others' => 'Others'
 				));
 			$this->set('industryOptions', array(
-				'Null' => ' - Select Industry Type - ', 
+				'' => ' - Select Industry Type - ', 
 				'Accounts Jobs' => 'Accounts Jobs', 
 				'Bank Jobs' => 'Bank Jobs', 
 				'BPO Jobs' => 'BPO Jobs', 
@@ -64,11 +70,11 @@ App::uses('AppController', 'Controller');
 				$this->request->data['Post']['user_id'] = AuthComponent::user('id');
 				$this->request->data['Post']['visible'] = 1;
 				if($this->Post->save($this->request->data)) {
-					$this->Session->setFlash(__('Job will be posted once approved'));
+					$this->Session->setFlash(__('Job posted successfully'));
 					return $this->redirect(array('controller' => 'posts', 'action' => 'index'));
 				}
 				else {
-					$this->Session->setFlash(__('This post could not be saved. Please, try again.'));
+					$this->Session->setFlash(__('Upload only jpg, png, gif images. Please, try again.'));
 				}
 			}
 
@@ -105,14 +111,14 @@ App::uses('AppController', 'Controller');
 		}	
 
 		$this->set('experienceOptions', array(
-			'Null' => ' - Select Experience Required - ', 
+			'' => ' - Select Experience Required - ', 
 			'0-2 Years' => '0-2 Years', 
 			'2-5 Years' => '2-5 Years', 
 			'5-10Years' => '5-10Years', 
 			'> 10 Years' => '> 10 Years'
 			));
 		$this->set('locationOptions', array(
-			'Null' => ' - Select Job Location - ', 
+			'' => ' - Select Job Location - ', 
 			'Bangalore' => 'Bangalore', 
 			'Delhi' => 'Delhi', 
 			'Mumbai' => 'Mumbai', 
@@ -121,7 +127,7 @@ App::uses('AppController', 'Controller');
 			'Others' => 'Others'
 			));
 		$this->set('industryOptions', array(
-			'Null' => ' - Select Industry Type - ', 
+			'' => ' - Select Industry Type - ', 
 			'Accounts Jobs' => 'Accounts Jobs', 
 			'Bank Jobs' => 'Bank Jobs', 
 			'BPO Jobs' => 'BPO Jobs', 

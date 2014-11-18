@@ -7,7 +7,15 @@
 ?>
 
 
+<?php $count = 0; foreach ($posts as $post): ?>
+  <?php    
+    if(($post['Post']['user_id']) == AuthComponent::user('id')) {
+      $count = $count + 1;
+    }
+  ?>
+<?php endforeach; ?>
 
+<?php if((AuthComponent::user('type') == 2) || ((AuthComponent::user('type') == 1) && ($count < 5))): ?>
 <div class="row">
   <div class="col-md-12" style="padding-top: 10px;">
     <div class="panel panel-default">
@@ -49,6 +57,7 @@
                   'placeholder' => 'Job Description',
                   'label' => ''
                   ));
+                echo $count . "posts";
                 echo $this->Form->input('experience', array(
                   'options' => $experienceOptions,
                   'class' => 'form-control',
@@ -118,6 +127,16 @@
           </div>
         </div>
 
+    </div>
+  </div>
+</div>
+<?php endif; ?>
+<div class="row">
+  <div class="col-md-12" style="padding-top: 10px;">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+      <h3 class="panel-title text-center">Please Change your account type</h3>
+      </div>
     </div>
   </div>
 </div>

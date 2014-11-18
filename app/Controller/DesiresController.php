@@ -70,10 +70,10 @@ class DesiresController extends AppController {
 			$this->request->data['Desire']['id'] = AuthComponent::user('id');
 			$this->request->data['Desire']['user_id'] = AuthComponent::user('id');
 			if ($this->Desire->save($this->request->data)) {
-				$this->Session->setFlash(__('The Desired data has been saved.'));
+				$this->Session->setFlash(__('The Desired data has been updated.'));
 				return $this->redirect(array('controller' => 'candidates', 'action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The Desired data could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The Desired data could not be updated. Please, try again.'));
 			}
 		}
 

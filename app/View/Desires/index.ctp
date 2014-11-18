@@ -104,7 +104,7 @@
             <td class="text-center"><?php echo $desire['Desire']['experience']; ?>&nbsp;</td>
             <td class="text-center"><?php echo $desire['Desire']['jobType']; ?>&nbsp;</td>
             <td class="text-center">
-              <?php echo $this->Html->link(__('View', true), array('action' => 'view', $desire['Desire']['id'])); ?>
+              <?php echo $this->Html->link(__('View', true), array('controller' => 'users', 'action' => 'view', $desire['Desire']['user_id'])); ?>
             </td>
           </tr>
           <?php endforeach; ?>          

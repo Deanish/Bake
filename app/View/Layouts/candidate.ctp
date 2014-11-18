@@ -65,7 +65,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
         </li>
         <li><?php echo $this->html->link(' ResumeServices',array('controller' => 'resumes', 'action' => 'index'),array('class' => 'glyphicon glyphicon-list-alt')); ?></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown"> ProfileSettings<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle glyphicon glyphicon-cog" data-toggle="dropdown"> ProfileSettings<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><?php echo $this->html->link('Personal Details',array('controller' => 'personals', 'action' => 'add')); ?></li>
             <li><?php echo $this->html->link('Educational Details',array('controller' => 'educations', 'action' => 'add')); ?></li>
@@ -77,12 +77,22 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
       </ul>
       <ul class="nav navbar-nav navbar-right">
       	<li style="color: #ffdd00;"><span class="glyphicon glyphicon-phone-alt"></span> Helpline : +91-98801 65531</li>
-          <?php if(AuthComponent::user()) {
-            echo "<li>" . $this->HTML->link(AuthComponent::user('firstname'), array('controller' => 'users', 'action' => 'logout'), array(), __('Are you sure you want to LOGOUT?')) . "</li>";
-          }
-          else {
-            echo "<li>" . $this->HTML->link('Login', array('controller' => 'users', 'action' => 'login')) . "</li>";
-          } ?>
+        <li class="dropdown">
+          <?php if(AuthComponent::user()) { ?>
+          <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown"><?php echo " " . AuthComponent::user('firstname'); ?><span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><?php echo $this->html->link('Account Settings', array('controller' => 'users', 'action' => 'edit',AuthComponent::user("id"))); ?></li>
+            <li><?php echo $this->html->link('Logout', array('controller' => 'users', 'action' => 'logout')); ?></li>            
+          </ul>
+          <?php } 
+           else { ?>
+          <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown"> Guest<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><?php echo $this->html->link('Login', array('controller' => 'users', 'action' => 'login')); ?></li>
+            <li><?php echo $this->html->link('Register', array('controller' => 'users', 'action' => 'add')); ?></li>            
+          </ul>
+          <?php } ?>
+        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

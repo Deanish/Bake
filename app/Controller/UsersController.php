@@ -95,12 +95,12 @@ class UsersController extends AppController {
  */
 	public function view($id = null) {
 
-/*		if(AuthComponent::user('role') == 1) {
-			$this->redirect(array('controller' => 'candidates', 'action' => 'index'));
+		if(AuthComponent::user('role') == 1) {
+			$this->layout = 'candidate';
 		}
 		if(AuthComponent::user('role') == 2) {
-			$this->redirect(array('controller' => 'desires', 'action' => 'index'));
-		}*/
+			$this->layout = 'recruiter';
+		}
 
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
@@ -141,26 +141,45 @@ class UsersController extends AppController {
 	public function edit($id = null) {
 
 		if(AuthComponent::user('role') == 1) {
-			$this->redirect(array('controller' => 'candidates', 'action' => 'index'));
+				$this->layout = 'candidate';
 		}
+
 		if(AuthComponent::user('role') == 2) {
-			$this->redirect(array('controller' => 'desires', 'action' => 'index'));
+			$this->layout = 'recruiter';
 		}
 
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
 		}
-		if ($this->request->is(array('post', 'put'))) {
-			$this->request->data['User']['password'] = AuthComponent::password($this->request->data['User']['password']);
-			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash(__('The user has been saved.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+
+		if(AuthComponent::user('role') == 1 || AuthComponent::user('role') == 2) {
+			if($id == AuthComponent::user("id")) {
+				if ($this->request->is(array('post', 'put'))) {
+					$this->request->data['User']['password'] = AuthComponent::password($this->request->data['User']['password']);
+					if ($this->User->save($this->request->data)) {
+						$this->Session->setFlash(__('The user has been saved.'));
+						return $this->redirect(array('action' => 'index'));
+					} else {
+						$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+					}
+				} else {
+					$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
+					$this->request->data = $this->User->find('first', $options);
+				}
 			}
 		} else {
-			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
-			$this->request->data = $this->User->find('first', $options);
+			if ($this->request->is(array('post', 'put'))) {
+				$this->request->data['User']['password'] = AuthComponent::password($this->request->data['User']['password']);
+				if ($this->User->save($this->request->data)) {
+					$this->Session->setFlash(__('The user has been saved.'));
+					return $this->redirect(array('action' => 'index'));
+				} else {
+					$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+				}
+			} else {
+				$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
+				$this->request->data = $this->User->find('first', $options);
+			}			
 		}
 	}
 

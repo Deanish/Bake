@@ -112,11 +112,12 @@
       <h3 class="panel-title">Featured Companies</h3>
       </div>
       <div class="panel-body">
-        Featured Companies<br />
-        Featured Companies<br />
-        Featured Companies<br />
-        Featured Companies<br />
-        Featured Companies<br />
+        <img src="<?php echo $this->webroot; ?>img/FeaturedCompanies/1.jpg" height="100px" width="117px"/>
+        <img src="<?php echo $this->webroot; ?>img/FeaturedCompanies/2.jpg" height="100px" width="116px"/>
+        <img src="<?php echo $this->webroot; ?>img/FeaturedCompanies/3.jpg" height="100px" width="116px"/>
+        <img src="<?php echo $this->webroot; ?>img/FeaturedCompanies/4.jpg" height="100px" width="116px"/>
+        <img src="<?php echo $this->webroot; ?>img/FeaturedCompanies/5.jpg" height="100px" width="116px"/>
+        <img src="<?php echo $this->webroot; ?>img/FeaturedCompanies/6.jpg" height="100px" width="117px"/>
       </div>
     </div>
   </div>

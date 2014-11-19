@@ -57,7 +57,6 @@
                   'placeholder' => 'Job Description',
                   'label' => ''
                   ));
-                echo $count . "posts";
                 echo $this->Form->input('experience', array(
                   'options' => $experienceOptions,
                   'class' => 'form-control',

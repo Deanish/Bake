@@ -1,0 +1,10 @@
+18/11/2014
+
+Home/index
+img/FeaturedCompanies/
+Layouts/default
+Layouts/candidate
+Layouts/reccruiter
+Layouts/admin
+Post/index
+PostsController

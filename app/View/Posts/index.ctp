@@ -27,7 +27,30 @@
 					<th class="text-center" style="background-color: #ed1c24; color: #FFF;">Action</th>
 				</tr>
 				<?php foreach ($posts as $post): ?>
-					<?php if(($post['Post']['user_id']) == AuthComponent::user('id')): ?>
+					<?php if (AuthComponent::user('role') == 3 && $post['Post']['visible'] == 1): ?>
+					
+					<tr>
+						<td class="text-center"><?php echo h($post['Post']['title']); ?></td>
+						<td class="text-center"><?php echo h($post['Post']['skills']); ?></td>
+						<td class="text-center"><?php echo h($post['Post']['qualification']); ?></td>
+						<td class="text-center"><?php echo h($post['Post']['location']); ?></td>
+						<td class="text-center"><?php echo h($post['Post']['companyName']); ?></td>
+						<td class="text-center"><?php echo h($post['Post']['person']); ?></td>
+						<td class="text-center"><?php echo h($post['Post']['contact']); ?></td>
+						<td class="text-center"><?php echo h($post['Post']['modified']); ?></td>
+						<td class="text-center">
+							<?php echo $this->Form->create('Post', array('controller' => 'posts', 'action' => 'edit', $post['Post']['id'])) ?>
+							<?php echo $this->Form->input('id'); ?>
+							<?php echo $this->Form->Submit('Post') ?>
+							<?php echo $this->Form->end(); ?>
+							
+							<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $post['Post']['id']), array(), __('Are you sure you want to delete  %s job?', $post['Post']['title'])); ?>
+						</td>
+					</tr>
+
+					<?php endif; ?>
+
+					<?php if(($post['Post']['user_id']) == AuthComponent::user('id') && AuthComponent::user('role') == 2): ?>
 					
 					<tr>
 						<td class="text-center"><?php echo h($post['Post']['title']); ?></td>

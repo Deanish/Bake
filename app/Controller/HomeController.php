@@ -8,7 +8,7 @@ class HomeController extends AppController {
 	}
 	
 	public function index() {
-
+		
 		$this->set('locationOptions', array(
 			'' => ' - Desired Job Location - ', 
 			'Bangalore' => 'Bangalore', 

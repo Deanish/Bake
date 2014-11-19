@@ -57,7 +57,16 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
         <li><?php echo $this->html->link(' JobSeeker',array('controller' => 'candidates', 'action' => 'index'),array('class' => 'glyphicon glyphicon-search')); ?></li>
         <li><?php echo $this->html->link(' ResumeServices',array('controller' => 'resumes', 'action' => 'index'),array('class' => 'glyphicon glyphicon-list-alt')); ?></li>
         <li><?php echo $this->html->link(' RecruiterZone',array('controller' => 'desires', 'action' => 'index'),array('class' => 'glyphicon glyphicon-credit-card')); ?></li>
-      	<li><?php echo $this->html->link(' JobCounselling',array('controller' => 'resumes', 'action' => 'counselling'),array('class' => 'glyphicon glyphicon-thumbs-up')); ?></li>
+      	<li><?php echo $this->html->link(' JobCounselling',array('controller' => 'resumes', 'action' => 'counselling'),array('class' => 'glyphicon glyphicon-thumbs-up')); ?></li>        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle glyphicon glyphicon-briefcase" data-toggle="dropdown"> Admin<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><?php echo $this->html->link('New Jobs',array('controller' => 'posts', 'action' => 'index')); ?></li>
+            <li><?php echo $this->html->link('Manage Jobs',array('controller' => 'interests', 'action' => 'index')); ?></li>
+            <li><?php echo $this->html->link('Featured Jobs', array('controller' => 'users', 'action' => 'edit',AuthComponent::user("id"))); ?></li>
+            <li><?php echo $this->html->link('View Users', array('controller' => 'users', 'action' => 'index')); ?></li>
+          </ul>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">

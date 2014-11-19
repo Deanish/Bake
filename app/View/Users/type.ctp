@@ -13,7 +13,7 @@
 						<div style="padding: 10px;">
 							<table>
 								<tr>
-									<th>Students Search:</th>
+									<th>Candidate Search:</th>
 									<td>Unlimited</td>
 								</tr>
 								<tr>
@@ -37,7 +37,7 @@
 						<div style="padding: 10px;">
 							<table>
 								<tr>
-									<th>Students Search:</th>
+									<th>Candidate Search:</th>
 									<td>Unlimited</td>
 								</tr>
 								<tr>

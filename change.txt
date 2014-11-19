@@ -13,9 +13,12 @@ Post/edit
 Post/add
 
 PostsController
+AdminsController
 UserController
 InterestsController
 
 Candidates/index
 Interest/index
+
 Users/view
+Users/type

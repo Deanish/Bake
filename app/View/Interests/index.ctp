@@ -46,6 +46,7 @@
 					<table width="100%" border="0">
 						<tr>
 							<th class="text-center" style="background-color: #ed1c24; color: #FFF;">Applied for Job Title</th>
+							<th class="text-center" style="background-color: #ed1c24; color: #FFF;">Job Posted on</th>
 							<th class="text-center" style="background-color: #ed1c24; color: #FFF;">First Name</th>
 							<th class="text-center" style="background-color: #ed1c24; color: #FFF;">Last Name</th>
 							<th class="text-center" style="background-color: #ed1c24; color: #FFF;">Email ID</th>
@@ -56,10 +57,13 @@
 					
 						<tr>
 							<td class="text-center"><?php echo h($interest['Post']['title']); ?></td>
+							<td class="text-center"><?php echo h($interest['Post']['modified']); ?></td>
 							<td class="text-center"><?php echo h($interest['User']['firstname']); ?></td>
 							<td class="text-center"><?php echo h($interest['User']['lastname']); ?></td>
 							<td class="text-center"><?php echo h($interest['User']['username']); ?></td>
-							<td class="text-center"><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $interest['Interest']['id']), array(), __('Are you sure you want to delete %s?', $interest['Post']['title'])); ?></td>
+							<td class="text-center">
+              					<?php echo $this->Html->link(__('View', true), array('controller' => 'users', 'action' => 'view', $interest['Interest']['user_id'])) . " || "; ?>
+								<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $interest['Interest']['id']), array(), __('Are you sure you want to delete %s?', $interest['Post']['title'])); ?></td>
 						</tr>
 				<?php endif; ?>
 			<?php endforeach; ?>

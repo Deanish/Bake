@@ -62,6 +62,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
             <li><?php echo $this->html->link('Search Candidates',array('controller' => 'desires', 'action' => 'index')); ?></li>
             <li><?php echo $this->html->link('Post Jobs',array('controller' => 'posts', 'action' => 'add')); ?></li>
             <li><?php echo $this->html->link('Manage Jobs',array('controller' => 'posts', 'action' => 'index')); ?></li>
+            <li><?php echo $this->html->link('Applied Candidates',array('controller' => 'interests', 'action' => 'index')); ?></li>
             <li><?php echo $this->html->link('Account Settings', array('controller' => 'users', 'action' => 'edit',AuthComponent::user("id"))); ?></li>
           </ul>
         </li>

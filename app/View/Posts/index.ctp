@@ -39,11 +39,7 @@
 						<td class="text-center"><?php echo h($post['Post']['contact']); ?></td>
 						<td class="text-center"><?php echo h($post['Post']['modified']); ?></td>
 						<td class="text-center">
-							<?php echo $this->Form->create('Post', array('controller' => 'posts', 'action' => 'edit', $post['Post']['id'])) ?>
-							<?php echo $this->Form->input('id'); ?>
-							<?php echo $this->Form->Submit('Post') ?>
-							<?php echo $this->Form->end(); ?>
-							
+							<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $post['Post']['id'])); echo " | "; ?>
 							<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $post['Post']['id']), array(), __('Are you sure you want to delete  %s job?', $post['Post']['title'])); ?>
 						</td>
 					</tr>

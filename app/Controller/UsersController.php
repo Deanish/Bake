@@ -127,9 +127,6 @@ class UsersController extends AppController {
 			$this->request->data['User']['password'] = AuthComponent::password($this->request->data['User']['password']);
 			if ($this->User->save($this->request->data)) {
 				$this->Session->setFlash(__('Successfully Registered.'));
-				if ($this->request->data['User']['role'] == 2) {
-					return $this->redirect(array('controller' => 'users', 'action' => 'type',$this->request->data['User']['id']));
-				}
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('Upload only jpg, png, gif images. Please, try again.'));

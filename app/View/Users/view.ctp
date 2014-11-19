@@ -121,7 +121,7 @@
 									<th class="text-center">Status</th>
 									<th class="text-center" colspan="2">Experience</th>
 									<th class="text-center">CTC</th>
-									<th class="text-center">Company Nmae</th>
+									<th class="text-center">Company Name</th>
 									<th class="text-center">Designation</th>
 									<th class="text-center">Skills</th>
 									<th class="text-center">Notice Period</th>

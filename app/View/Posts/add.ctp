@@ -15,7 +15,7 @@
   ?>
 <?php endforeach; ?>
 
-<?php if((AuthComponent::user('type') == 2) || ((AuthComponent::user('type') == 1) && ($count < 5))): ?>
+<?php if(((AuthComponent::user('type') == 1) && ($count <= 5))): ?>
 <div class="row">
   <div class="col-md-12" style="padding-top: 10px;">
     <div class="panel panel-default">
@@ -129,13 +129,15 @@
     </div>
   </div>
 </div>
-<?php endif; ?>
+<?php else: ?>
 <div class="row">
   <div class="col-md-12" style="padding-top: 10px;">
     <div class="panel panel-default">
       <div class="panel-heading">
       <h3 class="panel-title text-center">Please Change your account type</h3>
       </div>
+      You have posted <?php echo $count; ?> posts. Which exceeds the job posts in basic account type.
     </div>
   </div>
 </div>
+<?php endif; ?>

@@ -2,9 +2,20 @@
 
 Home/index
 img/FeaturedCompanies/
+
 Layouts/default
 Layouts/candidate
-Layouts/reccruiter
+Layouts/recruiter
 Layouts/admin
+
 Post/index
+Post/edit
+Post/add
+
 PostsController
+UserController
+InterestsController
+
+Candidates/index
+Interest/index
+Users/view

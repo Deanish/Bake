@@ -7,13 +7,15 @@ App::uses('AppController', 'Controller');
 
 		public function index() {
 
-			$this->layout = 'candidate';
-
+			if(AuthComponent::user('role') == 1) {
+				$this->layout = 'candidate';
+			}
 			if(AuthComponent::user('role') == 2) {
-				$this->redirect(array('controller' => 'desires', 'action' => 'index'));
+				$this->layout = 'recruiter';
 			}	
 					
 			$this->loadModel('Post');
+			$this->loadModel('User');
 			$this->Interest->recursive = 0;
 			$this->set('interests', $this->Paginator->paginate());
 			$this->set('posts', $this->Paginator->paginate());

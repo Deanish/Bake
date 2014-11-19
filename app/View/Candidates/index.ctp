@@ -99,14 +99,19 @@
             }
           ?>
           <tr <?php echo $class;?> >
-            <td class="text-center"><?php echo $candidate['Candidate']['title']; ?>&nbsp;</td>
-            <td class="text-center"><?php echo $candidate['Candidate']['skills']; ?>&nbsp;</td>
-            <td class="text-center"><?php echo $candidate['Candidate']['qualification']; ?>&nbsp;</td>
-            <td class="text-center"><?php echo $candidate['Candidate']['location']; ?>&nbsp;</td>
-            <td class="text-center"><?php echo $candidate['Candidate']['experience']; ?>&nbsp;</td>
-            <td class="text-center"><?php echo $candidate['Candidate']['modified']; ?>&nbsp;</td>
-            <td class="text-center">
-              <?php echo $this->Html->link(__('View', true), array('action' => 'view', $candidate['Candidate']['id'])); ?>
+            <?php if ($candidate['Candidate']['visible'] == 2): ?>
+              <td class="text-center"><?php echo $candidate['Candidate']['title']; ?>&nbsp;</td>
+              <td class="text-center"><?php echo $candidate['Candidate']['skills']; ?>&nbsp;</td>
+              <td class="text-center"><?php echo $candidate['Candidate']['qualification']; ?>&nbsp;</td>
+              <td class="text-center"><?php echo $candidate['Candidate']['location']; ?>&nbsp;</td>
+              <td class="text-center"><?php echo $candidate['Candidate']['experience']; ?>&nbsp;</td>
+              <td class="text-center"><?php echo $candidate['Candidate']['modified']; ?>&nbsp;</td>
+              <td class="text-center">
+                <?php echo $this->Html->link(__('View', true), array('action' => 'view', $candidate['Candidate']['id'])); ?>
+                <?php if (AuthComponent::user('role') == 3): ?>                  
+                  <?php echo $this->Form->postLink(__('Delete'), array('controller' => 'posts', 'action' => 'delete', $candidate['Candidate']['id']), array(), __('Are you sure you want to delete  %s job?', $candidate['Candidate']['title'])); ?>
+                <?php endif; ?>
+            <?php endif; ?>
             </td>
           </tr>
           <?php endforeach; ?>          

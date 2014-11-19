@@ -62,7 +62,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
           <a href="#" class="dropdown-toggle glyphicon glyphicon-briefcase" data-toggle="dropdown"> Admin<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><?php echo $this->html->link('New Jobs',array('controller' => 'posts', 'action' => 'index')); ?></li>
-            <li><?php echo $this->html->link('Manage Jobs',array('controller' => 'interests', 'action' => 'index')); ?></li>
+            <li><?php echo $this->html->link('Manage Jobs',array('controller' => 'candidates', 'action' => 'index')); ?></li>
             <li><?php echo $this->html->link('Featured Jobs', array('controller' => 'users', 'action' => 'edit',AuthComponent::user("id"))); ?></li>
             <li><?php echo $this->html->link('View Users', array('controller' => 'users', 'action' => 'index')); ?></li>
           </ul>

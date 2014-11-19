@@ -78,10 +78,12 @@
                   'placeholder' => 'Company Profile',
                   'label' => ''
                   ));
-                echo "<label>Upload Company Logo</label>";
-                echo $this->Form->file('photo', array(
-                  'class' => 'form-control'
-                  ));
+                if (!AuthComponent::user('role') == 3) {
+                  echo "<label>Upload Company Logo</label>";
+                  echo $this->Form->file('photo', array(
+                    'class' => 'form-control'
+                    ));
+                }
                 echo $this->Form->input('url', array(
                   'class' => 'form-control',
                   'placeholder' => 'Company website URL',
@@ -98,6 +100,13 @@
                   'placeholder' => 'Contact Number',
                   'label' => ''
                   ));
+                if (AuthComponent::user('role') == 3) {
+                   echo $this->Form->input('visible', array(
+                    'options' => $visibleOptions,
+                    'class' => 'form-control',
+                    'label' => ''
+                    ));
+                }
                 echo "<br />";
                 echo $this->Form->Submit('Edit Job', array('class' => 'btn btn-success'));
                 echo $this->Form->end();

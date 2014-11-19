@@ -99,9 +99,6 @@ App::uses('AppController', 'Controller');
 			throw new NotFoundException(__('Invalid Job'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
-			if(AuthComponent::user('role') == 3){
-				$this->request->data['Post']['visible'] = 2;
-			}
 			if ($this->Post->save($this->request->data)) {
 				$this->Session->setFlash(__('The job has been edited.'));
 				return $this->redirect(array('action' => 'index'));
@@ -138,6 +135,7 @@ App::uses('AppController', 'Controller');
 			'IT Jobs' => 'IT Jobs', 
 			'Others' => 'Others'
 			));
+		$this->set('visibleOptions', array('1' => 'Hidden', '2' => 'Visible'));
 	}
 
 /**

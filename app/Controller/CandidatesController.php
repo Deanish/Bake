@@ -18,7 +18,13 @@ App::uses('AppController', 'Controller');
 		
 		public function index() {
 
-			$this->layout = 'candidate';
+			if (AuthComponent::user('role') == 1) {
+				$this->layout = 'candidate';
+			}if (AuthComponent::user('role') == 2) {
+				$this->layout = 'recruiter';
+			}if (AuthComponent::user('role') == 3) {
+				$this->layout = 'admin';
+			}			
 
 			if(AuthComponent::user('role') == 2) {
 				$this->redirect(array('controller' => 'desires', 'action' => 'index'));
@@ -59,7 +65,14 @@ App::uses('AppController', 'Controller');
 	 */
 		public function view($id = null) {
 
-			$this->layout = 'candidate';
+			if (AuthComponent::user('role') == 1) {
+				$this->layout = 'candidate';
+			}if (AuthComponent::user('role') == 2) {
+				$this->layout = 'recruiter';
+			}if (AuthComponent::user('role') == 3) {
+				$this->layout = 'admin';
+			}
+			
 			$this->loadModel('Interest');
 			$this->Interest->recursive = 0;
 			$this->set('interests', $this->Paginator->paginate());

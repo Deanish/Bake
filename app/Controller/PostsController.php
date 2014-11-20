@@ -16,7 +16,13 @@ App::uses('AppController', 'Controller');
 
 		public function index() {
 
-			$this->layout = 'recruiter';
+			if (AuthComponent::user('role') == 1) {
+				$this->layout = 'candidate';
+			}if (AuthComponent::user('role') == 2) {
+				$this->layout = 'recruiter';
+			}if (AuthComponent::user('role') == 3) {
+				$this->layout = 'admin';
+			}
 
 			if(AuthComponent::user('role') == 1) {
 				$this->redirect(array('controller' => 'candidates', 'action' => 'index'));
@@ -28,7 +34,13 @@ App::uses('AppController', 'Controller');
 
 		public function add() {	
 
-			$this->layout = 'recruiter';
+			if (AuthComponent::user('role') == 1) {
+				$this->layout = 'candidate';
+			}if (AuthComponent::user('role') == 2) {
+				$this->layout = 'recruiter';
+			}if (AuthComponent::user('role') == 3) {
+				$this->layout = 'admin';
+			}
 
 			if(AuthComponent::user('role') == 1) {
 				$this->redirect(array('controller' => 'candidates', 'action' => 'index'));
@@ -89,7 +101,13 @@ App::uses('AppController', 'Controller');
  */
 	public function edit($id = null) {
 
-		$this->layout = 'recruiter';
+		if (AuthComponent::user('role') == 1) {
+			$this->layout = 'candidate';
+		}if (AuthComponent::user('role') == 2) {
+			$this->layout = 'recruiter';
+		}if (AuthComponent::user('role') == 3) {
+			$this->layout = 'admin';
+		}
 
 		if(AuthComponent::user('role') == 1) {
 			$this->redirect(array('controller' => 'candidates', 'action' => 'index'));
@@ -147,7 +165,13 @@ App::uses('AppController', 'Controller');
  */
 		public function delete($id = null) {
 
-			$this->layout = 'recruiter';
+			if (AuthComponent::user('role') == 1) {
+				$this->layout = 'candidate';
+			}if (AuthComponent::user('role') == 2) {
+				$this->layout = 'recruiter';
+			}if (AuthComponent::user('role') == 3) {
+				$this->layout = 'admin';
+			}
 
 			if(AuthComponent::user('role') == 1) {
 				$this->redirect(array('controller' => 'candidates', 'action' => 'index'));

@@ -11,7 +11,11 @@
 	<div class="col-md-12" style="padding-top: 10px;">
 	    <div class="panel panel-default">
 	        <div class="panel-heading text-center">
-	        	<h3 class="panel-title text-center">View Jobs Posted</h3>
+	        	<?php if (AuthComponent::user('role') == 3): ?>
+	        		<h3 class="panel-title text-center">New Jobs to Approve</h3>
+	        	<?php else: ?>
+	        		<h3 class="panel-title text-center">View Jobs Posted</h3>
+	        	<?php endif; ?>
 	        </div>
 			<br />
 			<table width="100%" border="0">

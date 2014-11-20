@@ -17,7 +17,13 @@ class DesiresController extends AppController {
 	
 	public function add() {
 
-		$this->layout = 'candidate';
+		if (AuthComponent::user('role') == 1) {
+			$this->layout = 'candidate';
+		}if (AuthComponent::user('role') == 2) {
+			$this->layout = 'recruiter';
+		}if (AuthComponent::user('role') == 3) {
+			$this->layout = 'admin';
+		}
 
 		if(AuthComponent::user('role') == 2) {
 			$this->redirect(array('controller' => 'desires', 'action' => 'index'));
@@ -81,41 +87,53 @@ class DesiresController extends AppController {
 
 	public function index() {
 
-	$this->layout = 'recruiter';
+		if (AuthComponent::user('role') == 1) {
+			$this->layout = 'candidate';
+		}if (AuthComponent::user('role') == 2) {
+			$this->layout = 'recruiter';
+		}if (AuthComponent::user('role') == 3) {
+			$this->layout = 'admin';
+		}
 
-	if(AuthComponent::user('role') == 1) {
-		$this->redirect(array('controller' => 'candidates', 'action' => 'index'));
-	}	
+		if(AuthComponent::user('role') == 1) {
+			$this->redirect(array('controller' => 'candidates', 'action' => 'index'));
+		}	
 
-	$this->Prg->commonProcess();
-    $this->Paginator->settings['conditions'] = $this->Desire->parseCriteria($this->Prg->parsedParams());
-    $this->set('desires', $this->Paginator->paginate());
+		$this->Prg->commonProcess();
+	    $this->Paginator->settings['conditions'] = $this->Desire->parseCriteria($this->Prg->parsedParams());
+	    $this->set('desires', $this->Paginator->paginate());
 
-	$this->set('locationOptions', array(
-		'' => ' - Search by Location - ', 
-		'Bangalore' => 'Bangalore', 
-		'Delhi' => 'Delhi', 
-		'Mumbai' => 'Mumbai', 
-		'Kolkata' => 'Kolkata', 
-		'Chennai' => 'Chennai',
-		'Gurgaon' => 'Gurgaon',
-		'Pune' => 'Pune', 
-		'Others' => 'Others'
-		));
+		$this->set('locationOptions', array(
+			'' => ' - Search by Location - ', 
+			'Bangalore' => 'Bangalore', 
+			'Delhi' => 'Delhi', 
+			'Mumbai' => 'Mumbai', 
+			'Kolkata' => 'Kolkata', 
+			'Chennai' => 'Chennai',
+			'Gurgaon' => 'Gurgaon',
+			'Pune' => 'Pune', 
+			'Others' => 'Others'
+			));
 
-	$this->set('experienceOptions', array(
-		'' => ' - Search by Experience Required - ', 
-		'0-2 Years' => '0-2 Years', 
-		'2-5 Years' => '2-5 Years', 
-		'5-10Years' => '5-10Years', 
-		'> 10 Years' => '> 10 Years'
-		));
+		$this->set('experienceOptions', array(
+			'' => ' - Search by Experience Required - ', 
+			'0-2 Years' => '0-2 Years', 
+			'2-5 Years' => '2-5 Years', 
+			'5-10Years' => '5-10Years', 
+			'> 10 Years' => '> 10 Years'
+			));
 	
 	}
 
 	public function view() {
 
-		$this->layout = 'recruiter';
+		if (AuthComponent::user('role') == 1) {
+			$this->layout = 'candidate';
+		}if (AuthComponent::user('role') == 2) {
+			$this->layout = 'recruiter';
+		}if (AuthComponent::user('role') == 3) {
+			$this->layout = 'admin';
+		}
 
 		if(AuthComponent::user('role') == 1) {
 			$this->redirect(array('controller' => 'candidates', 'action' => 'index'));

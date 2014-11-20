@@ -30,6 +30,15 @@ class UsersController extends AppController {
 	}
 
 	public function login() {
+
+		if (AuthComponent::user('role') == 1) {
+			$this->layout = 'candidate';
+		}if (AuthComponent::user('role') == 2) {
+			$this->layout = 'recruiter';
+		}if (AuthComponent::user('role') == 3) {
+			$this->layout = 'admin';
+		}
+
 		if($this->request->is('post')) {
 			if($this->Auth->login()) { 
 				if(AuthComponent::user('role') == 1) {
@@ -61,7 +70,7 @@ class UsersController extends AppController {
 					}
 				}
 				elseif(AuthComponent::user('role') == 3) {
-					return $this->redirect(array('controller' => 'admin', 'action' => 'index'));
+					return $this->redirect(array('controller' => 'posts', 'action' => 'index'));
 				}
 			}
 			$this->Session->setFlash('Invalid Username or Password');
@@ -76,6 +85,14 @@ class UsersController extends AppController {
 	}
 	
 	public function index() {
+
+		if (AuthComponent::user('role') == 1) {
+			$this->layout = 'candidate';
+		}if (AuthComponent::user('role') == 2) {
+			$this->layout = 'recruiter';
+		}if (AuthComponent::user('role') == 3) {
+			$this->layout = 'admin';
+		}
 
 		if(AuthComponent::user('role') == 1) {
 			$this->redirect(array('controller' => 'candidates', 'action' => 'index'));
@@ -99,11 +116,12 @@ class UsersController extends AppController {
  */
 	public function view($id = null) {
 
-		if(AuthComponent::user('role') == 1) {
+		if (AuthComponent::user('role') == 1) {
 			$this->layout = 'candidate';
-		}
-		if(AuthComponent::user('role') == 2) {
+		}if (AuthComponent::user('role') == 2) {
 			$this->layout = 'recruiter';
+		}if (AuthComponent::user('role') == 3) {
+			$this->layout = 'admin';
 		}
 
 		if (!$this->User->exists($id)) {
@@ -119,6 +137,14 @@ class UsersController extends AppController {
  * @return void
  */
 	public function add() {
+
+		if (AuthComponent::user('role') == 1) {
+			$this->layout = 'candidate';
+		}if (AuthComponent::user('role') == 2) {
+			$this->layout = 'recruiter';
+		}if (AuthComponent::user('role') == 3) {
+			$this->layout = 'admin';
+		}
 
 		$this->set('roleOptions', array('1' => 'Job Seeker', '2' => 'Recruiter'));
 
@@ -143,12 +169,12 @@ class UsersController extends AppController {
  */
 	public function edit($id = null) {
 
-		if(AuthComponent::user('role') == 1) {
-				$this->layout = 'candidate';
-		}
-
-		if(AuthComponent::user('role') == 2) {
+		if (AuthComponent::user('role') == 1) {
+			$this->layout = 'candidate';
+		}if (AuthComponent::user('role') == 2) {
 			$this->layout = 'recruiter';
+		}if (AuthComponent::user('role') == 3) {
+			$this->layout = 'admin';
 		}
 
 		if (!$this->User->exists($id)) {
@@ -216,13 +242,18 @@ class UsersController extends AppController {
 	}
 
 	public function type() {
+				
+		if (AuthComponent::user('role') == 1) {
+			$this->layout = 'candidate';
+		}if (AuthComponent::user('role') == 2) {
+			$this->layout = 'recruiter';
+		}if (AuthComponent::user('role') == 3) {
+			$this->layout = 'admin';
+		}
 
 		if(AuthComponent::user('role') == 1) {
 			$this->redirect(array('controller' => 'candidates', 'action' => 'index'));
 		}
-		if(AuthComponent::user('role') == 2) {
-			$this->layout = 'recruiter';
-		}		
 
 		$this->set('typeOptions', array('1' => 'Basic', '2' => 'Premium'));
 

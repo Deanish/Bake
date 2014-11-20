@@ -7,7 +7,13 @@ class PersonalsController extends AppController {
 	
 	public function add($id = null) {
 
-		$this->layout = 'candidate';
+		if (AuthComponent::user('role') == 1) {
+			$this->layout = 'candidate';
+		}if (AuthComponent::user('role') == 2) {
+			$this->layout = 'recruiter';
+		}if (AuthComponent::user('role') == 3) {
+			$this->layout = 'admin';
+		}
 
 		if(AuthComponent::user('role') == 2) {
 			$this->redirect(array('controller' => 'desires', 'action' => 'index'));

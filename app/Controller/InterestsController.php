@@ -7,12 +7,13 @@ App::uses('AppController', 'Controller');
 
 		public function index() {
 
-			if(AuthComponent::user('role') == 1) {
+			if (AuthComponent::user('role') == 1) {
 				$this->layout = 'candidate';
-			}
-			if(AuthComponent::user('role') == 2) {
+			}if (AuthComponent::user('role') == 2) {
 				$this->layout = 'recruiter';
-			}	
+			}if (AuthComponent::user('role') == 3) {
+				$this->layout = 'admin';
+			}
 					
 			$this->loadModel('Post');
 			$this->loadModel('User');

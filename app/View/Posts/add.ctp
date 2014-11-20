@@ -15,7 +15,7 @@
   ?>
 <?php endforeach; ?>
 
-<?php if(((AuthComponent::user('type') == 1) && ($count <= 5))): ?>
+<?php if((AuthComponent::user('type') == 2) || (AuthComponent::user('type') == 1) && ($count <= 5)): ?>
 <div class="row">
   <div class="col-md-12" style="padding-top: 10px;">
     <div class="panel panel-default">

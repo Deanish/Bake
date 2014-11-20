@@ -255,7 +255,7 @@ class UsersController extends AppController {
 			$this->redirect(array('controller' => 'candidates', 'action' => 'index'));
 		}
 
-		$this->set('typeOptions', array('1' => 'Basic', '2' => 'Premium'));
+		$this->set('typeOptions', array('0' => ' - Select Account Type - ', '1' => 'Basic', '2' => 'Premium'));
 
 		if ($this->request->is(array('post', 'put'))) {
 			$this->request->data['User']['id'] = AuthComponent::user('id');

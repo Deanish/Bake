@@ -53,11 +53,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><?php echo $this->html->link(' Home',array('controller' => 'home', 'action' => 'index'),array('class' => 'glyphicon glyphicon-home')); ?></li>
-        <li><?php echo $this->html->link(' JobSeeker',array('controller' => 'candidates', 'action' => 'index'),array('class' => 'glyphicon glyphicon-search')); ?></li>
-        <li><?php echo $this->html->link(' ResumeServices',array('controller' => 'resumes', 'action' => 'index'),array('class' => 'glyphicon glyphicon-list-alt')); ?></li>
-        <li><?php echo $this->html->link(' RecruiterZone',array('controller' => 'desires', 'action' => 'index'),array('class' => 'glyphicon glyphicon-credit-card')); ?></li>
-      	<li><?php echo $this->html->link(' JobCounselling',array('controller' => 'resumes', 'action' => 'counselling'),array('class' => 'glyphicon glyphicon-thumbs-up')); ?></li>        
+        <li><?php echo $this->html->link(' Home',array('controller' => 'home', 'action' => 'index'),array('class' => 'glyphicon glyphicon-home')); ?></li>        
         <li class="dropdown">
           <a href="#" class="dropdown-toggle glyphicon glyphicon-briefcase" data-toggle="dropdown"> Admin<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -65,6 +61,38 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
             <li><?php echo $this->html->link('Manage Jobs',array('controller' => 'candidates', 'action' => 'index')); ?></li>
             <li><?php echo $this->html->link('Featured Jobs', array('controller' => 'users', 'action' => 'edit',AuthComponent::user("id"))); ?></li>
             <li><?php echo $this->html->link('View Users', array('controller' => 'users', 'action' => 'index')); ?></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle glyphicon glyphicon-search" data-toggle="dropdown"> JobSeeker<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><?php echo $this->html->link('Search Jobs',array('controller' => 'candidates', 'action' => 'index')); ?></li>
+            <li><?php echo $this->html->link('Applied Jobs',array('controller' => 'interests', 'action' => 'index')); ?></li>
+            <li><?php echo $this->html->link('Account Settings', array('controller' => 'users', 'action' => 'edit',AuthComponent::user("id"))); ?></li>
+            <li class="divider"></li>
+            <li class="dropdown-header">Profile Settings</li>
+            <li><?php echo $this->html->link('Personal Details',array('controller' => 'personals', 'action' => 'add')); ?></li>
+            <li><?php echo $this->html->link('Educational Details',array('controller' => 'educations', 'action' => 'add')); ?></li>
+            <li><?php echo $this->html->link('Professional Details',array('controller' => 'professionals', 'action' => 'add')); ?></li>
+            <li><?php echo $this->html->link('Desired Job Details',array('controller' => 'desires', 'action' => 'add')); ?></li>
+            <li><?php echo $this->html->link('View Details',array('controller' => 'users', 'action' => 'view',AuthComponent::user("id"))); ?></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle glyphicon glyphicon-credit-card" data-toggle="dropdown"> RecruiterZone<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><?php echo $this->html->link('Search Candidates',array('controller' => 'desires', 'action' => 'index')); ?></li>
+            <li><?php echo $this->html->link('Post Jobs',array('controller' => 'posts', 'action' => 'add')); ?></li>
+            <li><?php echo $this->html->link('Manage Jobs',array('controller' => 'posts', 'action' => 'index')); ?></li>
+            <li><?php echo $this->html->link('Applied Candidates',array('controller' => 'interests', 'action' => 'index')); ?></li>
+            <li><?php echo $this->html->link('Account Settings', array('controller' => 'users', 'action' => 'edit',AuthComponent::user("id"))); ?></li>
+            <li><?php echo $this->html->link(' Account Type',array('controller' => 'users', 'action' => 'type')); ?></li>
+          </ul>
+        </li><li class="dropdown">
+          <a href="#" class="dropdown-toggle glyphicon glyphicon-list-alt" data-toggle="dropdown"> Others<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><?php echo $this->html->link(' ResumeServices',array('controller' => 'resumes', 'action' => 'service')); ?></li>
+            <li><?php echo $this->html->link(' JobCounselling',array('controller' => 'resumes', 'action' => 'counselling')); ?></li>
           </ul>
         </li>
       </ul>

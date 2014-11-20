@@ -63,7 +63,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
             <li><?php echo $this->html->link('Account Settings', array('controller' => 'users', 'action' => 'edit',AuthComponent::user("id"))); ?></li>
           </ul>
         </li>
-        <li><?php echo $this->html->link(' ResumeServices',array('controller' => 'resumes', 'action' => 'index'),array('class' => 'glyphicon glyphicon-list-alt')); ?></li>
+        <li><?php echo $this->html->link(' ResumeServices',array('controller' => 'resumes', 'action' => 'service'),array('class' => 'glyphicon glyphicon-list-alt')); ?></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle glyphicon glyphicon-cog" data-toggle="dropdown"> ProfileSettings<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">

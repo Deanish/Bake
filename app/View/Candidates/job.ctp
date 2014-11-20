@@ -85,16 +85,8 @@
 		        		<tr>
 		        			<td></td>
 		        			<td>
-		        				<?php if (!AuthComponent::user('role') == 3): ?>
-									<?php echo $this->Form->Submit('Apply for this Job', array('class' => 'btn btn-success')); ?>	
-			        				<?php echo $this->Form->end(); ?>
-			        			<?php endif; ?>
-		        				<?php if (AuthComponent::user('role') == 3): ?>
-			        				<?php echo $this->Form->create('Featuredjob', array('controller' => 'featured', 'action' => 'add')); ?>
-			        				<?php echo $this->Form->hidden('post_id', array('value' => $user['Candidate']['id'])); ?>
-									<?php echo $this->Form->Submit('Select as Featured Job', array('class' => 'btn btn-success')); ?>	
-			        				<?php echo $this->Form->end(); ?>
-			        			<?php endif; ?>
+								<?php echo $this->Form->Submit('Apply for this Job', array('class' => 'btn btn-success')); ?>	
+		        				<?php echo $this->Form->end(); ?>
 		        			</td>		        			
 		        		</tr>		        		
 		        	</table>

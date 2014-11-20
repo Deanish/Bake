@@ -73,9 +73,6 @@ App::uses('AppController', 'Controller');
 				$this->layout = 'admin';
 			}
 			
-			$this->loadModel('Interest');
-			$this->Interest->recursive = 0;
-			$this->set('interests', $this->Paginator->paginate());
 
 			if(AuthComponent::user('role') == 2) {
 				$this->redirect(array('controller' => 'desires', 'action' => 'index'));
@@ -83,20 +80,32 @@ App::uses('AppController', 'Controller');
 			
 			if (!$this->Candidate->exists($id)) {
 				throw new NotFoundException(__('Invalid Job'));
-			}
+			}		
+			$this->loadModel('Interest');
 			$options = array('conditions' => array('Candidate.' . $this->Candidate->primaryKey => $id));
 			$this->set('user', $this->Candidate->find('first', $options));
-
+/*		$options = array('conditions' => array('Interest.' . $this->Interest->primaryKey => $id));
+		$this->set('interests', $this->Interest->find('first', $options));
 			if ($this->request->is('post')) {
-				$this->Interest->create();
-				$this->request->data['Interest']['user_id'] = AuthComponent::user('id');
-				if ($this->Interest->save($this->request->data)) {
-					$this->Session->setFlash(__('Successfully applied'));
-					return $this->redirect(array('controller' => 'candidates', 'action' => 'index'));
-				} else {
-					$this->Session->setFlash(__('Failed. Please, try again.'));
+				foreach ($interests as $interest) {
+					if(($interest['Interest']['user_id']) == AuthComponent::user('id')) {
+						if(($interest['Interest']['post_id']) == $this->request->data['Interest']['post_id']) {
+							$this->Session->setFlash(__('You have already applied for this job.')); 
+						}
+					} else {*/
+						if ($this->request->is('post')) {
+						$this->Interest->create();
+						$this->request->data['Interest']['user_id'] = AuthComponent::user('id');
+						if ($this->Interest->save($this->request->data)) {
+							$this->Session->setFlash(__('Successfully applied'));
+							return $this->redirect(array('controller' => 'candidates', 'action' => 'index'));
+						} else {
+							$this->Session->setFlash(__('Failed. Please, try again.'));
+						}
+					}
+/*					}
 				}
-			}
+			}*/
 		}
 
 	}

@@ -55,7 +55,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><?php echo $this->html->link(' Home',array('controller' => 'home', 'action' => 'index'),array('class' => 'glyphicon glyphicon-home')); ?></li>
-        <li><?php echo $this->html->link(' ResumeServices',array('controller' => 'resumes', 'action' => 'index'),array('class' => 'glyphicon glyphicon-list-alt')); ?></li>
+        <li><?php echo $this->html->link(' ResumeServices',array('controller' => 'resumes', 'action' => 'service'),array('class' => 'glyphicon glyphicon-list-alt')); ?></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle glyphicon glyphicon-credit-card" data-toggle="dropdown"> RecruiterZone<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">

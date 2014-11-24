@@ -245,8 +245,8 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
           </div>
           <div class="col-md-2" style="padding-top: 10px 10px;">
             <h6>Services</h6>
-            <a href="#"><small>Resume Services</small></a><br />
-            <a href="#"><small>Counselling Services</small></a><br />
+            <?php echo $this->html->link(' ResumeServices',array('controller' => 'resumes', 'action' => 'service')); ?>
+            <?php echo $this->html->link(' JobCounselling',array('controller' => 'resumes', 'action' => 'counselling')); ?>
           </div>
           <div class="col-md-2" style="padding-top: 10px 10px;">
             <h6>VSpell</h6>

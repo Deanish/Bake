@@ -59,7 +59,7 @@
       </div>
       <div class="panel-body">
         <a href="#" class="thumbnail">
-          <img src="<?php echo $this->webroot; ?>img/FeaturedCompanies/thumbnails.jpg">
+          <img src="<?php echo $this->webroot; ?>img/FeaturedCompanies/Recruiter/1.jpg"/>
         </a>
       </div>      
       <div class="panel-heading">
@@ -67,7 +67,7 @@
       </div>
       <div class="panel-body">
         <a href="#" class="thumbnail">
-          <img src="<?php echo $this->webroot; ?>img/Advt/thumbnails.jpg">
+          <img src="<?php echo $this->webroot; ?>img/FeaturedCompanies/Recruiter/2.jpg"/>
         </a>
       </div>
     </div>
@@ -137,7 +137,7 @@
       </div>
       <div class="panel-body">
         <a href="#" class="thumbnail">
-          <img src="<?php echo $this->webroot; ?>img/FeaturedCompanies/thumbnails.jpg">
+          <img src="<?php echo $this->webroot; ?>img/FeaturedCompanies/Recruiter/3.jpg"/>
         </a>
       </div>      
       <div class="panel-heading">
@@ -145,7 +145,7 @@
       </div>
       <div class="panel-body">
         <a href="#" class="thumbnail">
-          <img src="<?php echo $this->webroot; ?>img/Advt/thumbnails.jpg">
+          <img src="<?php echo $this->webroot; ?>img/FeaturedCompanies/Recruiter/4.jpg"/>
         </a>
       </div>
     </div>

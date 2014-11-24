@@ -59,7 +59,7 @@
       </div>
       <div class="panel-body">
         <a href="#" class="thumbnail">
-          <img src="<?php echo $this->webroot; ?>img/FeaturedCompanies/thumbnails.jpg">
+          <img src="<?php echo $this->webroot; ?>img/FeaturedCompanies/Candidates/1.jpg" height="150px" width="150px"/>
         </a>
       </div>      
       <div class="panel-heading">
@@ -67,7 +67,7 @@
       </div>
       <div class="panel-body">
         <a href="#" class="thumbnail">
-          <img src="<?php echo $this->webroot; ?>img/Advt/thumbnails.jpg">
+          <img src="<?php echo $this->webroot; ?>img/FeaturedCompanies/Candidates/2.jpg" height="150px" width="150px"/>
         </a>
       </div>
     </div>
@@ -144,7 +144,7 @@
       </div>
       <div class="panel-body">
         <a href="#" class="thumbnail">
-          <img src="<?php echo $this->webroot; ?>img/FeaturedCompanies/thumbnails.jpg">
+          <img src="<?php echo $this->webroot; ?>img/FeaturedCompanies/Candidates/3.jpg" height="150px" width="150px"/>
         </a>
       </div>      
       <div class="panel-heading">
@@ -152,7 +152,7 @@
       </div>
       <div class="panel-body">
         <a href="#" class="thumbnail">
-          <img src="<?php echo $this->webroot; ?>img/Advt/thumbnails.jpg">
+          <img src="<?php echo $this->webroot; ?>img/FeaturedCompanies/Candidates/4.jpg" height="150px" width="150px"/>
         </a>
       </div>
     </div>

@@ -59,7 +59,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
           <ul class="dropdown-menu" role="menu">
             <li><?php echo $this->html->link('New Jobs',array('controller' => 'posts', 'action' => 'index')); ?></li>
             <li><?php echo $this->html->link('Manage Jobs',array('controller' => 'candidates', 'action' => 'index')); ?></li>
-            <li><?php echo $this->html->link('Featured Jobs', array('controller' => 'users', 'action' => 'edit',AuthComponent::user("id"))); ?></li>
+            <li><a>Featured Jobs</a></li>
             <li><?php echo $this->html->link('View Users', array('controller' => 'users', 'action' => 'index')); ?></li>
           </ul>
         </li>
@@ -271,8 +271,8 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
           </div>
           <div class="col-md-2" style="padding-top: 10px 10px;">
             <h6>Services</h6>
-            <a href="#"><small>Resume Services</small></a><br />
-            <a href="#"><small>Counselling Services</small></a><br />
+            <?php echo $this->html->link(' ResumeServices',array('controller' => 'resumes', 'action' => 'service')); ?>
+            <?php echo $this->html->link(' JobCounselling',array('controller' => 'resumes', 'action' => 'counselling')); ?>
           </div>
           <div class="col-md-2" style="padding-top: 10px 10px;">
             <h6>VSpell</h6>

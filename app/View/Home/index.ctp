@@ -98,11 +98,14 @@
       <h3 class="panel-title">Featured jobs</h3>
       </div>
       <div class="panel-body">
-        Featured jobs<br />
-        Featured jobs<br />
-        Featured jobs<br />
-        Featured jobs<br />
-        Featured jobs<br />
+        <table width="100%">
+          <?php $count = 0; ?>
+          <?php foreach ($user as $user): ?>
+            <tr>
+              <td><?php echo h($user['Post']['title']); ?></td>
+            </tr>
+          <?php endforeach; ?>
+        </table>
       </div>
     </div>
   </div>

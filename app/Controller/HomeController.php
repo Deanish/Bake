@@ -1,6 +1,12 @@
 <?php
+App::uses('AppController', 'Controller');
 
 class HomeController extends AppController {
+
+	public $components = array(
+	'Paginator',
+	'Search.Prg'
+	);
 
 	public function beforeFilter() {
 
@@ -35,6 +41,8 @@ class HomeController extends AppController {
 			'5-10 Years' => '5-10 Years', 
 			'> 10 Years' => '> 10 Years'
 			));
+
+		$this->loadModel('Featuredjob');
 		
 	}
 

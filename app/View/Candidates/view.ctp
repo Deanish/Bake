@@ -85,7 +85,7 @@
 		        		<tr>
 		        			<td></td>
 		        			<td>
-		        				<?php if (!AuthComponent::user('role') == 3): ?>
+		        				<?php if (AuthComponent::user('role') == 1): ?>
 									<?php echo $this->Form->Submit('Apply for this Job', array('class' => 'btn btn-success')); ?>	
 			        				<?php echo $this->Form->end(); ?>
 			        			<?php endif; ?>

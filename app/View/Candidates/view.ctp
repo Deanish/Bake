@@ -98,7 +98,7 @@ App::import('Model', 'Interest');
 			        				<?php echo $this->Form->hidden('title', array('value' => $user['Candidate']['title'])); ?>
 			        				<?php echo $this->Form->hidden('qualification', array('value' => $user['Candidate']['qualification'])); ?>
 			        				<?php echo $this->Form->hidden('company', array('value' => $user['Candidate']['companyName'])); ?>
-									<?php echo $this->Form->Submit('Promot as Featured Job', array('class' => 'btn btn-success')); ?>	
+									<?php echo $this->Form->Submit('Promote as Featured Job', array('class' => 'btn btn-success')); ?>	
 			        				<?php echo $this->Form->end(); ?>
 			        			<?php endif; ?>
 		        			</td>		        			

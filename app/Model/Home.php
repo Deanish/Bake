@@ -6,7 +6,7 @@ App::import('Model', 'Featuredjob');
 
 		public $uses = array('Featuredjob');
 
-		public $useTable = 'featuredJobs';
+		public $useTable = 'featuredjobs';
 
 	    public $actsAs = array(
 			'Search.Searchable'

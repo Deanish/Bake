@@ -9,12 +9,6 @@ App::uses('AppController', 'Controller');
 			'Paginator',
 			'Search.Prg'
 		);
-
-		// public $uses = array(
-		//         'Interest',
-		//         'Featuredjob',
-		//         'Candidate'
-		// );
 		public $presetVars = array( 
 			array('field' => 'title', 'type' => 'value'),
 			array('field' => 'location', 'type' => 'value'),
@@ -89,16 +83,8 @@ App::uses('AppController', 'Controller');
 			$this->loadModel('Interest');
 			$this->loadModel('Featuredjob');
 
-/*			$this->Prg->commonProcess();
-	        $this->Paginator->settings['conditions'] = $this->Interest->parseCriteria($this->Prg->parsedParams());
-	        $this->set('interests', $this->Paginator->paginate());	*/
-
 			$options = array('conditions' => array('Candidate.' . $this->Candidate->primaryKey => $id));
 			$this->set('user', $this->Candidate->find('first', $options));
-
-/*			$options = array('conditions' => array('Interest.' . $this->Interest->primaryKey => $id));
-			$this->set('interests', $this->Interest->find('first', $options));
-*/
 			if ($this->request->is('post')) {
 				if (AuthComponent::user('role') == 3) {
 					$this->Featuredjob->create();
@@ -111,12 +97,6 @@ App::uses('AppController', 'Controller');
 					}
 				}
 				else {
-/*					foreach ($interests as $interest) {
-						if (($interest['Interest']['post_id'] == $this->request->data['Interest']['id']) && ($interest['Interest']['user_id'] == AuthComponent::user('id'))) {
-							$this->Session->setFlash(__('Already Applied'));
-							return $this->redirect(array('controller' => 'candidates', 'action' => 'index'));
-						}
-					}*/
 					$this->Interest->create();
 					$this->request->data['Interest']['user_id'] = AuthComponent::user('id');
 					if ($this->Interest->save($this->request->data)) {

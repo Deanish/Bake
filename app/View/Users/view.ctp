@@ -197,6 +197,14 @@
 	}
 ?>
 
+
+
+
+
+
+
+
+
 <?php 
 	if(AuthComponent::user('role') == 2) { 
 ?>
@@ -382,6 +390,14 @@
 	}
 ?>
 
+
+
+
+
+
+
+
+
 <?php if(AuthComponent::user('role') == 3): ?>
 
 	<div class="col-md-12" style="padding-top: 10px;">
@@ -503,15 +519,23 @@
 						<tr>
 							<th class="text-center">Job ID</th>
 							<th class="text-center">Post ID</th>
+							<th class="text-center">Title</th>
+							<th class="text-center">Qualification</th>
+							<th class="text-center">Company</th>
 							<th class="text-center">Created</th>
 							<th class="text-center">Modified</th>
+							<th class="text-center">Delete</th>
 						</tr>
 						<?php foreach ($user['Featuredjob'] as $featuredjob): ?>
 							<tr>
 								<td class="text-center"><?php echo $featuredjob['id']; ?></td>
 								<td class="text-center"><?php echo $featuredjob['post_id']; ?></td>
+								<td class="text-center"><?php echo $featuredjob['title']; ?></td>
+								<td class="text-center"><?php echo $featuredjob['qualification']; ?></td>
+								<td class="text-center"><?php echo $featuredjob['company']; ?></td>
 								<td class="text-center"><?php echo $featuredjob['created']; ?></td>
 								<td class="text-center"><?php echo $featuredjob['modified']; ?></td>
+								<td class="text-center"><?php echo $this->Form->postLink(__('Delete'), array('controller' => 'featured','action' => 'delete', $featuredjob['id']), array(), __('Are you sure you want to delete # %s?', $featuredjob['id'])); ?></td>
 							</tr>
 						<?php endforeach; ?>
 					</table>

@@ -1,4 +1,5 @@
 <?php 
+App::uses('AppController', 'Controller');
 
 	class FeaturedController extends AppController {
 
@@ -45,6 +46,31 @@
 				}
 			}
 		}
-	}
+
+		public function delete($id = null) {
+
+			$this->loadModel('Featuredjob');
+
+			if(AuthComponent::user('role') == 1) {
+				$this->redirect(array('controller' => 'candidates', 'action' => 'index'));
+			}
+			if(AuthComponent::user('role') == 2) {
+				$this->redirect(array('controller' => 'desires', 'action' => 'index'));
+			}
+			
+			$this->Featuredjob->id = $id;
+			if (!$this->Featuredjob->exists()) {
+				throw new NotFoundException(__('Invalid Job'));
+			}
+			$this->request->allowMethod('post', 'delete');
+			if ($this->Featuredjob->delete()) {
+				$this->Session->setFlash(__('The featured job has been deleted.'));
+			} else {
+				$this->Session->setFlash(__('The featured job could not be deleted. Please, try again.'));
+			}
+			return $this->redirect($this->referer());
+		}
+
+	}	
 
 ?>

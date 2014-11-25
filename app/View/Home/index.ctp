@@ -99,11 +99,21 @@
       </div>
       <div class="panel-body">
         <table width="100%">
-          <?php $count = 0; ?>
-          <?php foreach ($user as $user): ?>
-            <tr>
-              <td><?php echo h($user['Post']['title']); ?></td>
-            </tr>
+          <tr>
+            <td class="text-center"><u>Tiltle</u></td>
+            <td class="text-center"><u>Qualification</u></td>
+            <td class="text-center"><u>Company</u></td>
+         </tr>
+         <?php $count = 0; ?>
+          <?php foreach ($featuredjobs as $featuredjob): ?>
+            <?php if($count < 5): ?>
+              <tr>
+                <td class="text-center"><?php echo $this->Html->link(__($featuredjob['Home']['title'], true), array('controller' => 'candidates', 'action' => 'view', $featuredjob['Home']['post_id'])); ?></td>
+                <td class="text-center"><?php echo $featuredjob['Home']['qualification']; ?></td>
+                <td class="text-center"><?php echo $featuredjob['Home']['company']; ?></td>
+                <?php $count++; ?>
+              </tr>
+            <?php endif; ?>
           <?php endforeach; ?>
         </table>
       </div>
@@ -115,12 +125,12 @@
       <h3 class="panel-title">Featured Companies</h3>
       </div>
       <div class="panel-body">
-        <img src="<?php echo $this->webroot; ?>img/FeaturedCompanies/1.jpg" height="100px" width="117px"/>
-        <img src="<?php echo $this->webroot; ?>img/FeaturedCompanies/2.jpg" height="100px" width="116px"/>
-        <img src="<?php echo $this->webroot; ?>img/FeaturedCompanies/3.jpg" height="100px" width="116px"/>
-        <img src="<?php echo $this->webroot; ?>img/FeaturedCompanies/4.jpg" height="100px" width="116px"/>
-        <img src="<?php echo $this->webroot; ?>img/FeaturedCompanies/5.jpg" height="100px" width="116px"/>
-        <img src="<?php echo $this->webroot; ?>img/FeaturedCompanies/6.jpg" height="100px" width="117px"/>
+        <img src="<?php echo $this->webroot; ?>img/FeaturedCompanies/1.jpg" height="120px" width="117px"/>
+        <img src="<?php echo $this->webroot; ?>img/FeaturedCompanies/2.jpg" height="120px" width="116px"/>
+        <img src="<?php echo $this->webroot; ?>img/FeaturedCompanies/3.jpg" height="120px" width="116px"/>
+        <img src="<?php echo $this->webroot; ?>img/FeaturedCompanies/4.jpg" height="120px" width="116px"/>
+        <img src="<?php echo $this->webroot; ?>img/FeaturedCompanies/5.jpg" height="120px" width="116px"/>
+        <img src="<?php echo $this->webroot; ?>img/FeaturedCompanies/6.jpg" height="120px" width="117px"/>
       </div>
     </div>
   </div>

@@ -43,6 +43,9 @@ class HomeController extends AppController {
 			));
 
 		$this->loadModel('Featuredjob');
+		$this->Prg->commonProcess();
+        $this->Paginator->settings['conditions'] = $this->Featuredjob->parseCriteria($this->Prg->parsedParams());
+        $this->set('featuredjobs', $this->Paginator->paginate());		
 		
 	}
 

@@ -92,6 +92,9 @@
 		        				<?php if (AuthComponent::user('role') == 3): ?>
 			        				<?php echo $this->Form->create('Featuredjob', array('controller' => 'featured', 'action' => 'add')); ?>
 			        				<?php echo $this->Form->hidden('post_id', array('value' => $user['Candidate']['id'])); ?>
+			        				<?php echo $this->Form->hidden('title', array('value' => $user['Candidate']['title'])); ?>
+			        				<?php echo $this->Form->hidden('qualification', array('value' => $user['Candidate']['qualification'])); ?>
+			        				<?php echo $this->Form->hidden('company', array('value' => $user['Candidate']['companyName'])); ?>
 									<?php echo $this->Form->Submit('Select as Featured Job', array('class' => 'btn btn-success')); ?>	
 			        				<?php echo $this->Form->end(); ?>
 			        			<?php endif; ?>

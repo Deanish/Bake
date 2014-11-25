@@ -1,3 +1,6 @@
+<?php
+App::import('Model', 'Interest');
+?>
 <div class="row">
 	<div class="col-md-12" style="padding-top: 10px;">
 	    <div class="col-md-8 col-md-offset-2" style="padding-top: 10px;">
@@ -86,7 +89,7 @@
 		        			<td></td>
 		        			<td>
 		        				<?php if (AuthComponent::user('role') == 1): ?>
-									<?php echo $this->Form->Submit('Apply for this Job', array('class' => 'btn btn-success')); ?>	
+									<?php echo $this->Form->Submit('Apply for this Job', array('class' => 'btn btn-success')); ?>
 			        				<?php echo $this->Form->end(); ?>
 			        			<?php endif; ?>
 		        				<?php if (AuthComponent::user('role') == 3): ?>
@@ -95,7 +98,7 @@
 			        				<?php echo $this->Form->hidden('title', array('value' => $user['Candidate']['title'])); ?>
 			        				<?php echo $this->Form->hidden('qualification', array('value' => $user['Candidate']['qualification'])); ?>
 			        				<?php echo $this->Form->hidden('company', array('value' => $user['Candidate']['companyName'])); ?>
-									<?php echo $this->Form->Submit('Select as Featured Job', array('class' => 'btn btn-success')); ?>	
+									<?php echo $this->Form->Submit('Promot as Featured Job', array('class' => 'btn btn-success')); ?>	
 			        				<?php echo $this->Form->end(); ?>
 			        			<?php endif; ?>
 		        			</td>		        			

@@ -1,5 +1,6 @@
 <?php
 App::uses('AppModel', 'Model');
+App::import('Model', 'Interest');
 /**
  * Candidate Model
  *
@@ -57,6 +58,29 @@ class Candidate extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
+		),
+		'Interest' => array(
+			'className' => 'Interest',
+			'foreignKey' => 'id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
 		)
-	);
+	);	
+
+/*	public $hasMany = array(
+		'Interest' => array(
+			'className' => 'Interest',
+			'foreignKey' => 'post_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		)
+	);*/
 }

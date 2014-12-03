@@ -58,7 +58,6 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
           <ul class="dropdown-menu" role="menu">
             <li><?php echo $this->html->link('New Jobs',array('controller' => 'posts', 'action' => 'index')); ?></li>
             <li><?php echo $this->html->link('Manage Jobs',array('controller' => 'candidates', 'action' => 'index')); ?></li>
-            <li><a>Featured Jobs</a></li>
             <li><?php echo $this->html->link('View Users', array('controller' => 'users', 'action' => 'index')); ?></li>
           </ul>
         </li>

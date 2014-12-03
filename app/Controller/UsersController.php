@@ -260,8 +260,8 @@ class UsersController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			$this->request->data['User']['id'] = AuthComponent::user('id');
 			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash(__('Account type has been updated.'));
-				return $this->redirect(array('controller' => 'desires', 'action' => 'index'));
+				$this->Session->setFlash(__('Please Login to update Account information.'));
+				return $this->redirect(array('controller' => 'users', 'action' => 'logout'));
 			} else {
 				$this->Session->setFlash(__('Acount type could not update. Please, try again.'));
 			}

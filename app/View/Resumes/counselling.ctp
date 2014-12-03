@@ -5,6 +5,7 @@
 	        <h3 class="panel-title text-center">Job Counselling</h3>
 	        </div>
 		        <div style="padding: 10px;">
+		        	<p>We are primarily a counselling organisation and all our other services, including those for corporate entities and other organizations.</p>
 		        </div>
 	    </div>
 	</div>

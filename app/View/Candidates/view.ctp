@@ -3,7 +3,7 @@ App::import('Model', 'Interest');
 ?>
 <div class="row">
 	<div class="col-md-12" style="padding-top: 10px;">
-	    <div class="col-md-8 col-md-offset-2" style="padding-top: 10px;">
+	    <div class="col-md-8" style="padding-top: 10px;">
 	    	<div class="panel panel-default">
 		        <div class="panel-heading">
 		        <h3 class="panel-title text-center">Job Details</h3>
@@ -102,10 +102,27 @@ App::import('Model', 'Interest');
 			        				<?php echo $this->Form->end(); ?>
 			        			<?php endif; ?>
 		        			</td>		        			
-		        		</tr>		        		
+		        		</tr>        		
 		        	</table>
 		        </div>
 		    </div>
 	    </div>
+
+		<?php 
+	      $path = $this->webroot."files/post/photo/"; 
+	      $dir = $user['Candidate']['photo_dir'];
+	      $img = $user['Candidate']['photo'];
+	    ?>
+	    <div class="col-md-4" style="padding-top: 10px;">
+	      <div class="panel panel-default">
+	        <div class="panel-heading text-center">
+	        <h3 class="panel-title text-center">Company Logo</h3>
+	        </div>
+	        <div class="panel-body">
+	          <img class="pull-right" src="<?php echo $path.$dir.'/'.$img; ?>" width="318px" height="200px">
+	        </div>
+	      </div>
+	    </div>
+
 	</div>
 </div>

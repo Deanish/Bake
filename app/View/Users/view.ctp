@@ -512,7 +512,7 @@
 		<div class="col-md-12" style="padding-top: 10px;">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-				<h3 class="panel-title text-center">Featured job Details</h3>
+				<h3 class="panel-title text-center">Featured jobs (Only top 5 will be displayed in home page)</h3>
 				</div>
 				<div style="padding: 10px;">
 					<table width="100%">
@@ -694,76 +694,3 @@
 	<?php endif; ?>
 
 <?php endif; ?>
-
-<!-- <div class="related">
-	<h3><?php echo __('Related Featuredcompanies'); ?></h3>
-	<?php if (!empty($user['Featuredcompany'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('User Id'); ?></th>
-		<th><?php echo __('Name'); ?></th>
-		<th><?php echo __('Logo'); ?></th>
-		<th><?php echo __('Created'); ?></th>
-		<th><?php echo __('Modified'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($user['Featuredcompany'] as $featuredcompany): ?>
-		<tr>
-			<td><?php echo $featuredcompany['id']; ?></td>
-			<td><?php echo $featuredcompany['user_id']; ?></td>
-			<td><?php echo $featuredcompany['name']; ?></td>
-			<td><?php echo $featuredcompany['logo']; ?></td>
-			<td><?php echo $featuredcompany['created']; ?></td>
-			<td><?php echo $featuredcompany['modified']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'featuredcompanies', 'action' => 'view', $featuredcompany['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'featuredcompanies', 'action' => 'edit', $featuredcompany['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'featuredcompanies', 'action' => 'delete', $featuredcompany['id']), array(), __('Are you sure you want to delete # %s?', $featuredcompany['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Featuredcompany'), array('controller' => 'featuredcompanies', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
-</div>
-<div class="related">
-	<h3><?php echo __('Related Featuredjobs'); ?></h3>
-	<?php if (!empty($user['Featuredjob'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Post Id'); ?></th>
-		<th><?php echo __('User Id'); ?></th>
-		<th><?php echo __('Created'); ?></th>
-		<th><?php echo __('Modified'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($user['Featuredjob'] as $featuredjob): ?>
-		<tr>
-			<td><?php echo $featuredjob['id']; ?></td>
-			<td><?php echo $featuredjob['post_id']; ?></td>
-			<td><?php echo $featuredjob['user_id']; ?></td>
-			<td><?php echo $featuredjob['created']; ?></td>
-			<td><?php echo $featuredjob['modified']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'featuredjobs', 'action' => 'view', $featuredjob['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'featuredjobs', 'action' => 'edit', $featuredjob['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'featuredjobs', 'action' => 'delete', $featuredjob['id']), array(), __('Are you sure you want to delete # %s?', $featuredjob['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Featuredjob'), array('controller' => 'featuredjobs', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
-</div> -->

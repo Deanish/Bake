@@ -81,8 +81,8 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())*/
 
 
 		<div class="container" style="padding-top: 90px; background-color: #E0E0E0;">
-
-		  <div style="color: #000"><?php echo $this->Session->flash(); ?></div>
+      
+		    <div style="color: #000"><?php echo $this->Session->flash(); ?></div>
 
 			<?php echo $this->fetch('content'); ?>
       <div class="container" style="padding-top: 20px;"></div>
